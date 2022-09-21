@@ -1,13 +1,8 @@
+// export const initialState = {
+// };
 
-export const initialState = {
-  
-  
-};
+// const reducer = (state = initialState, action = {}) => {
+//   switch (action.type) {}
+// };
 
-const reducer = (state = initialState, action = {}) => {
-  switch (action.type) {
-    
-  }
-};
-
-export default reducer;
+// export default reducer;
