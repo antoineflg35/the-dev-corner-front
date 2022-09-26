@@ -1,18 +1,40 @@
+import { NavLink } from 'react-router-dom';
 import { Button, Menu } from 'semantic-ui-react';
+import './styles.scss';
 
 function HeaderDesktop() {
+  const activeStyle = {
+    textDecoration: 'underline',
+  };
+
+  const activeClassName = 'link';
   return (
-    <div>
+    <div className="header-desktop">
       <Menu size="small" stackable>
-        <Menu.Item
-          name="Accueil"
-        />
-        <Menu.Item
-          name="Les questions"
-        />
-        <Menu.Item
-          name="Les événements du coin"
-        />
+        <NavLink
+          to="/"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          <Menu.Item
+            name="Accueil"
+          />
+        </NavLink>
+        <NavLink
+          to="/questions"
+          className={({ isActive }) => (isActive ? activeClassName : undefined)}
+        >
+          <Menu.Item
+            name="Les questions"
+          />
+        </NavLink>
+        <NavLink
+          to="/events"
+          className={({ isActive }) => (isActive ? activeClassName : undefined)}
+        >
+          <Menu.Item
+            name="Les événements du coin"
+          />
+        </NavLink>
         <Menu.Item
           name="Les entreprises du coin"
         />
