@@ -2,7 +2,8 @@ import { Container, Header } from 'semantic-ui-react';
 
 function Content() {
   return (
-    <Container>
+    
+    <Container className='content'>
       <Header as="h2">Dogs Roles with Humans</Header>
       <p>
         Domestic dogs inherited complex behaviors, such as bite inhibition, from

@@ -8,7 +8,8 @@ function ListQuestions() {
     <Card.Group centered>
 
       <Card>
-        <Card.Content>
+        
+        <Card.Content  >
           <List>
             <List.Item>
               <List.Icon name="question" />
@@ -50,6 +51,9 @@ function ListQuestions() {
             </List.Item>
           </List>
         </Card.Content>
+        
+        
+       
       </Card>
       <Card>
         <Card.Content>
