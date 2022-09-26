@@ -1,8 +1,19 @@
-// export const initialState = {
-// };
+import { SAVE_QUESTIONS } from '../actions/questions';
 
-// const reducer = (state = initialState, action = {}) => {
-//   switch (action.type) {}
-// };
+const initialState = {
+  list: [],
+};
 
-// export default reducer;
+const reducer = (state = initialState, action = {}) => {
+  switch (action.type) {
+    case SAVE_QUESTIONS:
+      return {
+        ...state,
+        list: action.questions,
+      };
+    default:
+      return state;
+  }
+};
+
+export default reducer;

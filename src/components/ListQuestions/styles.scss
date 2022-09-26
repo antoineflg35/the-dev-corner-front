@@ -1,0 +1,22 @@
+.list_questions{
+  width: auto;
+  margin: 30px 30px;
+  
+  .questions{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  .card_question_details{
+      padding: 500px;
+  }
+  
+ .card_question_button{
+    height: 20%;
+    align-self: center;
+    margin-left: 300px;
+  }
+  
+}

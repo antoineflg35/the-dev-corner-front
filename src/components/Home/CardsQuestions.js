@@ -5,5 +5,4 @@ function CardsQuestions() {
     <ListQuestions />
   );
 }
-
 export default CardsQuestions;
