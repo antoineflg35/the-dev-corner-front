@@ -6,9 +6,6 @@ import Footers from '../Footers';
 import './styles.scss';
 
 function AddEvent (){
-  
-  
-
   return (
     <div>  
       <Header />
@@ -21,14 +18,11 @@ function AddEvent (){
       </Form.Group>
       <Form.Group widths='equal'>
       <Form.Input type='number' fluid label='nb participant' placeholder='22' />
-      
       <Form.Field label='Sujet' control='select'>
         <option value='Symfony'>Symfony</option>
         <option value='React'>React</option>
       </Form.Field>
-      
     </Form.Group>
-  
     <Form.TextArea label='Description' placeholder='Votre description...' />
     <Form.Checkbox label='I agree to the Terms and Conditions' />
     <Form.Button primary>Add your Event</Form.Button>
