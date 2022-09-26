@@ -4,7 +4,7 @@ import './styles.scss';
 function Questions() {
   return (
     <div className="questions">
-      <Card.Group className="card_question">
+      <Card.Group stackable className="card_question">
         <Card className="card_question_details">
           <Card.Content>
             <Card.Header>Quelle est la différence entre Node.js et PHP ?</Card.Header>
