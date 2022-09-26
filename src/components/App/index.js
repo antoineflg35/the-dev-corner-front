@@ -1,39 +1,47 @@
 // == Import
 import './styles.scss';
-
-import DetailEvent from '../DetailEvent';
+import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchQuestions } from '../../actions/questions';
 import Header from '../Header';
 import Home from '../Home';
+import ListQuestions from '../ListQuestions';
+import AddQuestion from '../AddQuestion';
+import QuestionDetails from '../QuestionDetails';
 import Footer from '../Footer';
-import Presentation from '../Presentation';
-import Events from '../Events';
-import AddEvent from '../AddEvent';
-
 // == Composant
 function App() {
-  const logged = false;
-  const Event = true;
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchQuestions());
+  // }, []);
+
   return (
     <div className="app">
-      {/* {logged &&  <>
       <Header />
-      <Home />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home />}
+        />
+        <Route
+          path="/questions"
+          element={<ListQuestions />}
+        />
+        <Route
+          path="/questions/details"
+          element={<QuestionDetails />}
+        />
+        <Route
+          path="/questions/add"
+          element={<AddQuestion />}
+        />
+      </Routes>
       <Footer />
-      </>
-      } */}
-
-      {/* < Presentation />   */}
-      {/* {Event && <Events />}  */}
-
-      <DetailEvent />
-
-      {/* <AddEvent /> */}
-
     </div>
   );
 }
 
 // == Export
 export default App;
-
-// 'http://127.0.0.1:8000/api/v1/questions'

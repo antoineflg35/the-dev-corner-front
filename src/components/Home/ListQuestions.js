@@ -66,7 +66,6 @@ function ListQuestions() {
           </Card.Description>
         </Card.Content>
       </Card>
-
     </Card.Group>
 
   );

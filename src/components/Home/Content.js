@@ -2,9 +2,14 @@ import { Container, Header } from 'semantic-ui-react';
 
 function Content() {
   return (
+<<<<<<< HEAD
     
     <Container className='content'>
       <Header as="h2">Dogs Roles with Humans</Header>
+=======
+    <Container>
+      <Header as="h2">The Dev Corner</Header>
+>>>>>>> Creation-Page-ListQuestions
       <p>
         Domestic dogs inherited complex behaviors, such as bite inhibition, from
         their wolf ancestors, which would have been pack hunters with complex
