@@ -22,7 +22,7 @@ function ListEnterprises() {
           <Card.Content extra>
             <div className="ui two buttons">
               <Button
-                content="Poser une question"
+                content="Découvrir l'entreprise"
                 primary
               />
             </div>
@@ -42,7 +42,7 @@ function ListEnterprises() {
           <Card.Content extra>
             <div className="ui two buttons">
               <Button
-                content="Poser une question"
+                content="Découvrir l'entreprise"
                 primary
               />
             </div>
@@ -62,7 +62,7 @@ function ListEnterprises() {
           <Card.Content extra>
             <div className="ui two buttons">
               <Button
-                content="Poser une question"
+                content="Découvrir l'entreprise"
                 primary
               />
             </div>
@@ -82,7 +82,7 @@ function ListEnterprises() {
           <Card.Content extra>
             <div className="ui two buttons">
               <Button
-                content="Poser une question"
+                content="Découvrir l'entreprise"
                 primary
               />
             </div>
@@ -102,7 +102,7 @@ function ListEnterprises() {
           <Card.Content extra>
             <div className="ui two buttons">
               <Button
-                content="Poser une question"
+                content="Découvrir l'entreprise"
                 primary
               />
             </div>
