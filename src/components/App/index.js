@@ -11,7 +11,7 @@ import AddEvent from '../AddEvent';
 
 // == Composant
 function App() {
-  const logged = false ;
+  const logged = false;
   const Event = true;
   return (
     <div className="app">
@@ -21,14 +21,13 @@ function App() {
       <Footer />
       </>
       } */}
-     
-       {/* < Presentation />   */}
-       {/* {Event && <Events />}  */}
 
-       <DetailEvent />
+      {/* < Presentation />   */}
+      {/* {Event && <Events />}  */}
 
-       {/* <AddEvent /> */}
+      <DetailEvent />
 
+      {/* <AddEvent /> */}
 
     </div>
   );
