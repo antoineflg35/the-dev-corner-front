@@ -1,9 +1,5 @@
 
-
 import {Card, List} from 'semantic-ui-react' ;
-
-
-
 
 function Main() {
   return(
