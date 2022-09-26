@@ -6,17 +6,19 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
   }
   
   
   .card_question_details{
       padding: 500px;
+      margin: 300px;
   }
   
  .card_question_button{
     height: 20%;
     align-self: center;
-    margin-left: 300px;
+    margin-bottom: 30px;
   }
   
 }
