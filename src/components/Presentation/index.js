@@ -5,20 +5,15 @@ import Main from './Main';
 
 function Presentation() {
   return (
-    <Container>
-      <div>
-
-        <Header as="h1">The Dev Corner</Header>
-
-      </div>
+    <Container className='container'>
       <div>
 
         <Button floated="right" primary>Se deconnecter</Button>
 
       </div>
-
-      <Content />
-
+      <div className='header-presentation'>
+        <Header as="h1" size="huge">The Dev Corner</Header>
+      </div>
       <Main />
 
       <div>
