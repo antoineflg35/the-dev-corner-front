@@ -1,4 +1,4 @@
-.list_questions{
+.page_questions{
   width: auto;
   margin: 30px 30px;
   
@@ -21,4 +21,19 @@
     margin-bottom: 30px;
   }
   
+}
+
+.informations_page_questions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .questions_closed{
+    width: 50%;
+  }
+
+  .statistics{
+    width: 50%;
+    align-self: center;
+  }
 }
