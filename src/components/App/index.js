@@ -17,10 +17,10 @@ import Events from '../Events';
 import Footer from '../Footer';
 // == Composant
 function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchQuestions());
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchQuestions());
+  }, []);
 
   return (
     <div className="app">
