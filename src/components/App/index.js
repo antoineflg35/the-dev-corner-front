@@ -8,6 +8,7 @@ import Header from '../Header';
 import Home from '../Home';
 import ListQuestions from '../ListQuestions';
 import Footer from '../Footer';
+import QuestionDetails from '../QuestionDetails';
 
 // == Composant
 function App() {
@@ -27,6 +28,10 @@ function App() {
         <Route
           path="/questions"
           element={<ListQuestions />}
+        />
+        <Route
+          path="/questions/details"
+          element={<QuestionDetails />}
         />
       </Routes>
       <Footer />
