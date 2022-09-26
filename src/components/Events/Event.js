@@ -1,38 +1,33 @@
-import { Button, Card, Image, Icon ,List} from 'semantic-ui-react'
+import {
+  Button, Card, Image, Icon, List,
+} from 'semantic-ui-react';
 
 function Event() {
-  return(
+  return (
     <List>
-      <div className='top'>
-      
+      <div className="top">
+
         1-Event
-    
+
       </div>
-      <div className='bottom'>
-      <span>
-      An excellent polish restaurant, quick delivery and hearty, filling meals.
-      
-      </span> 
-      
-      
+      <div className="bottom">
+        <span>
+          An excellent polish restaurant, quick delivery and hearty, filling meals.
 
-      <p className='nbparticpe'>
-        deja 25 particpent /200 particepnt</p> 
+        </span>
+
+        <p className="nbparticpe">
+          deja 25 participants /200 participants
+        </p>
         <div>
-        <Button primary>voir plus</Button>
-        <Button primary>s'inscrire</Button>
-        </div>
-        
+          <Button primary>voir plus</Button>
+          <Button primary>s'inscrire</Button>
         </div>
 
-
+      </div>
 
     </List>
-    
-  
-    
-
 
   );
 }
-export default Event ;
+export default Event;
