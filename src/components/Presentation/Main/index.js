@@ -2,8 +2,6 @@
 
 import {Card, List} from 'semantic-ui-react' ;
 
-import './styles.scss';
-
 
 
 

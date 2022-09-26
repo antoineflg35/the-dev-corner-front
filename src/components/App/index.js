@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { fetchQuestions } from '../../actions/questions';
 import Header from '../Header';
 import Home from '../Home';
+import Presentation from '../Presentation';
 import ListQuestions from '../ListQuestions';
 import AddQuestion from '../AddQuestion';
 import QuestionDetails from '../QuestionDetails';
@@ -25,9 +26,13 @@ function App() {
     <div className="app">
       <Header />
       <Routes>
-      <Route
+        <Route
           path="/login"
           element={<Login />}
+        />
+        <Route
+          path="/presentation"
+          element={<Presentation />}
         />
         <Route
           path="/user"
@@ -59,7 +64,7 @@ function App() {
         />
       </Routes>
       <Footer />
-      
+
     </div>
   );
 }
