@@ -1,10 +1,8 @@
 
 import { Card,Button,Image,List,Container ,Grid } from 'semantic-ui-react';
 
-
-import Header from "../Header";
 import Event from "./Event";
-import Footers from '../Footers';
+
 
 import './styles.scss';
 
@@ -13,7 +11,7 @@ function Events (){
 
   return(
    <div> 
-        <Header />
+     
         <Container>
 
      <div className="title">
@@ -216,8 +214,6 @@ function Events (){
     
  
   </Container> 
-
-  <Footers />
     
     
       

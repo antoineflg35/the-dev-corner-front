@@ -9,6 +9,10 @@ import Home from '../Home';
 import ListQuestions from '../ListQuestions';
 import AddQuestion from '../AddQuestion';
 import QuestionDetails from '../QuestionDetails';
+import Login from '../Login';
+import User from '../User';
+import DetailEvent from '../DetailEvent';
+import Events from '../Events';
 import Footer from '../Footer';
 // == Composant
 function App() {
@@ -21,6 +25,14 @@ function App() {
     <div className="app">
       <Header />
       <Routes>
+      <Route
+          path="/login"
+          element={<Login />}
+        />
+        <Route
+          path="/user"
+          element={<User />}
+        />
         <Route
           path="/"
           element={<Home />}
@@ -28,6 +40,14 @@ function App() {
         <Route
           path="/questions"
           element={<ListQuestions />}
+        />
+        <Route
+          path="/events"
+          element={<Events />}
+        />
+        <Route
+          path="/events/details"
+          element={<DetailEvent />}
         />
         <Route
           path="/questions/details"
@@ -39,6 +59,7 @@ function App() {
         />
       </Routes>
       <Footer />
+      
     </div>
   );
 }
