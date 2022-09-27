@@ -1,5 +1,5 @@
 import {
-  Button, Form, Grid, Header, Image, Message, Segment,
+  Button, Form, Grid, Header, Message, Segment,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
