@@ -2,7 +2,9 @@ import {
   Header as HeaderSui, Container, Form, Checkbox,
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeFieldNewLogin } from '../../actions/newUser';
+import { useState } from 'react';
+
+import { changeFieldNewLogin, deleteChoiceCheckbox } from '../../actions/newUser';
 
 function User() {
   const dispatch = useDispatch();
@@ -13,7 +15,12 @@ function User() {
   const surnameUser = useSelector((state) => state.newUser.surname);
   const department = useSelector((state) => state.newUser.department);
   const descriptionUser = useSelector((state) => state.newUser.description);
+  const php = useSelector((state) => state.newUser.php);
+  const js = useSelector((state) => state.newUser.js);
   const tag = useSelector((state) => state.newUser.tag);
+
+  const [checkedJs, setCheckedJs] = useState(false);
+  const [checkedPhp, setCheckedPhp] = useState(false);
 
   return (
     <div>
@@ -89,17 +96,43 @@ function User() {
             <h3>Choisissez vos technologies préférées</h3>
             <Checkbox
               label="JS"
-              value={tag}
-              onChange={() => {
+              // value={js}
+              onChange={(r, data) => {
+                setCheckedJs(data.checked);
+                console.log(data.checked);
+                if (data.checked === true) {
+                  console.log('ok');
+                  dispatch(changeFieldNewLogin(data.label, 'tag'));
+                }
+                else {
+                  dispatch(deleteChoiceCheckbox(data.label));
+                  console.log('nop');
+                }
+                // Si data.checked de PHP est faux
+                // alors dispatchr l'action pour supprimer du tableau
+                // Sinon dispatcher pour ajouter au tableau
               }}
+              checked={checkedJs}
             />
             <Checkbox
-              value={tag}
               label="PHP"
-              onChange={(event) => {
-                console.log(event);
+              onChange={(e, data) => {
+                console.log(data);
+                setCheckedPhp(data.checked);
+                console.log(data.checked);
+                if (data.checked === true) {
+                  console.log('ok');
+                  dispatch(changeFieldNewLogin(data.label, 'tag'));
+                }
+                else {
+                  dispatch(deleteChoiceCheckbox(data.label));
+                  console.log('nop');
+                }
+                // Si data.checked de PHP est faux
+                // alors dispatchr l'action pour supprimer du tableau
+                // Sinon dispatcher pour ajouter au tableau
               }}
-
+              checked={checkedPhp}
             />
           </Form.Group>
 

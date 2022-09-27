@@ -1,4 +1,4 @@
-import { CHANGE_FIELD_NEW_LOGIN } from '../actions/newUser';
+import { CHANGE_FIELD_NEW_LOGIN, DELETE_CHOICE_CHECKBOX } from '../actions/newUser';
 
 // eslint-disable-next-line import/prefer-default-export
 const initialState = {
@@ -12,7 +12,9 @@ const initialState = {
   description: '',
   department: '',
   // tagCheked: false,
-  tag: '',
+  // php: false,
+  // js: false,
+  tag: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -54,12 +56,35 @@ const reducer = (state = initialState, action = {}) => {
         case 'tag':
           return {
             ...state,
-            tag: action.value,
+            tag: [...state.tag, action.value],
+          };
+        case 'php':
+          return {
+            ...state,
+            php: action.value,
+
+          };
+        case 'js':
+          return {
+            ...state,
+            js: action.value,
 
           };
         default:
-          
       }
+      break;
+    case DELETE_CHOICE_CHECKBOX:
+      // const existInArray = [...state.tag].includes(action.newValue);
+      // let newTagArray = [];
+      // if (existInArray) {
+      //   newTagArray = [...state.tag].filter((tag) => tag !== action.newValue);
+      // }
+      // else {
+      //   newTagArray = [...state.tag, action.newValue];
+      // }
+      return {
+        tag: [...state.tag].filter((tag) => tag !== action.newValue),
+      };
     default:
       return state;
   }
