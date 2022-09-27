@@ -4,7 +4,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 
-import { changeFieldNewLogin, deleteChoiceCheckbox } from '../../actions/newUser';
+import { changeFieldNewLogin, deleteChoiceCheckbox, toggleCheckboxNewLogin } from '../../actions/newUser';
 
 function User() {
   const dispatch = useDispatch();
@@ -17,10 +17,10 @@ function User() {
   const descriptionUser = useSelector((state) => state.newUser.description);
   const php = useSelector((state) => state.newUser.php);
   const js = useSelector((state) => state.newUser.js);
-  const tag = useSelector((state) => state.newUser.tag);
+  // const tag = useSelector((state) => state.newUser.tag);
 
-  const [checkedJs, setCheckedJs] = useState(false);
-  const [checkedPhp, setCheckedPhp] = useState(false);
+  // const [checkedJs, setCheckedJs] = useState(false);
+  // const [checkedPhp, setCheckedPhp] = useState(false);
 
   return (
     <div>
@@ -95,26 +95,30 @@ function User() {
           <Form.Group widths="equal">
             <h3>Choisissez vos technologies préférées</h3>
             <Checkbox
-              label="JS"
+              label="js"
               // value={js}
-              onChange={(r, data) => {
-                setCheckedJs(data.checked);
-                console.log(data.checked);
-                if (data.checked === true) {
-                  console.log('ok');
-                  dispatch(changeFieldNewLogin(data.label, 'tag'));
-                }
-                else {
-                  dispatch(deleteChoiceCheckbox(data.label));
-                  console.log('nop');
-                }
+              onChange={(e, data) => {
+
+                //setCheckedJs(data.checked);
+                console.log(e, data);
+                dispatch(toggleCheckboxNewLogin(data.checked, data.label));
+                // console.log(data.checked);
+                // if (data.checked === true) {
+                //   console.log('ok');
+                //   dispatch(changeFieldNewLogin(data.label, 'tag'));
+                // }
+                // else {
+                //   dispatch(deleteChoiceCheckbox(data.label));
+                //   console.log('nop');
+                // }
                 // Si data.checked de PHP est faux
                 // alors dispatchr l'action pour supprimer du tableau
                 // Sinon dispatcher pour ajouter au tableau
               }}
-              checked={checkedJs}
+              // checked={checkedJs}
+              checked={js}
             />
-            <Checkbox
+            {/* <Checkbox
               label="PHP"
               onChange={(e, data) => {
                 console.log(data);
@@ -133,7 +137,7 @@ function User() {
                 // Sinon dispatcher pour ajouter au tableau
               }}
               checked={checkedPhp}
-            />
+            /> */}
           </Form.Group>
 
           <Form.TextArea

@@ -1,6 +1,7 @@
 // Actions types
 
 export const CHANGE_FIELD_NEW_LOGIN = 'CHANGE_FIELD_NEW_LOGIN';
+export const TOGGLE_CHECKBOX_NEW_LOGIN = 'TOGGLE_CHECKBOX_NEW_LOGIN';
 export const DELETE_CHOICE_CHECKBOX = 'DELETE_CHOICE_CHECKBOX';
 export const CREATE_COUNT = 'CREATE_COUNT';
 
@@ -8,6 +9,12 @@ export const CREATE_COUNT = 'CREATE_COUNT';
 
 export const changeFieldNewLogin = (newValue, fieldIdentifier) => ({
   type: CHANGE_FIELD_NEW_LOGIN,
+  value: newValue,
+  fieldIdentifier: fieldIdentifier,
+});
+
+export const toggleCheckboxNewLogin = (newValue, fieldIdentifier) => ({
+  type: TOGGLE_CHECKBOX_NEW_LOGIN,
   value: newValue,
   fieldIdentifier: fieldIdentifier,
 });

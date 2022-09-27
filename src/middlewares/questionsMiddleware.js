@@ -7,7 +7,6 @@ const questionsMiddleware = (store) => (next) => (action) => {
       axios.get('http://localhost:8000/api/v1/questions')
         .then((response) => {
           // console.log(response);
-
           // conseil : vérifier qu'on cible bien les infos dans la réponse
           // avec un console.log avant d'écrire le dispatch
           // console.log(response);
