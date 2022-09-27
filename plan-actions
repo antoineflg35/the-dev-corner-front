@@ -1,0 +1,14 @@
+Etape 1 :
+Création du reducers
+
+Etape 2 : 
+Création d'une action update field Login
+
+Etape 3 :
+Champs controllés en lecture
+
+Etape : 
+Récupération des valeurs saisies par l'utilisateur
+
+Etape 4 : 
+Dans le middleware, lors du submit du formulaire utiliser le endpoint 
