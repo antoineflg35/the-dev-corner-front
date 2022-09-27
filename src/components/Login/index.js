@@ -3,7 +3,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFieldLogin } from '../../actions/user';
+import { updateFieldLogin, login } from '../../actions/user';
 
 function Login() {
   const mailUser = useSelector((state) => state.user.email);
@@ -16,7 +16,13 @@ function Login() {
         <Header as="h2" color="teal" textAlign="center">
           Connexion à votre compte
         </Header>
-        <Form size="large">
+        <Form
+          size="large"
+          onSubmit={(event) => {
+            event.preventDefault();
+            dispatch(login());
+          }}
+        >
           <Segment stacked>
             <Form.Input
               fluid
@@ -58,13 +64,3 @@ function Login() {
   );
 }
 export default Login;
-
-{/* <input
-            type="password"
-            placeholder="Mot de passe"
-            value={valuePassword}
-            onChange={(event) => {
-              const action = updateSettingsField(event.target.value, 'password');
-              dispatch(action);
-            }}
-          /> */}

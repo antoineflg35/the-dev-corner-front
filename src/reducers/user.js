@@ -1,4 +1,4 @@
-import { UPDATE_FIELD_LOGIN } from '../actions/user';
+import { UPDATE_FIELD_LOGIN, LOGIN } from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -23,6 +23,10 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         password: action.value,
+      };
+    case LOGIN:
+      return {
+        ...state,
       };
 
     default:
