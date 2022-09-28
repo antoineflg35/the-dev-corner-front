@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN } from '../actions/user';
+import { LOGIN, saveDataUser } from '../actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -21,6 +21,7 @@ const authMiddleware = (store) => (next) => (action) => {
           // avec un console.log avant d'écrire le dispatch
           // console.log(response);
           console.log(response);
+          // store.dispatch(saveDataUser());
         })
         .catch((error) => {
           console.log(error);

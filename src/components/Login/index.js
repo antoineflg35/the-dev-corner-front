@@ -3,11 +3,14 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFieldLogin, login } from '../../actions/user';
+import { updateFieldLogin, login, saveDataUser } from '../../actions/user';
 
 function Login() {
   const mailUser = useSelector((state) => state.user.username);
   const passwordUSer = useSelector((state) => state.user.password);
+  const userLogged = useSelector((state) => state.user.logged);
+  
+  console.log(userLogged);
   const dispatch = useDispatch();
 
   return (
@@ -21,6 +24,7 @@ function Login() {
           onSubmit={(event) => {
             event.preventDefault();
             dispatch(login());
+            dispatch(saveDataUser());
           }}
         >
           <Segment stacked>
@@ -49,9 +53,10 @@ function Login() {
                 dispatch(action);
               }}
             />
-            <Button color="teal" fluid size="large">
+            <Button  color="teal" fluid size="large">
               Login
             </Button>
+            
           </Segment>
         </Form>
         <Link to="/user">

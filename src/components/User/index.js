@@ -2,8 +2,6 @@ import {
   Header as HeaderSui, Container, Form, Checkbox,
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
-
 import { changeFieldNewLogin, createCount, toggleCheckboxNewLogin } from '../../actions/newUser';
 
 function User() {
