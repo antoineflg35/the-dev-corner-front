@@ -1,7 +1,10 @@
-import { SAVE_QUESTIONS } from '../actions/questions';
+import { SAVE_QUESTIONS, UPDATE_FIELD_ADD_QUESTIONS } from '../actions/questions';
 
 const initialState = {
   list: [],
+  titleNewQuestion: '',
+  descriptionNewQuestion: '',
+  tagNewQuestion: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -10,6 +13,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.questions,
+      };
+    case UPDATE_FIELD_ADD_QUESTIONS:
+      return {
+        ...state,
+        [action.fieldIdentifier]: action.value,
       };
     default:
       return state;
