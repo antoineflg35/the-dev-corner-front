@@ -1,5 +1,5 @@
 import {
-  Container, Form, TextArea, Input, Button, Select,
+  Container, Form, TextArea, Button,
 } from 'semantic-ui-react';
 
 import { useDispatch, useSelector } from 'react-redux';

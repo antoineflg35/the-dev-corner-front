@@ -22,7 +22,6 @@ export const updateFieldAddQuestions = (newValue, fieldIdentifier) => ({
   fieldIdentifier: fieldIdentifier,
 });
 
-
 export const addQuestion = () => ({
   type: ADD_QUESTION,
 });

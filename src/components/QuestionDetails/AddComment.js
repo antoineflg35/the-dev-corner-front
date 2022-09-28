@@ -2,11 +2,18 @@ import {
   Button, Comment, Form, Header,
 } from 'semantic-ui-react';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { updateFieldAddResponses, addResponse } from '../../actions/response';
+
 function AddComment() {
+  const dispatch = useDispatch();
+
+  const description = useSelector((state) => state.response.description);
+
   return (
     <Comment.Group>
       <Header as="h3" dividing>
-        Comments
+        Réponses
       </Header>
 
       <Comment>
@@ -68,9 +75,21 @@ function AddComment() {
         </Comment.Content>
       </Comment>
 
-      <Form reply>
-        <Form.TextArea />
-        <Button content="Add Reply" labelPosition="left" icon="edit" primary />
+      <Form
+        reply
+        onSubmit={(event) => {
+          event.preventDefault();
+          dispatch(addResponse());
+        }}
+      >
+        <Form.TextArea
+          value={description}
+          onChange={(event) => {
+            const action = updateFieldAddResponses(event.target.value, 'description');
+            dispatch(action);
+          }}
+        />
+        <Button content="Répondre à la question" labelPosition="left" icon="edit" primary />
       </Form>
     </Comment.Group>
   );

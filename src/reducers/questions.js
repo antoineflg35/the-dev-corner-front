@@ -27,12 +27,6 @@ const reducer = (state = initialState, action = {}) => {
         tag: state.tagNewQuestion,
       };
       const questionCopy = [...state.list, newQuestion];
-
-      // newQuestion = [
-      //   ...state.list,
-      //   state.titleNewQuestion,
-      //   state.descriptionNewQuestion,
-      //   state.tagNewQuestion];
       return {
         ...state,
         list: questionCopy,
