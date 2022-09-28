@@ -1,4 +1,4 @@
-import { CHANGE_FIELD_NEW_LOGIN, TOGGLE_CHECKBOX_NEW_LOGIN } from '../actions/newUser';
+import { CHANGE_FIELD_NEW_LOGIN, TOGGLE_CHECKBOX_NEW_LOGIN, CREATE_COUNT } from '../actions/newUser';
 
 // eslint-disable-next-line import/prefer-default-export
 const initialState = {
@@ -7,14 +7,16 @@ const initialState = {
   email: '',
   // contenu du champ password du formulaire de login
   password: '',
-  name: '',
-  surname: '',
+  firstname: '',
+  lastname: '',
+  pseudo: '',
   description: '',
   department: '',
   // tagCheked: false,
   php: false,
   js: false,
   tag: [],
+  user: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -46,6 +48,24 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.fieldIdentifier]: action.value,
         tag: newTag,
+      };
+    }
+    case CREATE_COUNT: {
+      const newUser = {
+        id: 22,
+        email: state.email,
+        password: state.password,
+        firstname: state.firstname,
+        lastname: state.lastname,
+        pseudo: state.pseudo,
+        description: state.description,
+        department: state.description,
+        tag: state.tag,
+      };
+      const newUserCopy = [...state.user, newUser];
+      return {
+        ...state,
+        user: newUserCopy,
       };
     }
 

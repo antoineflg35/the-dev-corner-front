@@ -10,7 +10,6 @@ const questionsMiddleware = (store) => (next) => (action) => {
           // conseil : vérifier qu'on cible bien les infos dans la réponse
           // avec un console.log avant d'écrire le dispatch
           // console.log(response);
-
           store.dispatch(saveQuestions(response.data.questions));
         })
         .catch((error) => {
