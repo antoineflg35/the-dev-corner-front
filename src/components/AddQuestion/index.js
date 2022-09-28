@@ -3,7 +3,7 @@ import {
 } from 'semantic-ui-react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFieldAddQuestions } from '../../actions/questions';
+import { updateFieldAddQuestions, addQuestion } from '../../actions/questions';
 
 import './styles.scss';
 
@@ -19,7 +19,12 @@ function AddQuestion() {
 
       <h2>Ajouter une question</h2>
       <Container>
-        <Form>
+        <Form
+          onSubmit={(event) => {
+            event.preventDefault();
+            dispatch(addQuestion());
+          }}
+        >
           <Form.Field>
             <div className="title-question">
               <TextArea
@@ -58,22 +63,6 @@ function AddQuestion() {
                 <option value="REACT">REACT</option>
                 <option value="SYMFONY">SYMFONY</option>
               </Form.Field>
-              {/* <Input
-                value={tag}
-                list="languages"
-                placeholder="Choose language..."
-                type="select"
-                onChange={(event) => {
-                  const action = updateFieldAddQuestions(event.target.value, 'tagNewQuestion');
-                  dispatch(action);
-                }}
-              />
-              <datalist id="languages">
-                <option>PHP</option>
-                <option>JS</option>
-                <option>REACT</option>
-                <option>Symphony</option>
-              </datalist> */}
             </div>
             <Button
               content="Poser une question"

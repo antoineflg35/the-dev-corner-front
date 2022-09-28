@@ -1,4 +1,4 @@
-import { SAVE_QUESTIONS, UPDATE_FIELD_ADD_QUESTIONS } from '../actions/questions';
+import { SAVE_QUESTIONS, UPDATE_FIELD_ADD_QUESTIONS, ADD_QUESTION } from '../actions/questions';
 
 const initialState = {
   list: [],
@@ -19,6 +19,25 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.fieldIdentifier]: action.value,
       };
+    case ADD_QUESTION: {
+      const newQuestion = {
+        id: 22,
+        title: state.titleNewQuestion,
+        content: state.descriptionNewQuestion,
+        tag: state.tagNewQuestion,
+      };
+      const questionCopy = [...state.list, newQuestion];
+
+      // newQuestion = [
+      //   ...state.list,
+      //   state.titleNewQuestion,
+      //   state.descriptionNewQuestion,
+      //   state.tagNewQuestion];
+      return {
+        ...state,
+        list: questionCopy,
+      };
+    }
     default:
       return state;
   }
