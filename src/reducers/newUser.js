@@ -1,4 +1,4 @@
-import { CHANGE_FIELD_NEW_LOGIN, DELETE_CHOICE_CHECKBOX, TOGGLE_CHECKBOX_NEW_LOGIN } from '../actions/newUser';
+import { CHANGE_FIELD_NEW_LOGIN, TOGGLE_CHECKBOX_NEW_LOGIN } from '../actions/newUser';
 
 // eslint-disable-next-line import/prefer-default-export
 const initialState = {

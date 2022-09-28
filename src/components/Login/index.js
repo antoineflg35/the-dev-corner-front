@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateFieldLogin, login } from '../../actions/user';
 
 function Login() {
-  const mailUser = useSelector((state) => state.user.email);
+  const mailUser = useSelector((state) => state.user.username);
   const passwordUSer = useSelector((state) => state.user.password);
   const dispatch = useDispatch();
 
@@ -29,9 +29,9 @@ function Login() {
               icon="user"
               iconPosition="left"
               placeholder="Adresse email"
-              identifier="email"
+              identifier="username"
               onChange={(event) => {
-                const action = updateFieldLogin(event.target.value, 'email');
+                const action = updateFieldLogin(event.target.value, 'username');
                 dispatch(action);
               }}
               value={mailUser}
