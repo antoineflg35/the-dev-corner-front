@@ -8,12 +8,11 @@ import { updateFieldLogin, login, saveDataUser } from '../../actions/user';
 function Login() {
   const mailUser = useSelector((state) => state.user.username);
   const passwordUSer = useSelector((state) => state.user.password);
-  const userLogged = useSelector((state) => state.user.logged);
-  
-  console.log(userLogged);
+
   const dispatch = useDispatch();
 
   return (
+
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="teal" textAlign="center">
@@ -53,10 +52,11 @@ function Login() {
                 dispatch(action);
               }}
             />
-            <Button  color="teal" fluid size="large">
+            <Button color="teal" fluid size="large">
               Login
             </Button>
-            
+        
+
           </Segment>
         </Form>
         <Link to="/user">
@@ -68,4 +68,5 @@ function Login() {
     </Grid>
   );
 }
+
 export default Login;

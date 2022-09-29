@@ -15,53 +15,52 @@ import User from '../User';
 import DetailEvent from '../DetailEvent';
 import Events from '../Events';
 import NotFound from '../NotFound';
+import NotConnected from '../NotConnected';
 import Footer from '../Footer';
 // == Composant
 function App() {
   const dispatch = useDispatch();
   const loggedUser = useSelector((state) => state.user.logged);
   const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(fetchQuestions());
   }, []);
 
+  // First page to display depending on whether the user is logged in or not
   useEffect(() => {
     if (loggedUser) {
       navigate('/');
-    }
-    else {
-      <>
-        <Routes>
-          <Route
-            path="/presentation"
-            element={<Presentation />}
-          />
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-          <Route
-            path="/user"
-            element={<User />}
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes><Footer />
-      </>;
     }
   }, [loggedUser]);
 
   return (
     <div className="app">
-      {/* Routes si l'utilisateur est connecté */}
+      {/* Routes if user is not logged in */}
+      {!loggedUser
+       && (
+       <Routes>
+         <Route
+           path="/presentation"
+           element={<Presentation />}
+         />
+         <Route
+           path="/login"
+           element={<Login />}
+         />
+         <Route
+           path="/user"
+           element={<User />}
+         />
+         <Route path="*" element={<NotConnected />} />
+       </Routes>
+       )}
+      {/* Routes if user is logged in */}
       {loggedUser
       && (
         <>
           <Header />
           <Routes>
-            <Route
-              path="/user"
-              element={<User />}
-            />
             <Route
               path="/"
               element={<Home />}
@@ -88,9 +87,9 @@ function App() {
             />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <Footer />
         </>
       )}
+      <Footer />
     </div>
   );
 }

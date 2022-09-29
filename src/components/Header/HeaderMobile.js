@@ -2,6 +2,8 @@ import {
   Dropdown, Menu, Button,
 } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../actions/user';
 
 function HeaderMobile() {
   const activeStyle = {
@@ -9,6 +11,8 @@ function HeaderMobile() {
   };
 
   const activeClassName = 'link';
+
+  const dispatch = useDispatch();
   return (
     <div>
       <Menu attached="top" pointing>
@@ -40,6 +44,9 @@ function HeaderMobile() {
               fluid
               content="Se déconnecter"
               primary
+              onClick={() => {
+                dispatch(logout());
+              }}
             />
           </Dropdown.Menu>
         </Dropdown>

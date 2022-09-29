@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN, saveDataUser } from '../actions/user';
+import { LOGIN } from '../actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
