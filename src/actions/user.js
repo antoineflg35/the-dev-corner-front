@@ -22,7 +22,8 @@ export const logout = () => ({
   type: LOGOUT,
 });
 
-export const saveDataUser = () => ({
+export const saveDataUser = (pseudo, token) => ({
   type: SAVE_DATA_USER,
-  // pseudo: pseudo,
+  pseudo: pseudo,
+  token: token,
 });

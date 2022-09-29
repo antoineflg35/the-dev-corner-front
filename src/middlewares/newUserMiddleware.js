@@ -1,18 +1,24 @@
 import axios from 'axios';
-import { LOGIN, saveDataUser } from '../actions/user';
+import { CREATE_COUNT } from '../actions/newUser';
 
-const authMiddleware = (store) => (next) => (action) => {
+const newUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOGIN:
+    case CREATE_COUNT:
       axios.post(
-        'http://localhost:8001/api/v1/login_check',
+        'http://localhost:8001/api/v1/user',
         {
           // on utilise les infos du formulaire : on les récupère dans le state
           // (champs contrôlés). Attention un middleware n'est pas un composant
           // React, donc on ne peut pas utiliser les hooks (useSelector, useDispatch)
           // => store.getState()
-          username: store.getState().user.username,
-          password: store.getState().user.password,
+          firstname: store.getState().newUser.firstname,
+          lastname: store.getState().newUser.lastname,
+          pseudo: store.getState().newUser.pseudo,
+          email: store.getState().newUser.email,
+          password: store.getState().newUser.password,
+          department: store.getState().newUser.department,
+          description: store.getState().newUser.description,
+          tag: store.getState().newUser.tag,
         },
       )
         .then((response) => {
@@ -21,14 +27,10 @@ const authMiddleware = (store) => (next) => (action) => {
           // avec un console.log avant d'écrire le dispatch
           // console.log(response);
           console.log(response);
-          store.dispatch(saveDataUser(response.data.pseudo, response.data.token));
-          // localStorage.setItem('token', response.data.token);
-          // localStorage.getItem('token');
+          // store.dispatch(saveDataUser());
         })
         .catch((error) => {
           console.log(error);
-          console.log(store.getState().user.username);
-          console.log(store.getState().user.password);
         });
       break;
     default:
@@ -36,4 +38,4 @@ const authMiddleware = (store) => (next) => (action) => {
   // on passe l'action au suivant (middleware suivant ou reducer)
   next(action);
 };
-export default authMiddleware;
+export default newUserMiddleware;

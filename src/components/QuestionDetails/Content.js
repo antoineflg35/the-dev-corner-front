@@ -1,16 +1,14 @@
 import { Header, Segment } from 'semantic-ui-react';
 
-function Content() {
+function Content({ questions }) {
   return (
     <div className="content_questions">
+      
       <Header as="h2" attached="top">
-        Comment créer une API en REST ?
+        {questions[0].title}
       </Header>
       <Segment attached>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        { questions[0].description }
       </Segment>
     </div>
   );
