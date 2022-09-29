@@ -18,7 +18,7 @@ function Presentation() {
 
       <div>
         <Link to="/user">
-          <Button centred primary>creer un compte</Button>
+          <Button centred primary>Créer un compte</Button>
         </Link>
       </div>
 
