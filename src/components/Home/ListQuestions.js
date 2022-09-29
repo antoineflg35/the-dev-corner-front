@@ -10,7 +10,7 @@ function ListQuestions({ data }) {
     <Card.Group centered>
       <Card>
         {
-        data.map((question) => (
+        data.slice(data.length-5).map((question) => (
           <Link to={`/questions/details/${question.id}`}>
             <Card.Content>
               <List>

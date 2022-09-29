@@ -12,6 +12,12 @@ const questionsMiddleware = (store) => (next) => (action) => {
           // console.log(response);
           store.dispatch(saveQuestions(response.data.questions));
           console.log(response.data.questions[0].user.pseudo);
+
+//           axios.get('http://localhost:3000/favorites', {
+//   headers: {
+//     Authorization: `bearer ${token}`
+//   },
+// })
         })
         .catch((error) => {
           console.log(error);

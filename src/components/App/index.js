@@ -24,16 +24,18 @@ function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
   const question = useSelector((state) => (state.questions.list));
+  const loggedUser = useSelector((state) => (state.user.logged))
 
 
   const navigate = useNavigate();
   // First page to display depending on whether the user is logged in or not
   useEffect(() => {
-    if (token) {
+    if (!token) {
       navigate('/');
       dispatch(fetchQuestions());
     }
   }, [token]);
+
 
   return (
     <div className="app">
@@ -91,6 +93,7 @@ function App() {
         </>
       )}
       <Footer />
+
     </div>
   );
 }
