@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { Button, Menu } from 'semantic-ui-react';
 import './styles.scss';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../actions/user';
 
 function HeaderDesktop() {
   const activeStyle = {
@@ -8,6 +10,7 @@ function HeaderDesktop() {
   };
 
   const activeClassName = 'link';
+  const dispatch = useDispatch();
   return (
     <div className="header-desktop">
       <Menu size="small" stackable>
@@ -47,7 +50,13 @@ function HeaderDesktop() {
             name="Mon profil"
           />
           <Menu.Item>
-            <Button primary>Se déconnecter</Button>
+            <Button
+              onClick={() => {
+                dispatch(logout());
+              }}
+              primary
+            >Se déconnecter
+            </Button>
           </Menu.Item>
         </Menu.Menu>
       </Menu>

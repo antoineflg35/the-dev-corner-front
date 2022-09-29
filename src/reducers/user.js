@@ -1,4 +1,4 @@
-import { UPDATE_FIELD_LOGIN, LOGIN, SAVE_DATA_USER } from '../actions/user';
+import { UPDATE_FIELD_LOGIN, LOGIN, SAVE_DATA_USER, LOGOUT } from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -30,6 +30,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
       };
     case SAVE_DATA_USER:
+      return {
+        ...state,
+        // pseudo: action.pseudo,
+        logged: !state.logged,
+      };
+      case LOGOUT:
       return {
         ...state,
         // pseudo: action.pseudo,
