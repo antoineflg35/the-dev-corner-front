@@ -120,7 +120,7 @@ function User() {
                 //   dispatch(changeFieldNewLogin(data.label, 'tag'));
                 // }
                 // else {
-                //   dispatch(deleteChoiceCheckbox(data.label));
+                //   dispatch(deleteChoiceCheckbox(data.label));²
                 //   console.log('nop');
                 // }
                 // Si data.checked de PHP est faux
@@ -130,26 +130,28 @@ function User() {
               // checked={checkedJs}
               checked={js}
             />
-            {/* <Checkbox
-              label="PHP"
+            <Checkbox
+              label="php"
+              // value={js}
               onChange={(e, data) => {
-                console.log(data);
-                setCheckedPhp(data.checked);
-                console.log(data.checked);
-                if (data.checked === true) {
-                  console.log('ok');
-                  dispatch(changeFieldNewLogin(data.label, 'tag'));
-                }
-                else {
-                  dispatch(deleteChoiceCheckbox(data.label));
-                  console.log('nop');
-                }
+                // setCheckedJs(data.checked);
+                console.log(e, data);
+                dispatch(toggleCheckboxNewLogin(data.checked, data.label));
+                // console.log(data.checked);
+                // if (data.checked === true) {
+                //   console.log('ok');
+                //   dispatch(changeFieldNewLogin(data.label, 'tag'));
+                // }
+                // else {
+                //   dispatch(deleteChoiceCheckbox(data.label));
+                //   console.log('nop');
+                // }
                 // Si data.checked de PHP est faux
                 // alors dispatchr l'action pour supprimer du tableau
                 // Sinon dispatcher pour ajouter au tableau
               }}
-              checked={checkedPhp}
-            /> */}
+              checked={php}
+            />
           </Form.Group>
 
           <Form.TextArea

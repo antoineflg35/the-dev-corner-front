@@ -17,31 +17,32 @@ import Events from '../Events';
 import NotFound from '../NotFound';
 import NotConnected from '../NotConnected';
 import Footer from '../Footer';
+
+
 // == Composant
 function App() {
   const dispatch = useDispatch();
-  const loggedUser = useSelector((state) => state.user.logged);
+  const token = useSelector((state) => state.user.token);
+  const question = useSelector((state) => (state.questions.list));
+
+
   const navigate = useNavigate();
-
-  useEffect(() => {
-    dispatch(fetchQuestions());
-  }, []);
-
   // First page to display depending on whether the user is logged in or not
   useEffect(() => {
-    if (loggedUser) {
+    if (token) {
       navigate('/');
+      dispatch(fetchQuestions());
     }
-  }, [loggedUser]);
+  }, [token]);
 
   return (
     <div className="app">
       {/* Routes if user is not logged in */}
-      {!loggedUser
+      {!token
        && (
        <Routes>
          <Route
-           path="/presentation"
+           path="/"
            element={<Presentation />}
          />
          <Route
@@ -56,7 +57,7 @@ function App() {
        </Routes>
        )}
       {/* Routes if user is logged in */}
-      {loggedUser
+      {token
       && (
         <>
           <Header />
@@ -78,7 +79,7 @@ function App() {
               element={<DetailEvent />}
             />
             <Route
-              path="/questions/details"
+              path="/questions/details/:id"
               element={<QuestionDetails />}
             />
             <Route
