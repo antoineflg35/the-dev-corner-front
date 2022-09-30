@@ -53,7 +53,7 @@ function App() {
            element={<User />}
          />
          <Route path="*" element={<NotConnected />} />
-         </Routes><Footer />
+       </Routes><Footer />
        </>
        )}
       {/* Routes if user is logged in */}
