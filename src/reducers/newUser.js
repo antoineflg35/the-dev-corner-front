@@ -52,7 +52,6 @@ const reducer = (state = initialState, action = {}) => {
     }
     case CREATE_COUNT: {
       const newUser = {
-        id: 22,
         email: state.email,
         password: state.password,
         firstname: state.firstname,

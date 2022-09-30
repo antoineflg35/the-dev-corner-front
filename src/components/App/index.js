@@ -16,16 +16,14 @@ import DetailEvent from '../DetailEvent';
 import Events from '../Events';
 import NotFound from '../NotFound';
 import NotConnected from '../NotConnected';
-import Footers from '../Footers';
-
+import Footer from '../Footer';
 
 // == Composant
 function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
   const question = useSelector((state) => (state.questions.list));
-  const loggedUser = useSelector((state) => (state.user.logged))
-
+  const loggedUser = useSelector((state) => (state.user.logged));
 
   const navigate = useNavigate();
   // First page to display depending on whether the user is logged in or not
@@ -36,13 +34,12 @@ function App() {
     }
   }, [token]);
 
-
   return (
     <div className="app">
       {/* Routes if user is not logged in */}
       {!token
        && (
-       <Routes>
+       <><Routes>
          <Route
            path="/"
            element={<Presentation />}
@@ -56,7 +53,8 @@ function App() {
            element={<User />}
          />
          <Route path="*" element={<NotConnected />} />
-       </Routes>
+         </Routes><Footer />
+       </>
        )}
       {/* Routes if user is logged in */}
       {token
@@ -92,7 +90,6 @@ function App() {
           </Routes>
         </>
       )}
-      <Footers />
 
     </div>
   );
