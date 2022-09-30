@@ -3,7 +3,7 @@ import { List, Menu } from 'semantic-ui-react';
 function Footer() {
   return (
     <div className="footer">
-      <Menu fixed="bottom">
+      
         <List>
           <List.Item disabled href="#">
             © The Dev Corner, Inc
@@ -16,7 +16,7 @@ function Footer() {
         <List horizontal>
           <List.Item href="#">About Us</List.Item>
         </List>
-      </Menu>
+      
     </div>
   );
 }
