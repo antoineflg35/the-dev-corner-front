@@ -4,12 +4,12 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { updateFieldAddResponses, addResponse } from '../../actions/response';
+import { updateFieldAddResponses, addResponse} from '../../actions/response';
 
 function AddComment() {
-  const dispatch = useDispatch();
-  const { id } = useParams();
-  const numberId = parseInt(id, 10);
+  const dispatch = useDispatch()
+  // const { id } = useParams();
+  // const numberId = parseInt(id, 10);
   const description = useSelector((state) => state.response.description);
 
   return (
@@ -81,7 +81,7 @@ function AddComment() {
         reply
         onSubmit={(event) => {
           event.preventDefault();
-          dispatch(addResponse(numberId));
+          dispatch(addResponse());
         }}
       >
         <Form.TextArea

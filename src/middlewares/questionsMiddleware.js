@@ -24,6 +24,7 @@ const questionsMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       break;
+
     default:
   }
   // on passe l'action au suivant (middleware suivant ou reducer)

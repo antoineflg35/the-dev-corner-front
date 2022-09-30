@@ -1,4 +1,4 @@
-import { UPDATE_FIELD_ADD_RESPONSES, ADD_RESPONSE, CLEAN_RESPONSE } from '../actions/response';
+import { UPDATE_FIELD_ADD_RESPONSES, ADD_RESPONSE, UPDATE_ID } from '../actions/response';
 
 const initialState = {
   // response: [],
@@ -27,8 +27,14 @@ const reducer = (state = initialState, action = {}) => {
     case ADD_RESPONSE: {
       return {
         ...state,
-        question_id: action.value,
+        question_id: state.question_id,
         description: state.description,
+      };
+    }
+    case UPDATE_ID: {
+      return {
+        ...state,
+        question_id: action.value,
       };
     }
     // case CLEAN_RESPONSE: {

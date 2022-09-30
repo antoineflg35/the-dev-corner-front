@@ -5,21 +5,33 @@ import { ADD_RESPONSE, cleanResponse } from '../actions/response';
 const responsesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ADD_RESPONSE:
-      const config = {
-        headers: { Authorization: `Bearer ${store.getState().user.token}` },
-      };
-      const bodyParameters = {
-        question_id: store.getState().response.question_id,
-        description: store.getState().response.description,
-      };
+      axios({
+        method: 'post',
+        url: 'http://localhost:8001/api/v1/responses/add',
+        data: {
+          question_id: store.getState().response.question_id,
+          description: store.getState().response.description,
+        },
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          Authorization: `Bearer ${store.getState().user.token}`,
+        },
+      })
+      // const config = {
+      //   headers: { Authorization: `Bearer ${store.getState().user.token}` },
+      // };
+      // const bodyParameters = {
+      //   question_id: store.getState().response.question_id,
+      //   description: store.getState().response.description,
+      // };
 
-      axios.post(
-        'http://localhost:8001/api/v1/responses/add',
-        bodyParameters,
-        config,
-      )
+      // axios.post(
+      //   'http://localhost:8001/api/v1/responses/add',
+      //   bodyParameters,
+      //   config,
+      // )
         .then((response) => {
-          console.log(response)
+          console.log(response);
           // store.dispatch(cleanResponse());
         })
         .catch(console.log);

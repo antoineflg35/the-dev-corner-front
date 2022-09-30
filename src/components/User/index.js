@@ -108,7 +108,7 @@ function User() {
           <Form.Group widths="equal">
             <h3>Choisissez vos technologies préférées</h3>
             <Checkbox
-              label="js"
+              label="JS"
               // value={js}
               onChange={(e, data) => {
                 // setCheckedJs(data.checked);
@@ -131,7 +131,7 @@ function User() {
               checked={js}
             />
             <Checkbox
-              label="php"
+              label="PHP"
               // value={js}
               onChange={(e, data) => {
                 // setCheckedJs(data.checked);
