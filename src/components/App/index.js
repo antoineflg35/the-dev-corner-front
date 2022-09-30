@@ -16,7 +16,7 @@ import DetailEvent from '../DetailEvent';
 import Events from '../Events';
 import NotFound from '../NotFound';
 import NotConnected from '../NotConnected';
-import Footer from '../Footer';
+import Footers from '../Footers';
 
 
 // == Composant
@@ -30,7 +30,7 @@ function App() {
   const navigate = useNavigate();
   // First page to display depending on whether the user is logged in or not
   useEffect(() => {
-    if (!token) {
+    if (token) {
       navigate('/');
       dispatch(fetchQuestions());
     }
@@ -92,7 +92,7 @@ function App() {
           </Routes>
         </>
       )}
-      <Footer />
+      <Footers />
 
     </div>
   );
