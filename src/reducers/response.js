@@ -2,7 +2,7 @@ import { UPDATE_FIELD_ADD_RESPONSES, ADD_RESPONSE, CLEAN_RESPONSE } from '../act
 
 const initialState = {
   // response: [],
-  question_id: '',
+  question_id: null,
   description: '',
 };
 
@@ -31,14 +31,13 @@ const reducer = (state = initialState, action = {}) => {
         description: state.description,
       };
     }
-    case CLEAN_RESPONSE: {
-      return {
-        ...state,
-        question_id: null,
-        description: '',
-        
-      };
-    }
+    // case CLEAN_RESPONSE: {
+    //   return {
+    //     ...state,
+    //     question_id: null,
+    //     description: '',
+    //   };
+    // }
     default:
       return state;
   }

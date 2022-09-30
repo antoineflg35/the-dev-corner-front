@@ -10,8 +10,6 @@ function AddComment() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const numberId = parseInt(id, 10);
-  console.log(id);
-  console.log(numberId);
   const description = useSelector((state) => state.response.description);
 
   return (
