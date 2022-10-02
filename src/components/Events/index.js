@@ -2,6 +2,8 @@ import {
   Card, Button, Image, List, Container, Grid,
 } from 'semantic-ui-react';
 
+import {Link} from 'react-router-dom';
+
 import Event from './Event';
 
 import './styles.scss';
@@ -34,10 +36,12 @@ function Events() {
 
               </Card>
               <div className="button_ask_question">
+                <Link to="/events/add">
                 <Button
                   content="Proposer son evenement"
                   primary
                 />
+                </Link>
               </div>
             </Grid.Column>
 
