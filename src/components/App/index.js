@@ -99,6 +99,10 @@ function App() {
               path="/events/add"
               element={<AddEvent />}
             />
+            <Route
+              path="/events/details/:id"
+              element={<DetailEvent />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </>
