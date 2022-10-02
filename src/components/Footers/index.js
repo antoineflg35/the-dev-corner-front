@@ -15,7 +15,7 @@ function Footers (){
     <div>
       {isMobile && <Footer />
  }
-{isBigScreen && <Menu fixed="bottom"   widths='9' size=''>
+  {isBigScreen && <Menu fixed="bottom"   widths='9' size=''>
     <Menu.Item
       name='Nous Contacter'
       

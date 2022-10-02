@@ -2,13 +2,15 @@ import {
   List, Image, Icon, Statistic,
 } from 'semantic-ui-react';
 
+import avatar from '../../assets/images/avatar.jpeg'
+
 function Informations() {
   return (
     <div className="informations_page_questions">
       <div className="questions_closed">
         <List>
           <List.Item>
-            <Image avatar src="src\assets\images\image1.png" />
+            <Image avatar src={avatar} />
             <List.Content>
               <List.Header as="a">Pseudo 1</List.Header>
               <List.Description>
@@ -21,7 +23,7 @@ function Informations() {
             </List.Content>
           </List.Item>
           <List.Item>
-            <Image avatar src="/images/avatar/small/lindsay.png" />
+            <Image avatar src={avatar} />
             <List.Content>
               <List.Header as="a">Pseudo 2</List.Header>
               <List.Description>
@@ -34,7 +36,7 @@ function Informations() {
             </List.Content>
           </List.Item>
           <List.Item>
-            <Image avatar src="/images/avatar/small/matthew.png" />
+            <Image avatar src={avatar} />
             <List.Content>
               <List.Header as="a">Pseudo 3</List.Header>
               <List.Description>
@@ -47,7 +49,7 @@ function Informations() {
             </List.Content>
           </List.Item>
           <List.Item>
-            <Image avatar src="/images/avatar/small/jenny.jpg" />
+            <Image avatar src={avatar}  />
             <List.Content>
               <List.Header as="a">Pseudo 4</List.Header>
               <List.Description>
@@ -60,7 +62,7 @@ function Informations() {
             </List.Content>
           </List.Item>
           <List.Item>
-            <Image avatar src="/images/avatar/small/veronika.jpg" />
+            <Image avatar src={avatar}  />
             <List.Content>
               <List.Header as="a">Pseudo 5</List.Header>
               <List.Description>Has not watched anything recently</List.Description>

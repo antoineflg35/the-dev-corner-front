@@ -20,8 +20,13 @@ function Event() {
           deja 25 participants /200 participants
         </p>
         <div>
-          <Button primary>voir plus</Button>
-          <Button primary>s'inscrire</Button>
+          <div className='button-top'>
+          <Button compact primary> voir plus</Button>
+          </div>
+          <div className='button-bottom'>         
+             <Button compact primary>s'inscrire</Button>
+          </div>
+
         </div>
 
       </div>
