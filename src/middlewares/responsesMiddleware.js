@@ -31,10 +31,10 @@ const responsesMiddleware = (store) => (next) => (action) => {
       //   config,
       // )
         .then((response) => {
-          console.log(response);
+          console.log();
           // store.dispatch(cleanResponse());
         })
-        .catch(console.log);
+        .catch(console.log(store.getState().user.token));
       break;
     default:
   }

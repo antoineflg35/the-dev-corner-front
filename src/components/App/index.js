@@ -3,8 +3,8 @@ import './styles.scss';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchQuestions } from '../../actions/questions';
-import { fetchEvents } from '../../actions/events';
+import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
+// import { fetchEvents } from '../../actions/events';
 
 import Header from '../Header';
 import Home from '../Home';
@@ -37,6 +37,7 @@ function App() {
       dispatch(fetchQuestions());
       // dispatch(fetchEvents());
     }
+    else dispatch(fetchQuestionsLastFive());
   }, [loggedUser]);
 
   return (

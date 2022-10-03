@@ -1,4 +1,6 @@
-import { SAVE_QUESTIONS, UPDATE_FIELD_ADD_QUESTIONS, ADD_QUESTION } from '../actions/questions';
+import {
+  SAVE_QUESTIONS, SAVE_LAST_FIVE_QUESTIONS, UPDATE_FIELD_ADD_QUESTIONS, ADD_QUESTION,
+} from '../actions/questions';
 
 const initialState = {
   list: [],
@@ -10,6 +12,11 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_QUESTIONS:
+      return {
+        ...state,
+        list: action.questions,
+      };
+    case SAVE_LAST_FIVE_QUESTIONS:
       return {
         ...state,
         list: action.questions,

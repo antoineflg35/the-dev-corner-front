@@ -1,12 +1,12 @@
 import { Card, List } from 'semantic-ui-react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
-
+import { useParams, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Main() {
+  const { id } = useParams();
+  const data = useSelector((state) => state.questions.list);
+  console.log(data);
 
-  const {id}= useParams();
   return (
     <div className="main">
 
@@ -15,24 +15,28 @@ function Main() {
         <Card>
           <Card.Content>
             <List>
-              <List.Item>
-                <List.Icon name="question" />
-                <List.Content>
-                  <Link to = {`/questions/details/${id}`}>
-                  <List.Header as="a">Question 1</List.Header>
-                  </Link>
-                  <List.Description>
-                    An excellent polish restaurant, quick delivery and hearty, filling
-                    meals.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="question" />
-                <List.Content>
-                <Link to = {`/questions/details/${id}`}>
+              {
+                data.map((question) => (
+                  <List.Item>
+                    <List.Icon name="question" />
+                    <List.Content>
+                      <Link to={`/questions/details/${question.id}`}>
+                        <List.Header as="a">{question.title}</List.Header>
+                      </Link>
+                      <List.Description>
+                        {question.description}
+                      </List.Description>
+                    </List.Content>
+                  </List.Item>
+                ))
+              }
 
-                  <List.Header as="a">Question 2</List.Header>
+              {/* <List.Item>
+                <List.Icon name="question" />
+                <List.Content>
+                  <Link to={`/questions/details/${id}`}>
+
+                    <List.Header as="a">Question 2</List.Header>
                   </Link>
                   <List.Description>
                     A taste of Shaanxi's delicious culinary traditions, with delights like
@@ -43,9 +47,9 @@ function Main() {
               <List.Item>
                 <List.Icon name="question" />
                 <List.Content>
-                <Link to = {`/questions/details/${id}`}>
+                  <Link to={`/questions/details/${id}`}>
 
-                  <List.Header as="a">Question 3</List.Header>
+                    <List.Header as="a">Question 3</List.Header>
                   </Link>
                   <List.Description>
                     Greenpoint's best choice for quick and delicious sushi.
@@ -55,15 +59,15 @@ function Main() {
               <List.Item>
                 <List.Icon name="question" />
                 <List.Content>
-                <Link to = {`/questions/details/${id}`}>
+                  <Link to={`/questions/details/${id}`}>
 
-                  <List.Header as="a">Question 4</List.Header>
+                    <List.Header as="a">Question 4</List.Header>
                   </Link>
                   <List.Description>
                     At night a bar, during the day a delicious brunch spot.
                   </List.Description>
                 </List.Content>
-              </List.Item>
+              </List.Item> */}
             </List>
           </Card.Content>
         </Card>
@@ -73,9 +77,9 @@ function Main() {
               <List.Item>
                 <List.Icon name="marker" />
                 <List.Content>
-                <Link to = {`/events/details/${id}`}>
+                  <Link to={`/events/details/${id}`}>
 
-                  <List.Header as="a">Evénement 1</List.Header>
+                    <List.Header as="a">Evénement 1</List.Header>
                   </Link>
                   <List.Description>
                     An excellent polish restaurant, quick delivery and hearty, filling
@@ -86,9 +90,9 @@ function Main() {
               <List.Item>
                 <List.Icon name="marker" />
                 <List.Content>
-                <Link to = {`/events/details/${id}`}>
+                  <Link to={`/events/details/${id}`}>
 
-                  <List.Header as="a">Evénement 2</List.Header>
+                    <List.Header as="a">Evénement 2</List.Header>
                   </Link>
                   <List.Description>
                     A taste of Shaanxi's delicious culinary traditions, with delights like
@@ -99,9 +103,9 @@ function Main() {
               <List.Item>
                 <List.Icon name="marker" />
                 <List.Content>
-                <Link to = {`/events/details/${id}`}>
+                  <Link to={`/events/details/${id}`}>
 
-                  <List.Header as="a">Evénement 3</List.Header>
+                    <List.Header as="a">Evénement 3</List.Header>
                   </Link>
                   <List.Description>
                     Greenpoint's best choice for quick and delicious sushi.
@@ -111,9 +115,9 @@ function Main() {
               <List.Item>
                 <List.Icon name="marker" />
                 <List.Content>
-                <Link to = {`/events/details/${id}`}>
+                  <Link to={`/events/details/${id}`}>
 
-                  <List.Header as="a">Evénement 4</List.Header>
+                    <List.Header as="a">Evénement 4</List.Header>
                   </Link>
                   <List.Description>
                     At night a bar, during the day a delicious brunch spot.
