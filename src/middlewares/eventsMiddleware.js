@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { FETCH_QUESTIONS, saveQuestions } from '../actions/questions';
+import { FETCH_EVENTS, saveEvents } from '../actions/events';
 
-const questionsMiddleware = (store) => (next) => (action) => {
+const eventsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case FETCH_QUESTIONS:
+    case FETCH_EVENTS:
       axios.get(
         'http://localhost:8001/api/v1/questions',
         {
@@ -17,7 +17,7 @@ const questionsMiddleware = (store) => (next) => (action) => {
           // conseil : vérifier qu'on cible bien les infos dans la réponse
           // avec un console.log avant d'écrire le dispatch
           // console.log(response);
-          store.dispatch(saveQuestions(response.data.questions));
+          store.dispatch(saveEvents(response.data.questions));
           console.log(response.data.questions[0].user.pseudo);
         })
         .catch((error) => {
@@ -30,4 +30,4 @@ const questionsMiddleware = (store) => (next) => (action) => {
   // on passe l'action au suivant (middleware suivant ou reducer)
   next(action);
 };
-export default questionsMiddleware;
+export default eventsMiddleware;

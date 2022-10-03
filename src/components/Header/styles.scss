@@ -1,7 +1,39 @@
-.header {
-  width: 100%;
+// .header {
+//   width: 100%;
+// }
+
+// .link{
+//   text-decoration: underline;
+// }
+.menu-link {
+  // display: block;
+  // padding: 10px;
+  // transition: color .2s, box-shadow .4s;
+  // color: rgba(255,255,255,.75);
+  text-decoration: none;
+  background-color: azure;
+  &:hover{
+    background-color: rgb(16, 209, 239);
+  }
+ 
+  &--active {
+    // color: pink;
+    // box-shadow: inset -3px 0 0 red;
+    // text-decoration: underline;
+   
+
+    background-color: #e41d4b;
+   
+  
+    
+     
+
+    
+  }
+
+ 
 }
 
-.link{
-  text-decoration: underline;
-}
+
+
+ 

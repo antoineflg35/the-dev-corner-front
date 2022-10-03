@@ -22,8 +22,6 @@ const authMiddleware = (store) => (next) => (action) => {
           // console.log(response);
           console.log(response);
           store.dispatch(saveDataUser(response.data.pseudo, response.data.token));
-          // localStorage.setItem('token', response.data.token);
-          // localStorage.getItem('token');
         })
         .catch((error) => {
           console.log(error);

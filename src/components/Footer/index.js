@@ -1,9 +1,10 @@
-import { List } from 'semantic-ui-react';
-
+import { List, Menu } from 'semantic-ui-react';
+import './styles.scss';
 function Footer() {
   return (
-    <div>
-      <List floated="right" horizontal>
+    <div className="footer">
+
+      <List>
         <List.Item disabled href="#">
           © The Dev Corner, Inc
         </List.Item>
@@ -15,6 +16,7 @@ function Footer() {
       <List horizontal>
         <List.Item href="#">About Us</List.Item>
       </List>
+
     </div>
   );
 }

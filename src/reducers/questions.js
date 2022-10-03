@@ -4,7 +4,7 @@ const initialState = {
   list: [],
   titleNewQuestion: '',
   descriptionNewQuestion: '',
-  tagNewQuestion: '',
+  tagNewQuestion: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -21,9 +21,8 @@ const reducer = (state = initialState, action = {}) => {
       };
     case ADD_QUESTION: {
       const newQuestion = {
-        id: 22,
         title: state.titleNewQuestion,
-        content: state.descriptionNewQuestion,
+        description: state.descriptionNewQuestion,
         tag: state.tagNewQuestion,
       };
       const questionCopy = [...state.list, newQuestion];

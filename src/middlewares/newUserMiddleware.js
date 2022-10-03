@@ -7,10 +7,6 @@ const newUserMiddleware = (store) => (next) => (action) => {
       axios.post(
         'http://localhost:8001/api/v1/user',
         {
-          // on utilise les infos du formulaire : on les récupère dans le state
-          // (champs contrôlés). Attention un middleware n'est pas un composant
-          // React, donc on ne peut pas utiliser les hooks (useSelector, useDispatch)
-          // => store.getState()
           firstname: store.getState().newUser.firstname,
           lastname: store.getState().newUser.lastname,
           pseudo: store.getState().newUser.pseudo,
@@ -27,7 +23,7 @@ const newUserMiddleware = (store) => (next) => (action) => {
           // avec un console.log avant d'écrire le dispatch
           // console.log(response);
           console.log(response);
-          // store.dispatch(saveDataUser());
+          store.dispatch(saveDataUser());
         })
         .catch((error) => {
           console.log(error);
