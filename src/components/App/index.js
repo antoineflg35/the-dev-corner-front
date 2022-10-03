@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
-import { fetchEvents } from '../../actions/events';
+// import { fetchEvents } from '../../actions/events';
 
 import Header from '../Header';
 import Home from '../Home';

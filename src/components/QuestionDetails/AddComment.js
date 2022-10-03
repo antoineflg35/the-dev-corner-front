@@ -3,36 +3,39 @@ import {
 } from 'semantic-ui-react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { updateFieldAddResponses, addResponse} from '../../actions/response';
+import { updateFieldAddResponses, addResponse } from '../../actions/response';
 
-function AddComment() {
-  const dispatch = useDispatch()
-  // const { id } = useParams();
-  // const numberId = parseInt(id, 10);
+function AddComment({ responses }) {
+  const dispatch = useDispatch();
   const description = useSelector((state) => state.response.description);
+  console.log(responses)
 
   return (
     <Comment.Group>
       <Header as="h3" dividing>
         Réponses
       </Header>
+      {
+        responses.map((response) => (
+          <Comment>
+            <Comment.Avatar src="/images/avatar/small/matt.jpg" />
+            <Comment.Content>
+              <Comment.Author as="a">{response.user.pseudo}</Comment.Author>
+              <Comment.Metadata>
+                <div>Today at 5:42PM</div>
+              </Comment.Metadata>
+              <Comment.Text>
+                {response.description}
+              </Comment.Text>
+              <Comment.Actions>
+                <Comment.Action>Reply</Comment.Action>
+              </Comment.Actions>
+            </Comment.Content>
+          </Comment>
+        ))
+      }
 
-      <Comment>
-        <Comment.Avatar src="/images/avatar/small/matt.jpg" />
-        <Comment.Content>
-          <Comment.Author as="a">Matt</Comment.Author>
-          <Comment.Metadata>
-            <div>Today at 5:42PM</div>
-          </Comment.Metadata>
-          <Comment.Text>How artistic!</Comment.Text>
-          <Comment.Actions>
-            <Comment.Action>Reply</Comment.Action>
-          </Comment.Actions>
-        </Comment.Content>
-      </Comment>
-
-      <Comment>
+      {/* <Comment>
         <Comment.Avatar src="/images/avatar/small/elliot.jpg" />
         <Comment.Content>
           <Comment.Author as="a">Elliot Fu</Comment.Author>
@@ -75,7 +78,7 @@ function AddComment() {
             <Comment.Action>Reply</Comment.Action>
           </Comment.Actions>
         </Comment.Content>
-      </Comment>
+      </Comment> */}
 
       <Form
         reply
