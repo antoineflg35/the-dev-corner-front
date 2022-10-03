@@ -21,8 +21,6 @@ import NotFound from '../NotFound';
 import NotConnected from '../NotConnected';
 import Footers from '../Footers';
 
-
-
 // == Composant
 function App() {
   const dispatch = useDispatch();
@@ -37,9 +35,8 @@ function App() {
     if (loggedUser) {
       navigate('/');
       dispatch(fetchQuestions());
-      dispatch(fetchEvents());
+      // dispatch(fetchEvents());
     }
-   
   }, [loggedUser]);
 
   return (
@@ -47,7 +44,7 @@ function App() {
       {/* Routes if user is not logged in */}
       {!loggedUser
        && (
-       <><Routes>
+       <Routes>
          <Route
            path="/"
            element={<Presentation />}
@@ -62,7 +59,6 @@ function App() {
          />
          <Route path="*" element={<NotConnected />} />
        </Routes>
-       </>
        )}
       {/* Routes if user is logged in */}
       {loggedUser
@@ -82,7 +78,7 @@ function App() {
               path="/events"
               element={<Events />}
             />
-            
+
             <Route
               path="/events/details"
               element={<DetailEvent />}
@@ -107,8 +103,8 @@ function App() {
           </Routes>
         </>
       )}
-      
-      <Footers/>
+
+      <Footers />
 
     </div>
   );
