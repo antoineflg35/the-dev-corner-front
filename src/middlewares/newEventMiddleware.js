@@ -7,16 +7,14 @@ const newEventMiddleware = (store) => (next) => (action) => {
     case ADD_EVENT:
       axios({
         method: 'post',
-        url: 'http://localhost:8001/api/v1/questions/add',
+        // url: 'http://localhost:8001/api/v1/questions/add',
         data: {
           titleNewEvent: store.getState().events.titleNewEvent,
           descriptionNewEvent: store.getState().events.descriptionNewEvent,
           tagNewEvent: store.getState().events.tagNewEvent,
           department: store.getState().events.department,
-          particapant:store.getState().events. nb_participant_max,
-          date:store.getState().events. date,
-
-         
+          particapant: store.getState().events.nb_participant_max,
+          date: store.getState().events.date,
 
         },
         headers: {
