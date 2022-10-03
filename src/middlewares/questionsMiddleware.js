@@ -6,11 +6,11 @@ const questionsMiddleware = (store) => (next) => (action) => {
     case FETCH_QUESTIONS:
       axios.get(
         'http://localhost:8001/api/v1/questions',
-        {
-          headers: {
-            Authorization: `bearer ${store.getState().user.token}`,
-          },
-        },
+        // {
+        //   headers: {
+        //     Authorization: `Bearer ${store.getState().user.token}`,
+        //   },
+        // },
       )
         .then((response) => {
           // console.log(response);
