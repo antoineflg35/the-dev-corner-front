@@ -26,6 +26,7 @@ function Questions({ data }) {
                 />
               </div>
             </Card>
+
           </Link>
         ))}
 

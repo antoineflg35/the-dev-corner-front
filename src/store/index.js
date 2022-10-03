@@ -16,7 +16,7 @@ const enhancers = composeEnhancers(
     authMiddleware,
     newUserMiddleware,
     responsesMiddleware,
-    addQuestionMiddleware
+    addQuestionMiddleware,
   ),
 );
 
