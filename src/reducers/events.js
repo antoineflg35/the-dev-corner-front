@@ -1,4 +1,4 @@
-import { SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT } from '../actions/events';
+import { SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS } from '../actions/events';
 
 const initialState = {
   list:[],
@@ -16,6 +16,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.events,
+      };
+      case SAVE_LAST_FIVE_EVENTS:
+      return {
+        ...state,
+        list: action.questions,
       };
     case UPDATE_FIELD_ADD_EVENTS:
       return {

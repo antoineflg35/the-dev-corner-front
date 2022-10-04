@@ -34,7 +34,6 @@ const questionsMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           store.dispatch(saveLastFiveQuestions(response.data.questionRepository));
-          console.log(response);
           // console.log(response.data.questions[0].user.pseudo);
         })
         .catch((error) => {

@@ -1,6 +1,6 @@
 import { Button, Card, Image } from 'semantic-ui-react';
 
-import entreprise from '../../assets/images/entreprise.jpg'
+import entreprise from '../../assets/images/entreprise.jpg';
 
 import './styles.scss';
 

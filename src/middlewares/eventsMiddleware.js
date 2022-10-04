@@ -1,5 +1,5 @@
 // import axios from 'axios';
-// import { FETCH_EVENTS, saveEvents } from '../actions/events';
+import { FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE, saveEvents, saveLastFiveEvents } from '../actions/events';
 
 // const eventsMiddleware = (store) => (next) => (action) => {
 //   switch (action.type) {
@@ -24,6 +24,23 @@
 //           console.log(error);
 //         });
 //       break;
+        // case FETCH_EVENTS_LAST_FIVE:
+        //   axios.get(
+        //     'http://localhost:8001/api/v1/last/questions',
+        //     // {
+        //     //   headers: {
+        //     //     Authorization: `Bearer ${store.getState().user.token}`,
+        //     //   },
+        //     // },
+        //   )
+        //     .then((response) => {
+        //       store.dispatch(saveLastFiveEvents(response.data.eventRepository));
+        //       // console.log(response.data.questions[0].user.pseudo);
+        //     })
+        //     .catch((error) => {
+        //       console.log(error);
+        //     });
+        //   break;
 
 //     default:
 //   }
