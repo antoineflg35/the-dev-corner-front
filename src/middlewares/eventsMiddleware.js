@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE, saveEvents, saveLastFiveEvents,
+  FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE, DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents,
 } from '../actions/events';
 
 const eventsMiddleware = (store) => (next) => (action) => {
@@ -25,6 +25,18 @@ const eventsMiddleware = (store) => (next) => (action) => {
     case FETCH_EVENTS_LAST_FIVE:
       axios.get(
         'http://localhost:8001/api/v1/last/events',
+      )
+        .then((response) => {
+          store.dispatch(saveLastFiveEvents(response.data.eventRepository));
+          // console.log(response.data.questions[0].user.pseudo);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case DISPLAY_EVENT_DETAILS:
+      axios.get(
+        `http://localhost:8001/api/v1/events/${store.getState().events.id}`,
       )
         .then((response) => {
           store.dispatch(saveLastFiveEvents(response.data.eventRepository));

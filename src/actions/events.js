@@ -6,6 +6,10 @@ export const UPDATE_FIELD_ADD_EVENTS = 'UPDATE_FIELD_ADD_EVENTS';
 export const ADD_EVENT= 'ADD_EVENT';
 export const FETCH_EVENTS_LAST_FIVE = 'FETCH_EVENTS_LAST_FIVE';
 export const SAVE_LAST_FIVE_EVENTS = 'SAVE_LAST_FIVE_EVENTS';
+export const DISPLAY_EVENT_DETAILS = 'DISPLAY_EVENT_DETAILS';
+export const SAVE_ONE_EVENT_DETAILS = 'SAVE_ONE_EVENT_DETAILS';
+export const DISPLAY_LIST_DEPARTMENT = 'DISPLAY_LIST_DEPARTMENT';
+export const SAVE_DEPARTMENT = 'SAVE_DEPARTMENT';
  
 // Actions creators
 
@@ -38,5 +42,21 @@ export const addEvent= () => ({
   type: ADD_EVENT,
 });
 
+export const displayEventDetails = () => ({
+  type: DISPLAY_EVENT_DETAILS,
+});
 
+export const saveOneEventDetails = (event) => ({
+  type: SAVE_ONE_EVENT_DETAILS,
+  value: event,
+});
+
+export const displayListDepartment = () => ({
+  type: DISPLAY_LIST_DEPARTMENT,
+});
+
+export const saveDepartment = (department) => ({
+  type: SAVE_DEPARTMENT,
+  value: department,
+});
 

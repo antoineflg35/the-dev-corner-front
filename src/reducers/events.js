@@ -1,5 +1,5 @@
 import {
-  SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS,
+  SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS, SAVE_DEPARTMENT,
 } from '../actions/events';
 
 const initialState = {
@@ -7,7 +7,9 @@ const initialState = {
   titleNewEvent: '',
   descriptionNewEvent: '',
   tagNewEvent: '',
-  department: '',
+  adress: '',
+  department_number: null,
+  department_list: [],
   nb_participant_max: null,
   date: '',
 };
@@ -29,11 +31,20 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.fieldIdentifier]: action.value,
       };
+    case SAVE_DEPARTMENT:
+      return {
+        ...state,
+        department_list: action.value,
+      };
     case ADD_EVENT: {
       const newEvent = {
-        titleNewEvent: state.titleNewEvent,
-        descriptionNewEvent: state.descriptionNewEvent,
-        tagNewEvent: state.tagNewEvent,
+        title: state.titleNewEvent,
+        description: state.descriptionNewEvent,
+        tag: state.tagNewEvent,
+        department: state.department,
+        adress: state.adress,
+        nb_participant_max: state.nb_participant_max,
+        date: state.date,
       };
       const eventCopy = [...state.list, newEvent];
       return {
