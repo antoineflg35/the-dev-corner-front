@@ -1,6 +1,10 @@
 import {
-  SAVE_QUESTIONS, SAVE_LAST_FIVE_QUESTIONS, UPDATE_FIELD_ADD_QUESTIONS, ADD_QUESTION,
+  SAVE_QUESTIONS, SAVE_LAST_FIVE_QUESTIONS, UPDATE_FIELD_ADD_QUESTIONS,
+  ADD_QUESTION, UPDATE_LIST_QUESTIONS, ADD_NEW_RESPONSE,
 } from '../actions/questions';
+// import {
+//   UPDATE_RESPONSE,
+// } from '../actions/response';
 
 const initialState = {
   list: [],
@@ -38,6 +42,23 @@ const reducer = (state = initialState, action = {}) => {
         list: questionCopy,
       };
     }
+    // case UPDATE_LIST_QUESTIONS: {
+    //   const newResponse = {
+    //     responses: action.value,
+    //   };
+    //   const responseCopy = [...state.list, newResponse];
+    //   return {
+    //     ...state,
+    //     list: responseCopy,
+    //   };
+    // }
+    // case UPDATE_RESPONSE: {
+    //   return {
+    //     ...state,
+    //     list:state.list,
+    //   };
+    // };
+
     default:
       return state;
   }

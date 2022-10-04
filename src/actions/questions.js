@@ -6,6 +6,9 @@ export const SAVE_QUESTIONS = 'SAVE_QUESTIONS';
 export const SAVE_LAST_FIVE_QUESTIONS = 'SAVE_LAST_FIVE_QUESTIONS';
 export const UPDATE_FIELD_ADD_QUESTIONS = 'UPDATE_FIELD_ADD_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
+export const UPDATE_LIST_QUESTIONS = 'UPDATE_LIST_QUESTIONS';
+// export const ADD_NEW_RESPONSE = 'ADD_NEW_RESPONSE';
+
  
 // Actions creators
 
@@ -33,6 +36,17 @@ export const addQuestion = () => ({
   type: ADD_QUESTION,
 });
 
-export const fetchQuestionsLastFive = () => ({
+export const fetchQuestionsLastFive = (responses) => ({
   type: FETCH_QUESTIONS_LAST_FIVE,
+  value: responses,
 });
+
+export const updateListQuestions = (responses) => ({
+  type: UPDATE_LIST_QUESTIONS,
+  value: responses,
+})
+
+// export const addNewResponse = (responses) => ({
+//   type: ADD_NEW_RESPONSE,
+//   value: responses,
+// });

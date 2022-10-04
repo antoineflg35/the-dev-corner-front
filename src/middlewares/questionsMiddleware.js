@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { FETCH_QUESTIONS, FETCH_QUESTIONS_LAST_FIVE, saveQuestions, saveLastFiveQuestions } from '../actions/questions';
+import {
+  FETCH_QUESTIONS, FETCH_QUESTIONS_LAST_FIVE,
+  saveQuestions, saveLastFiveQuestions,
+} from '../actions/questions';
 
 const questionsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
