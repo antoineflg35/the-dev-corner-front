@@ -36,11 +36,17 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
     case DISPLAY_EVENT_DETAILS:
       axios.get(
-        `http://localhost:8001/api/v1/events/${store.getState().events.id}`,
+        `http://localhost:8001/api/v1/events/${store.getState().events.event_id}`,
+        {
+          headers: {
+            Authorization: `bearer ${store.getState().user.token}`,
+          },
+        },
       )
         .then((response) => {
-          store.dispatch(saveLastFiveEvents(response.data.eventRepository));
-          // console.log(response.data.questions[0].user.pseudo);
+          console.log(response);
+          store.dispatch(saveLastFiveEvents(response.data));
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);

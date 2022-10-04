@@ -10,7 +10,7 @@ export const DISPLAY_EVENT_DETAILS = 'DISPLAY_EVENT_DETAILS';
 export const SAVE_ONE_EVENT_DETAILS = 'SAVE_ONE_EVENT_DETAILS';
 export const DISPLAY_LIST_DEPARTMENT = 'DISPLAY_LIST_DEPARTMENT';
 export const SAVE_DEPARTMENT = 'SAVE_DEPARTMENT';
- 
+export const UPDATE_ID_EVENTS = 'UPDATE_ID_EVENTS';
 // Actions creators
 
 export const fetchEvents = () => ({
@@ -20,6 +20,7 @@ export const fetchEvents = () => ({
 export const saveEvents = (events) => ({
   type: SAVE_EVENTS,
   events: events,
+  
 });
 
 export const fetchEventsLastFive = (responses) => ({
@@ -58,5 +59,10 @@ export const displayListDepartment = () => ({
 export const saveDepartment = (department) => ({
   type: SAVE_DEPARTMENT,
   value: department,
+});
+
+export const updateIdEvents = (id) =>({
+  type: UPDATE_ID_EVENTS,
+  value: id,
 });
 
