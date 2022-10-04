@@ -3,12 +3,17 @@ import './styles.scss';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchQuestions } from '../../actions/questions';
+import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
+import { updateResponse } from '../../actions/response';
+
+// import { fetchEvents } from '../../actions/events';
+
 import Header from '../Header';
 import Home from '../Home';
 import Presentation from '../Presentation';
 import ListQuestions from '../ListQuestions';
 import AddQuestion from '../AddQuestion';
+import AddEvent from '../AddEvent';
 import QuestionDetails from '../QuestionDetails';
 import Login from '../Login';
 import User from '../User';
@@ -16,7 +21,7 @@ import DetailEvent from '../DetailEvent';
 import Events from '../Events';
 import NotFound from '../NotFound';
 import NotConnected from '../NotConnected';
-import Footer from '../Footer';
+import Footers from '../Footers';
 
 // == Composant
 function App() {
@@ -24,22 +29,26 @@ function App() {
   const token = useSelector((state) => state.user.token);
   const question = useSelector((state) => (state.questions.list));
   const loggedUser = useSelector((state) => (state.user.logged));
+  // const response = useSelector((state)=>(state.response.description));
+  // const loggedUser = false;
 
   const navigate = useNavigate();
   // First page to display depending on whether the user is logged in or not
   useEffect(() => {
-    if (token) {
+    if (loggedUser) {
       navigate('/');
       dispatch(fetchQuestions());
+      // dispatch(fetchEvents());
     }
-  }, [token]);
+    else dispatch(fetchQuestionsLastFive());
+  }, [loggedUser]);
 
   return (
     <div className="app">
       {/* Routes if user is not logged in */}
-      {!token
+      {!loggedUser
        && (
-       <><Routes>
+       <Routes>
          <Route
            path="/"
            element={<Presentation />}
@@ -53,11 +62,10 @@ function App() {
            element={<User />}
          />
          <Route path="*" element={<NotConnected />} />
-       </Routes><Footer />
-       </>
+       </Routes>
        )}
       {/* Routes if user is logged in */}
-      {token
+      {loggedUser
       && (
         <>
           <Header />
@@ -74,6 +82,7 @@ function App() {
               path="/events"
               element={<Events />}
             />
+
             <Route
               path="/events/details"
               element={<DetailEvent />}
@@ -86,10 +95,20 @@ function App() {
               path="/questions/add"
               element={<AddQuestion />}
             />
+            <Route
+              path="/events/add"
+              element={<AddEvent />}
+            />
+            <Route
+              path="/events/details/:id"
+              element={<DetailEvent />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </>
       )}
+
+      <Footers />
 
     </div>
   );

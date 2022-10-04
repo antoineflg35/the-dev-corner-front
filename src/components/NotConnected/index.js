@@ -1,7 +1,15 @@
+import { Message,Container } from 'semantic-ui-react';
 
 // == Composant
 function NotConnected() {
-  return <div className="not-found">Vous devez être connecté pour avoir accès à ces contenus</div>;
+  return <Container className="not-found">
+    
+    <Message  size='massive' negative>
+    <Message.Header>Vous devez être connecté pour avoir accès à ces contenus</Message.Header>
+    <p>THE DEV CORNER </p>
+  </Message>
+
+    </Container>;
 }
 
 // == Export

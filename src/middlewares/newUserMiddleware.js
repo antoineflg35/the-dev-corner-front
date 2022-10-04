@@ -23,7 +23,7 @@ const newUserMiddleware = (store) => (next) => (action) => {
           // avec un console.log avant d'écrire le dispatch
           // console.log(response);
           console.log(response);
-          store.dispatch(saveDataUser());
+          // store.dispatch(saveDataUser());
         })
         .catch((error) => {
           console.log(error);
