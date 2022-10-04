@@ -19,7 +19,7 @@ function ListQuestions({ data }) {
                   <List.Content>
                     <List.Header as="a">{question.title} {question.user.pseudo}</List.Header>
                     <List.Description>
-                      {question.description.slice(0,25)}
+                      {question.description.slice(0,60)}
                     </List.Description>
                   </List.Content>
                 </List.Item>

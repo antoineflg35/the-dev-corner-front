@@ -1,7 +1,8 @@
 import { Form, Container } from 'semantic-ui-react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFieldAddEvents, addEvent } from '../../actions/events';
+import { useEffect } from 'react';
+import { updateFieldAddEvents, displayListDepartment, addEvent } from '../../actions/events';
 
 import Footers from '../Footers';
 
@@ -13,9 +14,16 @@ function AddEvent() {
   const title = useSelector((state) => state.events.titleNewEvent);
   const description = useSelector((state) => state.events.descriptionNewEvent);
   const tag = useSelector((state) => state.events.tagNewEvent);
-  const department = useSelector((state) => state.events.department);
+  const adress = useSelector((state) => state.events.adress);
+  const department = useSelector((state) => state.events.department_number);
+  const departmentList = useSelector((state) => state.events.department_list);
   const participant = useSelector((state) => state.events.nb_participant_max);
   const date = useSelector((state) => state.events.date);
+ 
+
+  useEffect(() => {
+    dispatch(displayListDepartment());
+  }, []);
 
   return (
     <div>
@@ -80,15 +88,27 @@ function AddEvent() {
                 control="select"
                 value={department}
                 onChange={(event) => {
-                  const action = updateFieldAddEvents(event.target.value, 'department');
+                  const action = updateFieldAddEvents(event.target.value, 'department_number');
                   dispatch(action);
                 }}
               >
-                <option value="iles de france">iles de france</option>
-                <option value="alpes maritimes">alpes maritimes</option>
+                {
+                departmentList.map((d) => <option value={d.code}>{d.code}-{d.nom}</option>)
+                }
+
+                {/* <option value="56">56</option> */}
               </Form.Field>
 
             </Form.Group>
+            <Form.TextArea
+              label="Adresse"
+              placeholder="Adresse de l'événement"
+              value={adress}
+              onChange={(event) => {
+                const action = updateFieldAddEvents(event.target.value, 'adress');
+                dispatch(action);
+              }}
+            />
             <Form.TextArea
               label="Description"
               placeholder="Votre description..."
@@ -104,7 +124,6 @@ function AddEvent() {
         </div>
       </Container>
 
-      <Footers />
     </div>
 
   );

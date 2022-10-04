@@ -1,8 +1,11 @@
 import {
   List, Card,
 } from 'semantic-ui-react';
+import { useSelector } from 'react-redux';
 
 function ListEvents() {
+  const events = useSelector((state) => state.events.list);
+  console.log(events);
   return (
     <Card.Group centered>
 
@@ -20,17 +23,21 @@ function ListEvents() {
       <Card>
         <Card.Content>
           <List>
-            <List.Item>
-              <List.Icon name="marker" />
-              <List.Content>
-                <List.Header as="a">Evénement 1</List.Header>
-                <List.Description>
-                  An excellent polish restaurant, quick delivery and hearty, filling
-                  meals.
-                </List.Description>
-              </List.Content>
-            </List.Item>
-            <List.Item>
+            {
+            events.slice(events.length - 5).map((event) => (
+              <List.Item>
+                <List.Icon name="marker" />
+                <List.Content>
+                  <List.Header as="a">{event.title}</List.Header>
+                  <List.Description>
+                    {event.description}
+                  </List.Description>
+                </List.Content>
+              </List.Item>
+            ))
+          }
+
+            {/* <List.Item>
               <List.Icon name="marker" />
               <List.Content>
                 <List.Header as="a">Evénement 2</List.Header>
@@ -57,7 +64,7 @@ function ListEvents() {
                   At night a bar, during the day a delicious brunch spot.
                 </List.Description>
               </List.Content>
-            </List.Item>
+            </List.Item> */}
           </List>
         </Card.Content>
       </Card>
