@@ -1,13 +1,15 @@
-import { SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS } from '../actions/events';
+import {
+  SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS,
+} from '../actions/events';
 
 const initialState = {
-  list:[],
-  titleNewEvent:'',
-  descriptionNewEvent:'',
-  tagNewEvent:"",
-  department:"",
-  nb_participant_max:null,
-  date:"",
+  list: [],
+  titleNewEvent: '',
+  descriptionNewEvent: '',
+  tagNewEvent: '',
+  department: '',
+  nb_participant_max: null,
+  date: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -17,7 +19,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: action.events,
       };
-      case SAVE_LAST_FIVE_EVENTS:
+    case SAVE_LAST_FIVE_EVENTS:
       return {
         ...state,
         list: action.questions,

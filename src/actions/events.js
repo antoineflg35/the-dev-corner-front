@@ -26,7 +26,7 @@ export const fetchEventsLastFive = (responses) => ({
 export const saveLastFiveEvents = (events) => ({
   type: SAVE_LAST_FIVE_EVENTS,
   questions: events,
-})
+});
 
 export const updateFieldAddEvents = (newValue, fieldIdentifier) => ({
   type: UPDATE_FIELD_ADD_EVENTS,

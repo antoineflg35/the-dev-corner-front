@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
 import { updateResponse } from '../../actions/response';
+import { fetchEventsLastFive } from '../../actions/events';
 
 // import { fetchEvents } from '../../actions/events';
 
@@ -40,7 +41,8 @@ function App() {
       dispatch(fetchQuestions());
       // dispatch(fetchEvents());
     }
-    else dispatch(fetchQuestionsLastFive());
+    else dispatch(fetchQuestionsLastFive())
+    dispatch(fetchEventsLastFive());
   }, [loggedUser]);
 
   return (

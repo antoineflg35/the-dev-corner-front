@@ -5,7 +5,7 @@ import authMiddleware from '../middlewares/authMiddleware';
 import newUserMiddleware from '../middlewares/newUserMiddleware';
 import responsesMiddleware from '../middlewares/responsesMiddleware';
 import addQuestionMiddleware from '../middlewares/newQuestionMiddleware';
-// import eventsMiddleware from '../middlewares/eventsMiddleware';
+import eventsMiddleware from '../middlewares/eventsMiddleware';
 // import newEventMiddleware from '../middlewares/newEventMiddleware';
 
 // pour que le redux dev tool puisse voir notre store
@@ -19,7 +19,7 @@ const enhancers = composeEnhancers(
     newUserMiddleware,
     responsesMiddleware,
     addQuestionMiddleware,
-    // eventsMiddleware,
+    eventsMiddleware,
     // newEventMiddleware
   ),
 );
