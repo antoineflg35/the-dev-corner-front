@@ -11,6 +11,7 @@ export const SAVE_ONE_EVENT_DETAILS = 'SAVE_ONE_EVENT_DETAILS';
 export const DISPLAY_LIST_DEPARTMENT = 'DISPLAY_LIST_DEPARTMENT';
 export const SAVE_DEPARTMENT = 'SAVE_DEPARTMENT';
 export const UPDATE_ID_EVENTS = 'UPDATE_ID_EVENTS';
+
 // Actions creators
 
 export const fetchEvents = () => ({
@@ -65,4 +66,5 @@ export const updateIdEvents = (id) =>({
   type: UPDATE_ID_EVENTS,
   value: id,
 });
+
 

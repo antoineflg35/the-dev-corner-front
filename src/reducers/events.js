@@ -1,5 +1,5 @@
 import {
-  SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS, SAVE_DEPARTMENT, UPDATE_ID_EVENTS
+  SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS, SAVE_DEPARTMENT, UPDATE_ID_EVENTS, SAVE_ONE_EVENT_DETAILS,
 } from '../actions/events';
 
 const initialState = {
@@ -26,6 +26,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.questions,
+      };
+    case SAVE_ONE_EVENT_DETAILS:
+      return {
+        ...state,
+        list: action.value,
       };
     case UPDATE_FIELD_ADD_EVENTS:
       return {

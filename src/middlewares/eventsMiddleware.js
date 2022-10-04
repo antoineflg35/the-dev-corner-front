@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE, DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents,
+  FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE, DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents, saveOneEventDetails
 } from '../actions/events';
 
 const eventsMiddleware = (store) => (next) => (action) => {
@@ -45,7 +45,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
-          store.dispatch(saveLastFiveEvents(response.data));
+          store.dispatch(saveOneEventDetails(response.data));
           console.log(response.data);
         })
         .catch((error) => {
