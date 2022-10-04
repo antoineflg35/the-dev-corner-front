@@ -24,7 +24,7 @@ function Main() {
                         <List.Header as="a">{question.title}</List.Header>
                       </Link>
                       <List.Description>
-                        {question.description}
+                        {question.description.slice(0,65)}
                       </List.Description>
                     </List.Content>
                   </List.Item>
