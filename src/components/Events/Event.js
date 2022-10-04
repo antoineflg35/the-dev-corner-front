@@ -2,7 +2,11 @@ import {
   Button, Card, Image, Icon, List,
 } from 'semantic-ui-react';
 
+import { useParams,Link } from 'react-router-dom';
+
+
 function Event() {
+  const {id} = useParams();
   return (
     <List>
       <div className="top">
@@ -20,8 +24,16 @@ function Event() {
           deja 25 participants /200 participants
         </p>
         <div>
-          <Button primary>voir plus</Button>
-          <Button primary>s'inscrire</Button>
+          <div className='button-top'>
+          <Link to = {`/events/details/${id}`}>
+
+          <Button  compact primary> voir plus</Button>
+          </Link>
+          </div>
+          <div className='button-bottom'>         
+             <Button compact primary>s'inscrire</Button>
+          </div>
+
         </div>
 
       </div>

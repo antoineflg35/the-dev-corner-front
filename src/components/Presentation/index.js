@@ -5,14 +5,14 @@ import Main from './Main';
 
 function Presentation() {
   return (
-    <Container className="container">
+    <Container>
       <div>
         <Link to="/login">
           <Button floated="right" primary>Se connecter</Button>
         </Link>
       </div>
       <div className="header-presentation">
-        <Header as="h1" size="huge"> Bienvenue sur The Dev Corner</Header>
+        <Header as="h1" size="huge" centred> Bienvenue sur <span ><p className='span'>The Dev Corner</p></span></Header>
       </div>
       <Main />
 
@@ -21,8 +21,9 @@ function Presentation() {
           <Button centred primary>Créer un compte</Button>
         </Link>
       </div>
+      </Container>
 
-    </Container>
+    
 
   );
 }

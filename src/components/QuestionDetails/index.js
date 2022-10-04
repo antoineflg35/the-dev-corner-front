@@ -16,22 +16,18 @@ function QuestionDetails() {
   useEffect(() => {
     dispatch(updateId(id));
   }, []);
-  console.log(id);
+  
   const questions = useSelector((state) => state.questions.list);
-  console.log(questions);
-
 
   // eslint-disable-next-line eqeqeq
   const findQuestion = questions.filter((question) => question.id == id);
-  const { title } = findQuestion;
-  // console.log(title);
-  // console.log(findQuestion);
-  // const question = useSelector((state) => findQuestion(state.questions.list, id));
+  // const { responses } = findQuestion;
+  const { responses } = findQuestion[0];
 
   return (
     <div className="questions_details">
       <Content questions={findQuestion} />
-      <AddComment idQuestion={id} />
+      <AddComment idQuestion={id} responses={responses} />
     </div>
   );
 }

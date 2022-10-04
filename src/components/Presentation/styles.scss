@@ -1,13 +1,25 @@
 .main {
-  margin-bottom: 30px;
+  // margin: auto;
+  padding: 20px;
+  
+  
 }
 
-.container{
-  width: max-content;
-}
+// .container{
+//   width: max-content;
+// }
 
 .header-presentation{
-  height: 30vh;
-  font-size: 40px;
-  max-width: auto;
+  
+  font-size: 20px;
+  display: inline-block;
+  // margin: auto;
+  margin-left: auto;
+  padding: 50px;
+  
+}
+.span{
+  // color:purple;
+  font-size: 60px;
+  word-spacing: 0.5rem;
 }
