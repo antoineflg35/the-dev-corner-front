@@ -16,6 +16,7 @@ function QuestionDetails() {
   useEffect(() => {
     dispatch(updateId(id));
   }, []);
+  
   const questions = useSelector((state) => state.questions.list);
 
   // eslint-disable-next-line eqeqeq

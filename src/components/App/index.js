@@ -4,6 +4,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
+import { updateResponse } from '../../actions/response';
+
 // import { fetchEvents } from '../../actions/events';
 
 import Header from '../Header';
@@ -27,6 +29,7 @@ function App() {
   const token = useSelector((state) => state.user.token);
   const question = useSelector((state) => (state.questions.list));
   const loggedUser = useSelector((state) => (state.user.logged));
+  // const response = useSelector((state)=>(state.response.description));
   // const loggedUser = false;
 
   const navigate = useNavigate();
