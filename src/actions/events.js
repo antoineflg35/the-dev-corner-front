@@ -11,6 +11,9 @@ export const SAVE_ONE_EVENT_DETAILS = 'SAVE_ONE_EVENT_DETAILS';
 export const DISPLAY_LIST_DEPARTMENT = 'DISPLAY_LIST_DEPARTMENT';
 export const SAVE_DEPARTMENT = 'SAVE_DEPARTMENT';
 export const UPDATE_ID_EVENTS = 'UPDATE_ID_EVENTS';
+export const SUBSCRIBE_EVENTS = 'SUBSCRIBE_EVENTS';
+export const UNSUBSCRIBE_EVENTS = 'UNSUBSCRIBE_EVENTS';
+
 
 // Actions creators
 
@@ -67,4 +70,11 @@ export const updateIdEvents = (id) =>({
   value: id,
 });
 
+export const subscribeEvents = () => ({
+  type: SUBSCRIBE_EVENTS,
+});
 
+export const unSubscribeEvents = () => ({
+  type: UNSUBSCRIBE_EVENTS,
+
+});
