@@ -1,4 +1,6 @@
-import { Card, List } from 'semantic-ui-react';
+import {
+  Card, List, Header, Icon,
+} from 'semantic-ui-react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -14,6 +16,10 @@ function Main() {
 
         <Card>
           <Card.Content>
+            <Header as="h2" icon textAlign="center">
+              <Icon name="question" circular />
+              <Header.Content>Les dernières questions</Header.Content>
+            </Header>
             <List>
               {
                 data.map((question) => (
@@ -24,7 +30,7 @@ function Main() {
                         <List.Header as="a">{question.title}</List.Header>
                       </Link>
                       <List.Description>
-                        {question.description.slice(0,65)}
+                        {question.description.slice(0, 65)}
                       </List.Description>
                     </List.Content>
                   </List.Item>
@@ -35,6 +41,10 @@ function Main() {
         </Card>
         <Card>
           <Card.Content>
+            <Header as="h2" icon textAlign="center">
+              <Icon name="marker" circular />
+              <Header.Content>Les derniers événements</Header.Content>
+            </Header>
             <List>
               {
                 events.map((event) => (
@@ -52,44 +62,6 @@ function Main() {
                   </List.Item>
                 ))
               }
-
-              {/* <List.Item>
-                <List.Icon name="marker" />
-                <List.Content>
-                  <Link to={`/events/details/${id}`}>
-
-                    <List.Header as="a">Evénement 2</List.Header>
-                  </Link>
-                  <List.Description>
-                    A taste of Shaanxi's delicious culinary traditions, with delights like
-                    spicy cold noodles and lamb burgers.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="marker" />
-                <List.Content>
-                  <Link to={`/events/details/${id}`}>
-
-                    <List.Header as="a">Evénement 3</List.Header>
-                  </Link>
-                  <List.Description>
-                    Greenpoint's best choice for quick and delicious sushi.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="marker" />
-                <List.Content>
-                  <Link to={`/events/details/${id}`}>
-
-                    <List.Header as="a">Evénement 4</List.Header>
-                  </Link>
-                  <List.Description>
-                    At night a bar, during the day a delicious brunch spot.
-                  </List.Description>
-                </List.Content>
-              </List.Item> */}
             </List>
           </Card.Content>
         </Card>

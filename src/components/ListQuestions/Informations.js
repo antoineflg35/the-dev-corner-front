@@ -1,14 +1,18 @@
 import {
-  List, Image, Icon, Statistic,
+  List, Image, Header, Segment, Statistic
 } from 'semantic-ui-react';
 
-import avatar from '../../assets/images/avatar.jpeg'
+import avatar from '../../assets/images/avatar.jpeg';
 
 function Informations() {
+  const square = { width: 175, height: 175 };
   return (
     <div className="informations_page_questions">
       <div className="questions_closed">
         <List>
+          <Header as="h3" textAlign="center" block color="blue">
+            Les dernières questions cloturées
+          </Header>
           <List.Item>
             <Image avatar src={avatar} />
             <List.Content>
@@ -49,7 +53,7 @@ function Informations() {
             </List.Content>
           </List.Item>
           <List.Item>
-            <Image avatar src={avatar}  />
+            <Image avatar src={avatar} />
             <List.Content>
               <List.Header as="a">Pseudo 4</List.Header>
               <List.Description>
@@ -62,7 +66,7 @@ function Informations() {
             </List.Content>
           </List.Item>
           <List.Item>
-            <Image avatar src={avatar}  />
+            <Image avatar src={avatar} />
             <List.Content>
               <List.Header as="a">Pseudo 5</List.Header>
               <List.Description>Has not watched anything recently</List.Description>
@@ -71,37 +75,21 @@ function Informations() {
         </List>
       </div>
       <div className="statistics">
-        <h1>Statistiques de la semaine</h1>
-        <Statistic.Group widths="four">
-          <Statistic>
-            <Statistic.Value>22</Statistic.Value>
-            <Statistic.Label>Saves</Statistic.Label>
-          </Statistic>
-
-          <Statistic>
-            <Statistic.Value text>
-              Three
-              <br />
-              Thousand
-            </Statistic.Value>
-            <Statistic.Label>Signups</Statistic.Label>
-          </Statistic>
-
-          <Statistic>
-            <Statistic.Value>
-              <Icon name="plane" />5
-            </Statistic.Value>
-            <Statistic.Label>Flights</Statistic.Label>
-          </Statistic>
-
-          <Statistic>
-            <Statistic.Value>
-              <Image src="/images/avatar/small/joe.jpg" className="circular inline" />
-              42
-            </Statistic.Value>
-            <Statistic.Label>Team Members</Statistic.Label>
-          </Statistic>
-        </Statistic.Group>
+        <Header as="h3" textAlign="center" block color="blue">
+          Les statistiques de la semaine
+        </Header>
+        <Statistic>
+          <Statistic.Value>14</Statistic.Value>
+          <Statistic.Label>Questions posées</Statistic.Label>
+        </Statistic>
+        <Statistic>
+          <Statistic.Value>33</Statistic.Value>
+          <Statistic.Label>Réponses</Statistic.Label>
+        </Statistic>
+        <Statistic>
+          <Statistic.Value>React</Statistic.Value>
+          <Statistic.Label>catégorie la plus demandée</Statistic.Label>
+        </Statistic>
       </div>
     </div>
   );

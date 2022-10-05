@@ -1,4 +1,6 @@
-
+.list_questions{
+  margin: 50px;
+}
 
 .informations_page_questions{
   display: flex;
@@ -7,10 +9,12 @@
 
   .questions_closed{
     width: 50%;
+    height: 100vh;
   }
 
   .statistics{
     width: 50%;
     align-self: center;
+    height: 100vh;
   }
 }

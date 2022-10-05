@@ -25,8 +25,6 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          console.log(store.getState().user.username);
-          console.log(store.getState().user.password);
         });
       break;
     default:

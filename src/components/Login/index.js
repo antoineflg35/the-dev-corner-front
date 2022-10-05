@@ -15,6 +15,9 @@ function Login() {
 
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
+        <Link to="/">
+          <Header textAlign="center" as="h1">The Dev Corner</Header>
+        </Link>
         <Header as="h2" color="teal" textAlign="center">
           Connexion à votre compte
         </Header>
@@ -55,7 +58,6 @@ function Login() {
             <Button color="teal" fluid size="large">
               Login
             </Button>
-        
 
           </Segment>
         </Form>

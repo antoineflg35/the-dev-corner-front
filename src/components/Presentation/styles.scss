@@ -16,7 +16,34 @@
   // margin: auto;
   margin-left: auto;
   padding: 50px;
+  background: linear-gradient(45deg, #F9E7FE, #DAFCFC);
+  width: 100%;
+  border-radius: 0 0 30px 30px;
   
+}
+
+.button-login{
+  border-radius: 30px !important;
+}
+
+.button-login:hover{
+  background-color: white !important;
+  color: black !important;
+}
+.button-login:hover:after {
+  content: " →";
+}
+.button-new-user{
+  border-radius: 30px !important;
+}
+
+.button-new-user:hover:after {
+  content: " →";
+}
+
+.button-new-user:hover{
+  background-color: white !important;
+  color: black !important;
 }
 .span{
   // color:purple;
