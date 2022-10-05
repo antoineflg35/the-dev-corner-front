@@ -6,7 +6,7 @@ export const initialState = {
   username: '',
   // contenu du champ password du formulaire de login
   password: '',
-  pseudo: null,
+  pseudo: '',
   token: null,
 };
 

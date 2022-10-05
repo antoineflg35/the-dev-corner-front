@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {
   FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE,
-  DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents, saveOneEventDetails, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS,
+  DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents, 
+  saveOneEventDetails, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS,
 } from '../actions/events';
 
 const eventsMiddleware = (store) => (next) => (action) => {
