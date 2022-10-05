@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
 import { updateResponse } from '../../actions/response';
-import { fetchEventsLastFive } from '../../actions/events';
-import { fetchEvents } from '../../actions/events';
+
+// import { fetchEvents } from '../../actions/events';
 
 import Header from '../Header';
 import Home from '../Home';
@@ -38,10 +38,9 @@ function App() {
     if (loggedUser) {
       navigate('/');
       dispatch(fetchQuestions());
-      dispatch(fetchEvents());
+      // dispatch(fetchEvents());
     }
-    else dispatch(fetchQuestionsLastFive())
-    dispatch(fetchEventsLastFive());
+    else dispatch(fetchQuestionsLastFive());
   }, [loggedUser]);
 
   return (

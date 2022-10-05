@@ -1,5 +1,7 @@
 import { Message,Container } from 'semantic-ui-react';
 
+import './styles.scss';
+
 // == Composant
 function NotConnected() {
   return <Container className="not-found">
