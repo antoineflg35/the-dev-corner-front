@@ -2,6 +2,7 @@ import {
   Header as HeaderSui, Container, Form, Checkbox,
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { changeFieldNewLogin, createCount, toggleCheckboxNewLogin } from '../../actions/newUser';
 
 function User() {
@@ -23,8 +24,9 @@ function User() {
 
   return (
     <div>
-
-      <HeaderSui textAlign="center" as="h1">The Dev Corner</HeaderSui>
+      <Link to="/presentation">
+        <HeaderSui textAlign="center" as="h1">The Dev Corner</HeaderSui>
+      </Link>
 
       <Container>
         <Form

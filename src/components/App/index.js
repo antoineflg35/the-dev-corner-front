@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
+import { fetchEventsLastFive } from '../../actions/events';
 import { updateResponse } from '../../actions/response';
 
 // import { fetchEvents } from '../../actions/events';
@@ -41,6 +42,7 @@ function App() {
       // dispatch(fetchEvents());
     }
     else dispatch(fetchQuestionsLastFive());
+    dispatch(fetchEventsLastFive());
   }, [loggedUser]);
 
   return (
