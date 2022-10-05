@@ -24,7 +24,7 @@ function User() {
 
   return (
     <div>
-      <Link to="/presentation">
+      <Link to="/">
         <HeaderSui textAlign="center" as="h1">The Dev Corner</HeaderSui>
       </Link>
 
