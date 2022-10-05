@@ -17,7 +17,7 @@ const questionsMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           store.dispatch(saveQuestions(response.data.questions));
-          // console.log(response.data.questions[0].user.pseudo);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);

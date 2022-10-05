@@ -6,8 +6,8 @@ export const initialState = {
   username: '',
   // contenu du champ password du formulaire de login
   password: '',
-  pseudo: '',
-  token: '',
+  pseudo: null,
+  token: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -26,7 +26,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         password: action.value,
       };
-    
     case SAVE_DATA_USER:
       return {
         ...state,

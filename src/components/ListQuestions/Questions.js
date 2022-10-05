@@ -7,18 +7,20 @@ import './styles.scss';
 function Questions({ data }) {
   return (
 
-    <Container className='list_questions'>
+    <Container className="list_questions">
       <Item.Group divided>
 
         {data.map((question) => (
           <Item className="questions">
             <Item.Content>
-              <Item.Header as="a">{question.title.slice(0, 25)}...</Item.Header>
+              <Link to={`/questions/details/${question.id}`}>
+                <Item.Header as="a">{question.title.slice(0, 25)}...</Item.Header>
+              </Link>
               <Item.Meta>
                 <span>{question.pseudo}</span>
               </Item.Meta>
               <Item.Description>
-                {question.description.slice(0, 50)}
+                {question.description.slice(0, 50)}...
               </Item.Description>
               <Link to={`/questions/details/${question.id}`}>
                 <Item.Extra>

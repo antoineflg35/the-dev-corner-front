@@ -25,7 +25,7 @@ function ListEvents() {
         <Card.Content>
           <List>
             {
-            events.map((event) => (
+            events.slice(events.length-5).map((event) => (
               <Link to={`/events/details/${event.id}`}>
                 <List.Item>
                   <List.Icon name="marker" />

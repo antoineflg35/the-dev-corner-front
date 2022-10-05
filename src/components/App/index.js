@@ -27,28 +27,26 @@ import Footers from '../Footers';
 // == Composant
 function App() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.user.token);
-  const question = useSelector((state) => (state.questions.list));
-  const loggedUser = useSelector((state) => (state.user.logged));
-  // const response = useSelector((state)=>(state.response.description));
-  // const loggedUser = false;
+  const token = useSelector((state) => (state.user.token));
 
   const navigate = useNavigate();
   // First page to display depending on whether the user is logged in or not
   useEffect(() => {
-    if (loggedUser) {
+    if (token !== null) {
       navigate('/');
       dispatch(fetchQuestions());
       dispatch(fetchEvents());
     }
-    else dispatch(fetchQuestionsLastFive());
-    dispatch(fetchEventsLastFive());
-  }, [loggedUser]);
+    else {
+      dispatch(fetchQuestionsLastFive());
+      dispatch(fetchEventsLastFive());
+    }
+  }, [token]);
 
   return (
     <div className="app">
       {/* Routes if user is not logged in */}
-      {!loggedUser
+      {!token
        && (
        <Routes>
          <Route
@@ -67,7 +65,7 @@ function App() {
        </Routes>
        )}
       {/* Routes if user is logged in */}
-      {loggedUser
+      {token
       && (
         <>
           <Header />

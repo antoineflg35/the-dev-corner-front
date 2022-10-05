@@ -32,9 +32,6 @@ function AddComment({ responses }) {
               <Comment.Text>
                 {response.description}
               </Comment.Text>
-              <Comment.Actions>
-                <Comment.Action>Reply</Comment.Action>
-              </Comment.Actions>
             </Comment.Content>
           </Comment>
         ))
