@@ -10,18 +10,48 @@ function Event() {
   const events = useSelector((state) => state.events.list);
   console.log(events);
   return (
-    <List>
-      {
-        events.map((event) => (
-          <>
+    // <List>
+    //   {
+    //     events.map((event) => (
+    //       <>
+    //         <div className="top">
+    //           {event.id}- {event.title}
+    //         </div><div className="bottom">
+    //           <span>
+    //             {event.description.slice(0,60)}...
+    //           </span>
+    //           <p className="nbparticpe">
+    //             deja 25 participants /{event.nb_participant_max}
+    //           </p>
+    //           <div>
+    //             <div className="button-top">
+    //               <Link to={`/events/details/${event.id}`}>
+    //                 <Button compact primary> voir plus</Button>
+    //               </Link>
+    //             </div>
+    //             <div className="button-bottom">
+    //               <Button compact primary>s'inscrire</Button>
+    //             </div>
+    //           </div>
+    //               </div>
+    //       </>
+    //     ))
+    //   }
+
+    // </List>
+
+<List>
+      
+        
+          
             <div className="top">
-              {event.id}- {event.title}
+              titre
             </div><div className="bottom">
               <span>
-                {event.description.slice(0,60)}...
+                lorem ipsum  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
               </span>
               <p className="nbparticpe">
-                deja 25 participants /{event.nb_participant_max}
+                deja 25 participants /200
               </p>
               <div>
                 <div className="button-top">
@@ -34,11 +64,56 @@ function Event() {
                 </div>
               </div>
                   </div>
-          </>
-        ))
-      }
+
+                  <div className="top">
+              titre
+            </div><div className="bottom">
+              <span>
+                lorem ipsum  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+              </span>
+              <p className="nbparticpe">
+                deja 25 participants /200
+              </p>
+              <div>
+                <div className="button-top">
+                  <Link to={`/events/details/${event.id}`}>
+                    <Button compact primary> voir plus</Button>
+                  </Link>
+                </div>
+                <div className="button-bottom">
+                  <Button compact primary>s'inscrire</Button>
+                </div>
+              </div>
+                  </div>
+
+
+                  <div className="top">
+              titre
+            </div><div className="bottom">
+              <span>
+                lorem ipsum  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem 
+              </span>
+              <p className="nbparticpe">
+                deja 25 participants /200
+              </p>
+              <div>
+                <div className="button-top">
+                  <Link to={`/events/details/${event.id}`}>
+                    <Button compact primary> voir plus</Button>
+                  </Link>
+                </div>
+                <div className="button-bottom">
+                  <Button compact primary>s'inscrire</Button>
+                </div>
+              </div>
+                  </div>
+          
+        
+      
 
     </List>
+
+
 
   );
 }

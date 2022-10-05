@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="app">
       {/* Routes if user is not logged in */}
-      {!loggedUser
+      {loggedUser
        && (
        <Routes>
          <Route
@@ -65,7 +65,7 @@ function App() {
        </Routes>
        )}
       {/* Routes if user is logged in */}
-      {loggedUser
+      {!loggedUser
       && (
         <>
           <Header />
