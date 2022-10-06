@@ -5,7 +5,9 @@ import { useEffect } from 'react';
 import map from 'src/assets/map.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { updateIdEvents, displayEventDetails } from '../../actions/events';
+import {
+  updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents,
+} from '../../actions/events';
 import './styles.scss';
 
 function DetailEvent() {
@@ -17,6 +19,9 @@ function DetailEvent() {
   }, []);
 
   const data = useSelector((state) => state.events.list);
+  const nbParticipant = useSelector((state) => state.events.nb_participant);
+  const participe = useSelector((state) => state.events.participate);
+  // const participate = participe;
 
   return (
     <div>
@@ -28,7 +33,7 @@ function DetailEvent() {
         <p>
           {data.description}
         </p>
-        <HeaderSui color="blue" size="small">25/{data.nb_participant_max}</HeaderSui>
+        <HeaderSui color="blue" size="small">{nbParticipant}/{data.nb_participant_max}</HeaderSui>
 
         <Grid stackable>
           <Grid.Column floated="left" width={5}>
@@ -46,10 +51,25 @@ function DetailEvent() {
         </Grid>
 
         <Container class="button_ask_question">
+          {!participe
+          && (
           <Button
-            content="Participer a l'évenement"
+            content="Participer à l'évenement"
             primary
+            onClick={() => {
+              dispatch(subscribeEvents());
+            }}
           />
+          )}
+          {participe && (
+          <Button
+            content="Se désincrire"
+            primary
+            onClick={() => {
+              dispatch(unSubscribeEvents());
+            }}
+          />
+          )}
         </Container>
       </Container>
 

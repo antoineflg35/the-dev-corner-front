@@ -1,22 +1,21 @@
-
+import { useSelector } from 'react-redux';
 import Content from './Content';
 import ButtonAskQuestion from './ButtonAskQuestion';
 import CardsQuestions from './CardsQuestions';
 import CardsEvents from './CardsEvents';
 import ListEnterprises from './ListEnterprises';
 
-
- 
 function Home() {
+  const pseudo = useSelector((state) => state.user);
+  console.log(pseudo);
   return (
-    <div className='homme'> 
-       
+    <div className="home">
       <Content />
       <ButtonAskQuestion />
       <CardsQuestions />
       <CardsEvents />
       <ListEnterprises />
-      
+
     </div>
   );
 }

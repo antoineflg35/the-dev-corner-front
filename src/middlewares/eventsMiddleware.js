@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {
   FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE,
-  DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents, saveOneEventDetails
+  DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents, 
+  saveOneEventDetails, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS,
 } from '../actions/events';
 
 const eventsMiddleware = (store) => (next) => (action) => {
@@ -53,7 +54,38 @@ const eventsMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       break;
-
+    case SUBSCRIBE_EVENTS:
+      axios({
+        method: 'post',
+        url: `http://localhost:8001/api/v1/register/events/${store.getState().events.event_id}`,
+        headers: {
+          // 'Content-Type': 'application/json; charset=utf-8',
+          Authorization: `bearer ${store.getState().user.token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case UNSUBSCRIBE_EVENTS:
+      axios({
+        method: 'delete',
+        url: `http://localhost:8001/api/v1/unsubscribe/events/${store.getState().events.event_id}`,
+        headers: {
+          // 'Content-Type': 'application/json; charset=utf-8',
+          Authorization: `bearer ${store.getState().user.token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
     default:
   }
   // on passe l'action au suivant (middleware suivant ou reducer)
