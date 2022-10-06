@@ -2,8 +2,10 @@
 
 export const UPDATE_FIELD_LOGIN = 'UPDATE_FIELD_LOGIN';
 export const LOGIN = 'LOGIN';
+export const LOGIN_TOKEN = 'LOGIN_TOKEN';
 export const LOGOUT = 'LOGOUT';
-export const SAVE_DATA_USER = 'SAVE_DATA_USER';
+export const SAVE_USER_TOKEN = 'SAVE_USER_TOKEN';
+export const SAVE_USER_PSEUDO = 'SAVE_USER_PSEUDO';
 
 
 // Actions creators
@@ -18,12 +20,20 @@ export const login = () => ({
   type: LOGIN,
 });
 
+export const loginToken = () => ({
+  type: LOGIN_TOKEN,
+});
+
 export const logout = () => ({
   type: LOGOUT,
 });
 
-export const saveDataUser = (pseudo, token) => ({
-  type: SAVE_DATA_USER,
-  pseudo: pseudo,
+export const saveUserToken = (token) => ({
+  type: SAVE_USER_TOKEN,
   token: token,
+});
+
+export const saveUserPseudo = (pseudo) => ({
+  type: SAVE_USER_PSEUDO,
+  pseudo: pseudo,
 });

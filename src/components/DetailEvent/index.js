@@ -1,3 +1,13 @@
+// import {
+//   Container, Header as HeaderSui, Grid, Button, Image,
+// } from 'semantic-ui-react';
+// import { useEffect } from 'react';
+// import map from 'src/assets/map.jpg';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom';
+// import { updateIdEvents, displayEventDetails } from '../../actions/events';
+// import './styles.scss';
+
 import {
   Container, Header as HeaderSui, Grid, Button, Image,
 } from 'semantic-ui-react';
@@ -5,7 +15,9 @@ import { useEffect } from 'react';
 import map from 'src/assets/map.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { updateIdEvents, displayEventDetails } from '../../actions/events';
+import {
+  updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents,
+} from '../../actions/events';
 import './styles.scss';
 
 function DetailEvent() {
@@ -16,7 +28,11 @@ function DetailEvent() {
     dispatch(displayEventDetails());
   }, []);
 
+
+
   const data = useSelector((state) => state.events.list);
+  const nbParticipant = useSelector((state) => state.events.nb_participant);
+  const participe = useSelector((state) => state.events.participate);
 
   return (
     <div>
@@ -46,10 +62,25 @@ function DetailEvent() {
         </Grid>
 
         <Container class="button_ask_question">
+          {!participe
+          && (
           <Button
-            content="Participer a l'évenement"
+            content="Participer à l'évenement"
             primary
+            onClick={() => {
+              dispatch(subscribeEvents());
+            }}
           />
+          )}
+          {participe && (
+          <Button
+            content="Se désincrire"
+            primary
+            onClick={() => {
+              dispatch(unSubscribeEvents());
+            }}
+          />
+          )}
         </Container>
       </Container>
 
