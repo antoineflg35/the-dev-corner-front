@@ -8,8 +8,6 @@ import { updateFieldAddResponses, addResponse } from '../../actions/response';
 import avatar from '../../assets/images/avatar.jpeg'
 
 
-
-
 function AddComment({ responses }) {
   const dispatch = useDispatch();
   const description = useSelector((state) => state.response.description);

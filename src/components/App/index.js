@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
-import { fetchEventsLastFive, fetchEvents } from '../../actions/events';
+import { fetchEventsLastFive, fetchEvents, countParticipantsEvents } from '../../actions/events';
 import { loginToken } from '../../actions/user';
 
 

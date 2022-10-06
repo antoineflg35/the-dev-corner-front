@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
 import {
   LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken
 } from '../actions/user';
@@ -44,10 +43,9 @@ const authMiddleware = (store) => (next) => async (action) => {
       )
         .then((response) => {
           store.dispatch(saveUserToken(response.data.token));
-          store.dispatch(loginToken());
         })
         .then(() => {
-          // store.dispatch(loginToken());
+          store.dispatch(loginToken());
           console.log(store.getState().user);
         })
         .catch((error) => {

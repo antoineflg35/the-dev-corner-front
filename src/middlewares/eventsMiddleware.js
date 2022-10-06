@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
   FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE,
   DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents, 
-  saveOneEventDetails, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS,
+  saveOneEventDetails, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS, FETCH_PARTICIPANTS_EVENTS,
+  countParticipantsEvents,
 } from '../actions/events';
 
 const eventsMiddleware = (store) => (next) => (action) => {
@@ -17,6 +18,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
+          console.log(response.data)
           store.dispatch(saveEvents(response.data.eventRepository));
           // console.log(response.data.questions[0].user.pseudo);
         })
@@ -81,6 +83,27 @@ const eventsMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+      case FETCH_PARTICIPANTS_EVENTS:
+      axios({
+        method: 'get',
+        url: `http://localhost:8001/api/v1/users/participate/event/${store.getState().events.event_id}`,
+        headers: {
+          // 'Content-Type': 'application/json; charset=utf-8',
+          Authorization: `bearer ${store.getState().user.token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          console.log(response.data);
+          const nbparticipe = response.data.users_participate;
+          console.log(nbparticipe);
+         const participants = nbparticipe.length;
+          store.dispatch(countParticipantsEvents(participants));
         })
         .catch((error) => {
           console.log(error);
