@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchQuestionsLastFive } from '../../actions/questions';
 import { fetchEventsLastFive } from '../../actions/events';
+import photo from '../../assets/images/photo_presentation.jpg'
 import Main from './Main';
 
 function Presentation() {
@@ -43,7 +44,7 @@ function Presentation() {
               </p>
             </Grid.Column>
             <Grid.Column floated="right" width={6}>
-              <Image bordered rounded size="large" src="/images/wireframe/white-image.png" />
+              <Image bordered rounded size="large" src={photo}/>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
