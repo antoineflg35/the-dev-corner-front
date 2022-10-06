@@ -1,6 +1,6 @@
 import {
   SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS,
-  SAVE_DEPARTMENT, UPDATE_ID_EVENTS, SAVE_ONE_EVENT_DETAILS, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS,
+  SAVE_DEPARTMENT, UPDATE_ID_EVENTS, SAVE_ONE_EVENT_DETAILS, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS, COUNT_PARTICIPANTS_EVENTS
 } from '../actions/events';
 
 const initialState = {
@@ -79,6 +79,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         nb_participant: state.nb_participant - 1,
         participate: false,
+      };
+    }
+    case COUNT_PARTICIPANTS_EVENTS: {
+      return {
+        ...state,
+        nb_participant: action.participants,
       };
     }
     default:

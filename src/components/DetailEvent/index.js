@@ -6,7 +6,7 @@ import map from 'src/assets/map.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
-  updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents,
+  updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents, FetchParticipantsEvents
 } from '../../actions/events';
 import './styles.scss';
 
@@ -16,19 +16,21 @@ function DetailEvent() {
   useEffect(() => {
     dispatch(updateIdEvents(id));
     dispatch(displayEventDetails());
+    dispatch(FetchParticipantsEvents());
   }, []);
+  
 
   const data = useSelector((state) => state.events.list);
   const nbParticipant = useSelector((state) => state.events.nb_participant);
   const participe = useSelector((state) => state.events.participate);
-  // const participate = participe;
 
   return (
     <div>
 
       <Container className="content">
         <HeaderSui as="h2" size="huge">{data.title}- Organisé par xxxx</HeaderSui>
-        <HeaderSui color="blue" size="small">DATE HEURE</HeaderSui>
+        <HeaderSui color="blue" size="small">{data.date}</HeaderSui>
+        <HeaderSui color="blue" size="small">{data.adress}</HeaderSui>
 
         <p>
           {data.description}

@@ -6,8 +6,7 @@ import CardsEvents from './CardsEvents';
 import ListEnterprises from './ListEnterprises';
 
 function Home() {
-  const pseudo = useSelector((state) => state.user);
-  console.log(pseudo);
+  
   return (
     <div className="home">
       <Content />

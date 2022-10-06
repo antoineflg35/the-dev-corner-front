@@ -1,45 +1,78 @@
 import {
-  Button, Card, Image, Icon, List,
+  Button, Card, Grid,
 } from 'semantic-ui-react';
 
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-
 function Event() {
-  const { id } = useParams();
   const events = useSelector((state) => state.events.list);
   console.log(events);
   return (
-    <List>
-      {
+
+    <Card fluid>
+      <Grid stackable>
+
+        {
         events.map((event) => (
-          <>
-            <div className="top">
-              {event.id}- {event.title}
-            </div><div className="bottom">
-              <span>
-                {event.description.slice(0,60)}...
-              </span>
-              <p className="nbparticpe">
-                deja 25 participants /{event.nb_participant_max}
-              </p>
-              <div>
-                <div className="button-top">
-                  <Link to={`/events/details/${event.id}`}>
-                    <Button compact primary> voir plus</Button>
-                  </Link>
-                </div>
-                <div className="button-bottom">
-                  <Button compact primary>s'inscrire</Button>
-                </div>
-              </div>
-                  </div>
-          </>
+          <Grid.Row columns={3}>
+            <Grid.Column>
+              <Card.Content>
+                <Card.Header><h2>{event.id}-{event.title}</h2></Card.Header>
+                <Card.Meta>Département: {event.departement_number}</Card.Meta>
+                <Card.Description>
+                  {event.description}.
+
+                </Card.Description>
+              </Card.Content>
+            </Grid.Column>
+
+            <Grid.Column>
+              <Card.Content>
+                <Card.Header><h2>25 </h2>participants</Card.Header>
+                <Card.Meta>/</Card.Meta>
+                <Card.Description>
+                 <h2>{event.nb_participant_max}</h2>  participants max
+                </Card.Description>
+              </Card.Content>
+            </Grid.Column>
+            <Grid.Column>
+
+              <Card.Content>
+                <Grid>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <div className="ui two buttons">
+
+                        <Link>
+                          <Button compact primary>
+                            s'inscrire
+                          </Button>
+                        </Link>
+                        <Link to={`/events/details/${event.id}`}>
+
+                          <Button compact color="pink">
+                            voir plus
+                          </Button>
+                        </Link>
+
+                      </div>
+                    </Grid.Column>
+
+                  </Grid.Row>
+                </Grid>
+              </Card.Content>
+            </Grid.Column>
+
+          </Grid.Row>
         ))
       }
 
-    </List>
+        
+
+      </Grid>
+
+    </Card>
 
   );
 }

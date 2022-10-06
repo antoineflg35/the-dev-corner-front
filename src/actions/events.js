@@ -13,6 +13,9 @@ export const SAVE_DEPARTMENT = 'SAVE_DEPARTMENT';
 export const UPDATE_ID_EVENTS = 'UPDATE_ID_EVENTS';
 export const SUBSCRIBE_EVENTS = 'SUBSCRIBE_EVENTS';
 export const UNSUBSCRIBE_EVENTS = 'UNSUBSCRIBE_EVENTS';
+export const COUNT_PARTICIPANTS_EVENTS = 'COUNT_PARTICIPANTS_EVENTS';
+export const FETCH_PARTICIPANTS_EVENTS = 'FETCH_PARTICIPANTS_EVENTS';
+
 
 
 // Actions creators
@@ -76,5 +79,15 @@ export const subscribeEvents = () => ({
 
 export const unSubscribeEvents = () => ({
   type: UNSUBSCRIBE_EVENTS,
-
 });
+
+export const FetchParticipantsEvents =() =>({
+  type:FETCH_PARTICIPANTS_EVENTS,
+  
+});
+
+export const countParticipantsEvents = (participants) => ({
+  type: COUNT_PARTICIPANTS_EVENTS,
+  participants: participants,
+});
+
