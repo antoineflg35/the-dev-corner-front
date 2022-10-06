@@ -34,6 +34,6 @@ export const saveUserToken = (token) => ({
 });
 
 export const saveUserPseudo = (pseudo) => ({
-  type: SAVE_USER_TOKEN,
+  type: SAVE_USER_PSEUDO,
   pseudo: pseudo,
 });

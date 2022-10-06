@@ -5,6 +5,7 @@ import {
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+
 function Event() {
   const { id } = useParams();
   const events = useSelector((state) => state.events.list);

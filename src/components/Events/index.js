@@ -1,14 +1,20 @@
 import {
   Card, Button, Image, List, Container, Grid,
 } from 'semantic-ui-react';
-
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchEvents } from '../../actions/events';
 
 import Event from './Event';
 
 import './styles.scss';
 
 function Events() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchEvents());
+  }, []);
   return (
     <div className="event">
       <Container>

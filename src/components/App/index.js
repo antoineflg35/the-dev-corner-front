@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     if (token !== null) {
       navigate('/');
-      dispatch(loginToken());
+      // dispatch(loginToken());
       // dispatch(fetchQuestions());
       // dispatch(fetchEvents());
     }
