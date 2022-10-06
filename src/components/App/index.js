@@ -5,7 +5,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
 import { fetchEventsLastFive, fetchEvents } from '../../actions/events';
-import { updateResponse } from '../../actions/response';
+import { loginToken } from '../../actions/user';
+
 
 // import { fetchEvents } from '../../actions/events';
 
@@ -34,14 +35,17 @@ function App() {
   useEffect(() => {
     if (token !== null) {
       navigate('/');
-      dispatch(fetchQuestions());
-      dispatch(fetchEvents());
+      dispatch(loginToken());
+      // dispatch(fetchQuestions());
+      // dispatch(fetchEvents());
     }
     else {
       dispatch(fetchQuestionsLastFive());
       dispatch(fetchEventsLastFive());
     }
   }, [token]);
+
+  
 
   return (
     <div className="app">

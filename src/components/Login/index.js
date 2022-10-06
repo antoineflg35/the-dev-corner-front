@@ -3,7 +3,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFieldLogin, login, saveDataUser } from '../../actions/user';
+import { updateFieldLogin, login, saveDataUser, loginToken } from '../../actions/user';
 
 function Login() {
   const mailUser = useSelector((state) => state.user.username);
@@ -26,7 +26,8 @@ function Login() {
           onSubmit={(event) => {
             event.preventDefault();
             dispatch(login());
-            dispatch(saveDataUser());
+            // dispatch(loginToken());
+            // dispatch(saveDataUser());
           }}
         >
           <Segment stacked>

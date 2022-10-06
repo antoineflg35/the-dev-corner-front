@@ -18,10 +18,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         question_id: state.question_id,
         description: state.description,
-        
       };
     }
-   
     case UPDATE_ID: {
       return {
         ...state,
