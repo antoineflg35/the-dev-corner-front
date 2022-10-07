@@ -10,10 +10,13 @@ function NotConnected() {
       <Message size="massive" negative>
         <Message.Header>Vous devez être connecté pour avoir accès à ces contenus</Message.Header>
         <p>THE DEV CORNER </p>
-        <Link to="/">
+        
+      </Message>
+      <div className='button-redirection'>
+      <Link to="/">
           <Button className='button-login' size='large' primary>Retourner sur la page présentation</Button>
         </Link>
-      </Message>
+        </div>
     </Container>
   );
 }
