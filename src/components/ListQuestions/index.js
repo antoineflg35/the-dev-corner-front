@@ -15,7 +15,7 @@ function ListQuestions() {
   const data = useSelector((state) => state.questions.list);
   return (
     <div className="page_questions">
-      <Questions data={data} />
+      <Questions data={data} key={data.id} />
       <ButtonAskQuestion />
       <Informations />
     </div>

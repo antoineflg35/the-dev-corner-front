@@ -27,10 +27,10 @@ function Main() {
                     <List.Icon name="question" />
                     <List.Content>
                       <Link to={`/questions/details/${question.id}`}>
-                        <List.Header as="a">{question.title}</List.Header>
+                        <List.Header as="a">{question.title.slice(0, 15)}</List.Header>
                       </Link>
                       <List.Description>
-                        {question.description.slice(0, 65)}
+                        {question.description.slice(0, 30)}
                       </List.Description>
                     </List.Content>
                   </List.Item>

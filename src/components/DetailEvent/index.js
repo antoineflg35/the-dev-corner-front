@@ -66,7 +66,7 @@ function DetailEvent() {
           {participe && (
           <Button
             content="Se désincrire"
-            primary
+            negative
             onClick={() => {
               dispatch(unSubscribeEvents());
             }}

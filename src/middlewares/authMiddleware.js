@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken
+  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken,
 } from '../actions/user';
 
 const authMiddleware = (store) => (next) => async (action) => {
@@ -63,9 +63,12 @@ const authMiddleware = (store) => (next) => async (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
-
-          store.dispatch(saveUserPseudo(response.data.pseudo, response.data.departement_number));
+          console.log(response.data.tags[0].techno);
+          store.dispatch(saveUserPseudo(
+            response.data.pseudo,
+            response.data.departement_number,
+            response.data.tags[0].techno,
+          ));
         })
         .catch((error) => {
           console.log(error);

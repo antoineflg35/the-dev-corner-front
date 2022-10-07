@@ -94,6 +94,7 @@ function App() {
             <Route
               path="/questions/details/:id"
               element={<QuestionDetails />}
+              
             />
             <Route
               path="/questions/add"

@@ -3,7 +3,13 @@ import {
 } from 'semantic-ui-react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+
+import { useEffect } from 'react';
 import { updateFieldAddQuestions, addQuestion } from '../../actions/questions';
+import { fetchListTag } from '../../actions/newUser';
 
 import './styles.scss';
 
@@ -13,6 +19,16 @@ function AddQuestion() {
   const title = useSelector((state) => state.questions.titleNewQuestion);
   const description = useSelector((state) => state.questions.descriptionNewQuestion);
   const tag = useSelector((state) => state.questions.tagNewQuestion);
+  const tagQuestions = useSelector((state) => state.newUser.tag);
+  // const createdQuestion = useSelector((state) => state.questions.createdQuestion);
+
+  useEffect(() => {
+    dispatch(fetchListTag());
+  }, []);
+
+  // useEffect(() => {
+  //   navigate('/questions');
+  // }, [createdQuestion]);
 
   return (
     <div className="add_questions">
@@ -58,16 +74,18 @@ function AddQuestion() {
                 }}
               >
                 <option value="" />
-                <option value="JS">JS</option>
-                <option value="PHP">PHP</option>
-                <option value="REACT">REACT</option>
-                <option value="SYMFONY">SYMFONY</option>
+
+                {
+                  tagQuestions.map((tag) => <option value={tag.techno}>{tag.techno}</option>)
+                }
               </Form.Field>
             </div>
+            <Link to ='/questions'>
             <Button
               content="Poser une question"
               primary
             />
+            </Link>
           </Form.Field>
         </Form>
       </Container>

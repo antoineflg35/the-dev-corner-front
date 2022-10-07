@@ -10,6 +10,7 @@ export const initialState = {
   password: '',
   pseudo: '',
   department_user: '',
+  techno_user: '',
   token: null,
 };
 
@@ -43,6 +44,7 @@ const reducer = (state = initialState, action = {}) => {
         // logged: true,
         pseudo: action.pseudo,
         department_user: action.department,
+        techno_user: action.techno,
       };
     // case LOGIN_TOKEN:
     //   return {
