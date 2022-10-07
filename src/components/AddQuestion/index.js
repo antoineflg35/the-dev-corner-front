@@ -3,9 +3,7 @@ import {
 } from 'semantic-ui-react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
+import { useNavigate, Link } from 'react-router-dom';
 
 import { useEffect } from 'react';
 import { updateFieldAddQuestions, addQuestion } from '../../actions/questions';
@@ -20,7 +18,7 @@ function AddQuestion() {
   const description = useSelector((state) => state.questions.descriptionNewQuestion);
   const tag = useSelector((state) => state.questions.tagNewQuestion);
   const tagQuestions = useSelector((state) => state.newUser.tag);
-  // const createdQuestion = useSelector((state) => state.questions.createdQuestion);
+  const createdQuestion = useSelector((state) => state.questions.createdQuestion);
 
   useEffect(() => {
     dispatch(fetchListTag());
@@ -80,11 +78,12 @@ function AddQuestion() {
                 }
               </Form.Field>
             </div>
-            <Link to ='/questions'>
-            <Button
-              content="Poser une question"
-              primary
-            />
+            
+            <Link to="/questions">
+              <Button
+                content="Poser une question"
+                primary
+              />
             </Link>
           </Form.Field>
         </Form>

@@ -4,6 +4,7 @@ import {
 import { useEffect } from 'react';
 import map from 'src/assets/map.jpg';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import {
   updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents, FetchParticipantsEvents
@@ -28,7 +29,10 @@ function DetailEvent() {
     <div>
 
       <Container className="content">
-        <HeaderSui as="h2" size="huge">{data.title}- Organisé par xxxx</HeaderSui>
+      <Link to="/events">
+          Retour à la liste des événements
+        </Link>
+        <HeaderSui as="h2" size="huge">{data.title}</HeaderSui>
         <HeaderSui color="blue" size="small">{data.date}</HeaderSui>
         <HeaderSui color="blue" size="small">{data.adress}</HeaderSui>
 
