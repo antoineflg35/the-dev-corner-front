@@ -7,14 +7,21 @@ import { useSelector } from 'react-redux';
 
 function Event() {
   const events = useSelector((state) => state.events.list);
+  const departmentUser = useSelector((state) => state.user.department_user);
+
+
+  const filterEvents = events.filter((event)=>event.departement_number === departmentUser);
+
+
   console.log(events);
+  
   return (
 
     <Card fluid>
       <Grid stackable>
 
         {
-        events.map((event) => (
+        filterEvents.map((event) => (
           <Grid.Row columns={3}>
             <Grid.Column>
               <Card.Content>

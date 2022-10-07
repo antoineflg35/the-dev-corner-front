@@ -63,9 +63,9 @@ const authMiddleware = (store) => (next) => async (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data.pseudo);
+          console.log(response.data);
 
-          store.dispatch(saveUserPseudo(response.data.pseudo));
+          store.dispatch(saveUserPseudo(response.data.pseudo, response.data.departement_number));
         })
         .catch((error) => {
           console.log(error);

@@ -9,6 +9,7 @@ export const initialState = {
   // contenu du champ password du formulaire de login
   password: '',
   pseudo: '',
+  department_user: '',
   token: null,
 };
 
@@ -41,6 +42,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         // logged: true,
         pseudo: action.pseudo,
+        department_user: action.department,
       };
     // case LOGIN_TOKEN:
     //   return {
