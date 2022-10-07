@@ -3,7 +3,7 @@
 export const FETCH_EVENTS = 'FETCH_EVENTS';
 export const SAVE_EVENTS = 'SAVE_EVENTS';
 export const UPDATE_FIELD_ADD_EVENTS = 'UPDATE_FIELD_ADD_EVENTS';
-export const ADD_EVENT= 'ADD_EVENT';
+export const ADD_EVENT = 'ADD_EVENT';
 export const FETCH_EVENTS_LAST_FIVE = 'FETCH_EVENTS_LAST_FIVE';
 export const SAVE_LAST_FIVE_EVENTS = 'SAVE_LAST_FIVE_EVENTS';
 export const DISPLAY_EVENT_DETAILS = 'DISPLAY_EVENT_DETAILS';
@@ -16,8 +16,6 @@ export const UNSUBSCRIBE_EVENTS = 'UNSUBSCRIBE_EVENTS';
 export const COUNT_PARTICIPANTS_EVENTS = 'COUNT_PARTICIPANTS_EVENTS';
 export const FETCH_PARTICIPANTS_EVENTS = 'FETCH_PARTICIPANTS_EVENTS';
 
-
-
 // Actions creators
 
 export const fetchEvents = () => ({
@@ -27,7 +25,7 @@ export const fetchEvents = () => ({
 export const saveEvents = (events) => ({
   type: SAVE_EVENTS,
   events: events,
-  
+
 });
 
 export const fetchEventsLastFive = (responses) => ({
@@ -46,7 +44,7 @@ export const updateFieldAddEvents = (newValue, fieldIdentifier) => ({
   fieldIdentifier: fieldIdentifier,
 });
 
-export const addEvent= () => ({
+export const addEvent = () => ({
   type: ADD_EVENT,
 });
 
@@ -68,7 +66,7 @@ export const saveDepartment = (department) => ({
   value: department,
 });
 
-export const updateIdEvents = (id) =>({
+export const updateIdEvents = (id) => ({
   type: UPDATE_ID_EVENTS,
   value: id,
 });
@@ -81,13 +79,12 @@ export const unSubscribeEvents = () => ({
   type: UNSUBSCRIBE_EVENTS,
 });
 
-export const FetchParticipantsEvents =() =>({
-  type:FETCH_PARTICIPANTS_EVENTS,
-  
+export const FetchParticipantsEvents = () => ({
+  type: FETCH_PARTICIPANTS_EVENTS,
+
 });
 
 export const countParticipantsEvents = (participants) => ({
   type: COUNT_PARTICIPANTS_EVENTS,
   participants: participants,
 });
-
