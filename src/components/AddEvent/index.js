@@ -19,7 +19,6 @@ function AddEvent() {
   const departmentList = useSelector((state) => state.events.department_list);
   const participant = useSelector((state) => state.events.nb_participant_max);
   const date = useSelector((state) => state.events.date);
- 
 
   useEffect(() => {
     dispatch(displayListDepartment());

@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { CREATE_COUNT } from '../actions/newUser';
+import {
+  CREATE_COUNT, DISPLAY_LIST_DEPARTMENT, FETCH_LIST_TAG, saveDepartment, saveListTag,
+} from '../actions/newUser';
 
 const newUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -12,9 +14,9 @@ const newUserMiddleware = (store) => (next) => (action) => {
           pseudo: store.getState().newUser.pseudo,
           email: store.getState().newUser.email,
           password: store.getState().newUser.password,
-          department: store.getState().newUser.department,
+          departement_number: store.getState().newUser.department,
           description: store.getState().newUser.description,
-          tag: store.getState().newUser.tag,
+          tag: store.getState().newUser.tag_user,
         },
       )
         .then((response) => {
@@ -24,6 +26,30 @@ const newUserMiddleware = (store) => (next) => (action) => {
           // console.log(response);
           console.log(response);
           // store.dispatch(saveDataUser());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case DISPLAY_LIST_DEPARTMENT:
+      axios.get(
+        'https://geo.api.gouv.fr/departements',
+      )
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveDepartment(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case FETCH_LIST_TAG:
+      axios.get(
+        'http://localhost:8001/api/v1/tags',
+      )
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveListTag(response.data.tags));
         })
         .catch((error) => {
           console.log(error);

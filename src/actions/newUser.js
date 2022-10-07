@@ -4,6 +4,10 @@ export const CHANGE_FIELD_NEW_LOGIN = 'CHANGE_FIELD_NEW_LOGIN';
 export const TOGGLE_CHECKBOX_NEW_LOGIN = 'TOGGLE_CHECKBOX_NEW_LOGIN';
 export const DELETE_CHOICE_CHECKBOX = 'DELETE_CHOICE_CHECKBOX';
 export const CREATE_COUNT = 'CREATE_COUNT';
+export const DISPLAY_LIST_DEPARTMENT = 'DISPLAY_LIST_DEPARTMENT';
+export const SAVE_DEPARTMENT = 'SAVE_DEPARTMENT';
+export const FETCH_LIST_TAG = 'FETCH_LIST_TAG';
+export const SAVE_LIST_TAG = 'SAVE_LIST_TAG';
 
 // Actions creators
 
@@ -27,3 +31,21 @@ export const deleteChoiceCheckbox = (newValue) => ({
 export const createCount = () => ({
   type: CREATE_COUNT,
 });
+
+export const displayListDepartment = () => ({
+  type: DISPLAY_LIST_DEPARTMENT,
+});
+
+export const saveDepartment = (department) => ({
+  type: SAVE_DEPARTMENT,
+  value: department,
+});
+
+export const fetchListTag = () => ({
+  type: FETCH_LIST_TAG,
+});
+
+export const saveListTag = (tag) => ({
+  type: SAVE_LIST_TAG,
+  tag: tag,
+})

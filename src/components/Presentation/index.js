@@ -18,6 +18,7 @@ function Presentation() {
   }, []);
 
   return (
+    <div className='presentation'>
     <Container fluid>
       <div className="header-presentation">
         <Header as="h1" size="huge" centred textAlign="center"> Bienvenue sur <span><p className="span">The Dev Corner</p></span></Header>
@@ -58,6 +59,7 @@ function Presentation() {
       </Segment>
       <Main />
     </Container>
+    </div>
 
   );
 }

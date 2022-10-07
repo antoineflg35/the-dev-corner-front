@@ -2,8 +2,11 @@ import {
   Header as HeaderSui, Container, Form, Checkbox,
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { changeFieldNewLogin, createCount, toggleCheckboxNewLogin } from '../../actions/newUser';
+import {
+  changeFieldNewLogin, createCount, toggleCheckboxNewLogin, displayListDepartment, fetchListTag,
+} from '../../actions/newUser';
 
 function User() {
   const dispatch = useDispatch();
@@ -15,12 +18,18 @@ function User() {
   const pseudoUser = useSelector((state) => state.newUser.pseudo);
   const department = useSelector((state) => state.newUser.department);
   const descriptionUser = useSelector((state) => state.newUser.description);
-  const php = useSelector((state) => state.newUser.php);
-  const js = useSelector((state) => state.newUser.js);
-  // const tag = useSelector((state) => state.newUser.tag);
+  const checked = useSelector((state) => state.newUser.checked);
+  const departmentList = useSelector((state) => state.newUser.department_list);
+  const tag = useSelector((state) => state.newUser.tag);
+  
 
   // const [checkedJs, setCheckedJs] = useState(false);
   // const [checkedPhp, setCheckedPhp] = useState(false);
+
+  useEffect(() => {
+    dispatch(displayListDepartment());
+    dispatch(fetchListTag());
+  }, []);
 
   return (
     <div>
@@ -101,59 +110,43 @@ function User() {
                 dispatch(action);
               }}
             >
-              <option value="Choississez votre département">Choisissez votre département</option>
-              <option value="Iles de france">Iles de france</option>
-              <option value="Bouches du rhones">Bouches du rhones</option>
+              {
+                departmentList.map((d) => <option value={d.code}>{d.code}-{d.nom}</option>)
+                }
             </Form.Field>
 
           </Form.Group>
           <Form.Group widths="equal">
             <h3>Choisissez vos technologies préférées</h3>
-            <Checkbox
-              label="JS"
+            {
+              tag.map((tag) => (
+                <Checkbox
+                  label={tag.techno}
               // value={js}
-              onChange={(e, data) => {
-                // setCheckedJs(data.checked);
-                console.log(e, data);
-                dispatch(toggleCheckboxNewLogin(data.checked, data.label));
-                // console.log(data.checked);
-                // if (data.checked === true) {
-                //   console.log('ok');
-                //   dispatch(changeFieldNewLogin(data.label, 'tag'));
-                // }
-                // else {
-                //   dispatch(deleteChoiceCheckbox(data.label));²
-                //   console.log('nop');
-                // }
-                // Si data.checked de PHP est faux
-                // alors dispatchr l'action pour supprimer du tableau
-                // Sinon dispatcher pour ajouter au tableau
-              }}
+                  onChange={(e, data) => {
+                    // setCheckedJs(data.checked);
+                    console.log(e, data);
+                    dispatch(toggleCheckboxNewLogin(data.checked, data.label));
+                    // console.log(data.checked);
+                    // if (data.checked === true) {
+                    //   console.log('ok');
+                    //   dispatch(changeFieldNewLogin(data.label, 'tag'));
+                    // }
+                    // else {
+                    //   dispatch(deleteChoiceCheckbox(data.label));²
+                    //   console.log('nop');
+                    // }
+                    // Si data.checked de PHP est faux
+                    // alors dispatchr l'action pour supprimer du tableau
+                    // Sinon dispatcher pour ajouter au tableau
+                  }}
               // checked={checkedJs}
-              checked={js}
-            />
-            <Checkbox
-              label="PHP"
-              // value={js}
-              onChange={(e, data) => {
-                // setCheckedJs(data.checked);
-                console.log(e, data);
-                dispatch(toggleCheckboxNewLogin(data.checked, data.label));
-                // console.log(data.checked);
-                // if (data.checked === true) {
-                //   console.log('ok');
-                //   dispatch(changeFieldNewLogin(data.label, 'tag'));
-                // }
-                // else {
-                //   dispatch(deleteChoiceCheckbox(data.label));
-                //   console.log('nop');
-                // }
-                // Si data.checked de PHP est faux
-                // alors dispatchr l'action pour supprimer du tableau
-                // Sinon dispatcher pour ajouter au tableau
-              }}
-              checked={php}
-            />
+                  checked={checked}
+                />
+              ))
+            }
+
+            
           </Form.Group>
 
           <Form.TextArea
