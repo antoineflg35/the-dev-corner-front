@@ -2,15 +2,26 @@ import {
   Button, Card, Container, Item, Image, Icon, Label,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import './styles.scss';
 
 function Questions({ data }) {
+
+  const departmentUser = useSelector((state) => state.user.department_user);
+  const tagUser= useSelector((state)=>state.user.techno_user)
+
+
+  const filterQuestions= data.filter((data)=>
+  ((data.user.departement_number === departmentUser) && (data.user.tags[0].techno === tagUser)));
+
+
   return (
 
     <Container className="list_questions">
       <Item.Group divided>
 
-        {data.map((question) => (
+        {filterQuestions.map((question) => (
           <Item className="questions">
             <Item.Content>
               <Link to={`/questions/details/${question.id}`}>

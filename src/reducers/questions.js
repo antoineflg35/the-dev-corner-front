@@ -11,6 +11,7 @@ const initialState = {
   titleNewQuestion: '',
   descriptionNewQuestion: '',
   tagNewQuestion: [],
+  questionCreated: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -35,11 +36,14 @@ const reducer = (state = initialState, action = {}) => {
         title: state.titleNewQuestion,
         description: state.descriptionNewQuestion,
         tag: state.tagNewQuestion,
+
       };
       const questionCopy = [...state.list, newQuestion];
       return {
         ...state,
         list: questionCopy,
+        questionCreated: true,
+
       };
     }
     default:

@@ -6,6 +6,8 @@ export const LOGIN_TOKEN = 'LOGIN_TOKEN';
 export const LOGOUT = 'LOGOUT';
 export const SAVE_USER_TOKEN = 'SAVE_USER_TOKEN';
 export const SAVE_USER_PSEUDO = 'SAVE_USER_PSEUDO';
+export const FETCH_LIST_TAG = 'FETCH_LIST_TAG';
+export const SAVE_LIST_TAG = 'SAVE_LIST_TAG';
 
 
 // Actions creators
@@ -33,7 +35,9 @@ export const saveUserToken = (token) => ({
   token: token,
 });
 
-export const saveUserPseudo = (pseudo) => ({
+export const saveUserPseudo = (pseudo, department, techno) => ({
   type: SAVE_USER_PSEUDO,
   pseudo: pseudo,
+  department: department,
+  techno: techno,
 });
