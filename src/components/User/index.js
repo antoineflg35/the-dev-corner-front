@@ -8,6 +8,8 @@ import {
   changeFieldNewLogin, createCount, toggleCheckboxNewLogin, displayListDepartment, fetchListTag,
 } from '../../actions/newUser';
 
+import './styles.scss';
+
 function User() {
   const dispatch = useDispatch();
 
@@ -32,12 +34,12 @@ function User() {
   }, []);
 
   return (
-    <div>
+    <div className='page-new-user'>
       <Link to="/">
         <HeaderSui textAlign="center" as="h1">The Dev Corner</HeaderSui>
       </Link>
 
-      <Container>
+      <Container stackable>
         <Form
           onSubmit={(event) => {
             event.preventDefault();
@@ -116,11 +118,11 @@ function User() {
             </Form.Field>
 
           </Form.Group>
-          <Form.Group widths="equal">
+          <Form.Group stackable widths="equal">
             <h3>Choisissez vos technologies préférées</h3>
             {
               tag.map((tag) => (
-                <Checkbox
+                <Checkbox  className='checkbox'
                   label={tag.techno}
               // value={js}
                   onChange={(e, data) => {
