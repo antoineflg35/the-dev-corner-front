@@ -15,7 +15,7 @@ const initialState = {
   nb_participant: null,
   date: '',
   event_id: null,
-  participate: localStorage.getItem('participe'),
+  participate: localStorage.getItem('participe') === "true",
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -67,6 +67,7 @@ const reducer = (state = initialState, action = {}) => {
         event_id: action.value,
       };
     }
+
     case SUBSCRIBE_EVENTS: {
       localStorage.setItem('participe',true);
       return {
@@ -75,6 +76,7 @@ const reducer = (state = initialState, action = {}) => {
         participate: true,
       };
     }
+   
     case UNSUBSCRIBE_EVENTS: {
       localStorage.setItem('participe',false);
 
@@ -84,6 +86,7 @@ const reducer = (state = initialState, action = {}) => {
         participate: false,
       };
     }
+    
     case COUNT_PARTICIPANTS_EVENTS: {
       return {
         ...state,

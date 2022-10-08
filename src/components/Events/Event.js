@@ -71,7 +71,8 @@ function Event() {
           </Grid.Row>
         ))
       }
-        <Grid.Row columns={3}>
+
+<Grid.Row columns={3}>
             <Grid.Column>
               <Card.Content>
                 <Card.Header><h2>{event.id}-{event.title}</h2></Card.Header>
@@ -121,6 +122,8 @@ function Event() {
             </Grid.Column>
 
           </Grid.Row>
+      
+         
 
         
 
