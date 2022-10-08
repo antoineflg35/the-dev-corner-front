@@ -22,6 +22,7 @@ import User from '../User';
 import DetailEvent from '../DetailEvent';
 import Events from '../Events';
 import NotFound from '../NotFound';
+import MessageError from '../MessageError';
 import NotConnected from '../NotConnected';
 import Footers from '../Footers';
 
@@ -108,6 +109,10 @@ function App() {
               path="/events/details/:id"
               element={<DetailEvent />}
             />
+            <Route
+           path="/error"
+           element={<MessageError />}
+         />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </>
