@@ -9,15 +9,15 @@ const questionsMiddleware = (store) => (next) => (action) => {
     case FETCH_QUESTIONS:
       axios.get(
         'http://localhost:8001/api/v1/questions',
-        // {
-        //   headers: {
-        //     Authorization: `Bearer ${store.getState().user.token}`,
-        //   },
-        // },
+        {
+          headers: {
+            Authorization: `Bearer ${store.getState().user.token}`,
+          },
+        },
       )
         .then((response) => {
           store.dispatch(saveQuestions(response.data.questions));
-          // console.log(response.data.questions[0].user.pseudo);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -34,7 +34,6 @@ const questionsMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           store.dispatch(saveLastFiveQuestions(response.data.questionRepository));
-          console.log(response);
           // console.log(response.data.questions[0].user.pseudo);
         })
         .catch((error) => {

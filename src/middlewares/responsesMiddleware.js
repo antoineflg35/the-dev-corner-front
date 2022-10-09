@@ -1,7 +1,7 @@
 /* eslint-disable no-case-declarations */
 import axios from 'axios';
 import { ADD_RESPONSE, cleanResponse} from '../actions/response';
-import { updateListQuestions, fetchQuestions } from '../actions/questions';
+import { fetchQuestions } from '../actions/questions';
 
 
 const responsesMiddleware = (store) => (next) => (action) => {

@@ -1,4 +1,6 @@
-import { UPDATE_FIELD_LOGIN, SAVE_DATA_USER, LOGOUT } from '../actions/user';
+import {
+  UPDATE_FIELD_LOGIN, SAVE_USER_TOKEN, LOGOUT, SAVE_USER_PSEUDO,
+} from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -7,7 +9,9 @@ export const initialState = {
   // contenu du champ password du formulaire de login
   password: '',
   pseudo: '',
-  token: '',
+  department_user: '',
+  techno_user: '',
+  token: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -26,17 +30,28 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         password: action.value,
       };
-    
-    case SAVE_DATA_USER:
+    case SAVE_USER_TOKEN:
       return {
         ...state,
-        pseudo: action.pseudo,
         logged: true,
         token: action.token,
         username: '',
         password: '',
       };
-      case LOGOUT:
+    case SAVE_USER_PSEUDO:
+      return {
+        ...state,
+        // logged: true,
+        pseudo: action.pseudo,
+        department_user: action.department,
+        techno_user: action.techno,
+      };
+    // case LOGIN_TOKEN:
+    //   return {
+    //     ...state,
+    //     token: state.token,
+    //   };
+    case LOGOUT:
       return {
         ...state,
         // pseudo: action.pseudo,

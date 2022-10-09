@@ -4,7 +4,6 @@ import {
 } from 'semantic-ui-react';
 
 function ListQuestions({ data }) {
-  // const { id } = useParams(data);
   return (
 
     <Card.Group centered>
@@ -17,9 +16,9 @@ function ListQuestions({ data }) {
                 <List.Item>
                   <List.Icon name="question" />
                   <List.Content>
-                    <List.Header as="a">{question.title} {question.user.pseudo}</List.Header>
+                    <List.Header as="a">{question.title.slice(0, 15)} {question.user.pseudo}</List.Header>
                     <List.Description>
-                      {question.description.slice(0,25)}
+                      {question.description.slice(0,30)}
                     </List.Description>
                   </List.Content>
                 </List.Item>
