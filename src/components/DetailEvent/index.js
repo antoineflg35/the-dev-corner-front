@@ -29,9 +29,9 @@ function DetailEvent() {
     <div>
 
       <Container className="content">
-      <Link to="/events">
+      {/* <Link to="/events">
           Retour à la liste des événements
-        </Link>
+        </Link> */}
         <HeaderSui as="h2" size="huge">{data.title}</HeaderSui>
         <HeaderSui color="blue" size="small">{data.date}</HeaderSui>
         <HeaderSui color="blue" size="small">{data.adress}</HeaderSui>
