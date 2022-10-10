@@ -102,7 +102,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
           console.log(response.data);
           const nbparticipe = response.data.users_participate;
           console.log(nbparticipe);
-         const participants = nbparticipe.length;
+          const participants = nbparticipe.length;
           store.dispatch(countParticipantsEvents(participants));
         })
         .catch((error) => {

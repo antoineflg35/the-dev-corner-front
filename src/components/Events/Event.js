@@ -33,7 +33,7 @@ function Event() {
 
             <Grid.Column>
               <Card.Content>
-                <Card.Header><h2>25 </h2>participants</Card.Header>
+                <Card.Header><h2> 7 </h2>participants</Card.Header>
                 <Card.Meta>/</Card.Meta>
                 <Card.Description>
                  <h2>{event.nb_participant_max}</h2>  participants max

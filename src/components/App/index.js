@@ -22,9 +22,9 @@ import DetailEvent from '../DetailEvent';
 import Events from '../Events';
 import NotFound from '../NotFound';
 import MessageError from '../MessageError';
+import SuccessMessage from '../SuccessMessage';
 import NotConnected from '../NotConnected';
 import Footers from '../Footers';
-import SuccessMessage from '../SuccessMessage';
 
 // == Composant
 function App() {
