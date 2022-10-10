@@ -20,28 +20,28 @@ function HeaderMobile() {
           <Dropdown.Menu>
             <NavLink
               to="/"
-              className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}
+              className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
             >
               <Dropdown.Item>Accueil</Dropdown.Item>
             </NavLink>
             <NavLink
               to="/questions"
-              className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}
+              className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
             >
               <Dropdown.Item>Les questions
               </Dropdown.Item>
             </NavLink>
             <NavLink
               to="/events"
-              className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}
+              className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
             >
               <Dropdown.Item>Les événements du coin</Dropdown.Item>
             </NavLink>
             <NavLink
               to="/entreprise"
-              className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}
+              className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
             >
-            <Dropdown.Item>Les entreprises du coin</Dropdown.Item>
+              <Dropdown.Item>Les entreprises du coin</Dropdown.Item>
             </NavLink>
             <Dropdown.Divider />
             <Dropdown.Item>Mon profil</Dropdown.Item>
