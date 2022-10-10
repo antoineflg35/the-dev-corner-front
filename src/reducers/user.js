@@ -11,7 +11,8 @@ export const initialState = {
   pseudo: '',
   department_user: '',
   techno_user: '',
-  token: localStorage.getItem('token'),
+  token: null,
+  // localStorage.getItem('token')
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,7 +32,7 @@ const reducer = (state = initialState, action = {}) => {
         password: action.value,
       };
     case SAVE_USER_TOKEN:
-      localStorage.setItem('token',action.token);
+      // localStorage.setItem('token',action.token);
       return {
         ...state,
         logged: true,

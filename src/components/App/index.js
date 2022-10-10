@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="app">
       {/* Routes if user is not logged in */}
-      {token
+      {!token
        && (
        <Routes>
          <Route
@@ -70,7 +70,7 @@ function App() {
        </Routes>
        )}
       {/* Routes if user is logged in */}
-      {!token
+      {token
       && (
         <>
           <Header />
