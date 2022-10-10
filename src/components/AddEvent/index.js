@@ -1,6 +1,7 @@
 import { Form, Container } from 'semantic-ui-react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { updateFieldAddEvents, displayListDepartment, addEvent } from '../../actions/events';
 
@@ -10,6 +11,7 @@ import './styles.scss';
 
 function AddEvent() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const title = useSelector((state) => state.events.titleNewEvent);
   const description = useSelector((state) => state.events.descriptionNewEvent);
@@ -33,6 +35,7 @@ function AddEvent() {
             onSubmit={(event) => {
               event.preventDefault();
               dispatch(addEvent());
+              navigate('/events');
             }}
           >
             <Form.Group widths="equal">

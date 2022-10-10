@@ -1,6 +1,7 @@
 /* eslint-disable no-case-declarations */
 import axios from 'axios';
-import { ADD_QUESTION } from '../actions/questions';
+import { useDispatch } from 'react-redux';
+import { ADD_QUESTION, fetchQuestions } from '../actions/questions';
 
 const addQuestionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -11,6 +12,7 @@ const addQuestionMiddleware = (store) => (next) => (action) => {
         data: {
           title: store.getState().questions.titleNewQuestion,
           description: store.getState().questions.descriptionNewQuestion,
+          departement_number: store.getState().user.department_user,
           tag: Array(store.getState().questions.tagNewQuestion),
         },
         headers: {
@@ -32,6 +34,7 @@ const addQuestionMiddleware = (store) => (next) => (action) => {
       //   config,
       // )
         .then((response) => {
+          store.dispatch(fetchQuestions());
           console.log(response);
         })
         .catch((error) => {

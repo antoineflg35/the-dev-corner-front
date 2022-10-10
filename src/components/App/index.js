@@ -7,7 +7,6 @@ import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions'
 import { fetchEventsLastFive, fetchEvents, countParticipantsEvents } from '../../actions/events';
 import { loginToken } from '../../actions/user';
 
-
 // import { fetchEvents } from '../../actions/events';
 
 import Header from '../Header';
@@ -25,6 +24,7 @@ import NotFound from '../NotFound';
 import MessageError from '../MessageError';
 import NotConnected from '../NotConnected';
 import Footers from '../Footers';
+import SuccessMessage from '../SuccessMessage';
 
 // == Composant
 function App() {
@@ -45,8 +45,6 @@ function App() {
       dispatch(fetchEventsLastFive());
     }
   }, [token]);
-
-  
 
   return (
     <div className="app">
@@ -95,7 +93,7 @@ function App() {
             <Route
               path="/questions/details/:id"
               element={<QuestionDetails />}
-              
+
             />
             <Route
               path="/questions/add"
@@ -110,9 +108,13 @@ function App() {
               element={<DetailEvent />}
             />
             <Route
-           path="/error"
-           element={<MessageError />}
-         />
+              path="/error"
+              element={<MessageError />}
+            />
+            <Route
+              path="/success"
+              element={<SuccessMessage />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </>

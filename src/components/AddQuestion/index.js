@@ -27,6 +27,7 @@ function AddQuestion() {
   // useEffect(() => {
   //   navigate('/questions');
   // }, [createdQuestion]);
+  const navigate = useNavigate();
 
   return (
     <div className="add_questions">
@@ -37,6 +38,12 @@ function AddQuestion() {
           onSubmit={(event) => {
             event.preventDefault();
             dispatch(addQuestion());
+            if (description.length >= 50) {
+              navigate('/success');
+            }
+            else {
+              navigate('/error');
+            }
           }}
         >
           <Form.Field>
@@ -74,12 +81,17 @@ function AddQuestion() {
                 <option value="" />
 
                 {
-                  tagQuestions.map((tag) => <option value={tag.techno}>{tag.techno}</option>)
+                  tagQuestions.map((tag) => <option key={tag.id} value={tag.techno}>{tag.techno}</option>)
                 }
               </Form.Field>
             </div>
 
-            {description.length >= 60 ? (
+            <Button
+              content="Poser une question"
+              primary
+            />
+
+            {/* {description.length >= 60 ? (
               <Link to="/questions">
                 <Button
                   content="Poser une question"
@@ -94,7 +106,7 @@ function AddQuestion() {
                     primary
                   />
                 </Link>
-              )}
+              )} */}
 
           </Form.Field>
         </Form>
