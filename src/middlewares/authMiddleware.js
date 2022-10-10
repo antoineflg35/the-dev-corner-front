@@ -40,9 +40,12 @@ const authMiddleware = (store) => (next) => async (action) => {
           username: store.getState().user.username,
           password: store.getState().user.password,
         },
+
       )
         .then((response) => {
           store.dispatch(saveUserToken(response.data.token));
+      // const localstorage = localStorage.setitem('token',action.token);
+
         })
         .then(() => {
           store.dispatch(loginToken());

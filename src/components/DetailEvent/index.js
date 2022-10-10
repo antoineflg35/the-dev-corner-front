@@ -39,7 +39,7 @@ function DetailEvent() {
         <p>
           {data.description}
         </p>
-        <HeaderSui color="blue" size="small">{nbParticipant}/{data.nb_participant_max}</HeaderSui>
+        <HeaderSui color="blue" size="small"><h2>{nbParticipant}</h2>participants/<h2>{data.nb_participant_max}</h2>participants max</HeaderSui>
 
         <Grid stackable>
           <Grid.Column floated="left" width={5}>
@@ -55,8 +55,9 @@ function DetailEvent() {
             <Image src={map} />
           </Grid.Column>
         </Grid>
+        <div className='button_ask_question'>
 
-        <Container class="button_ask_question">
+        <Container >
           {!participe
           && (
           <Button
@@ -77,6 +78,7 @@ function DetailEvent() {
           />
           )}
         </Container>
+        </div>
       </Container>
 
     </div>
