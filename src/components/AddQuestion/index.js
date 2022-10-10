@@ -79,22 +79,23 @@ function AddQuestion() {
               </Form.Field>
             </div>
 
-            {description.length >= 60?  <Link to="/questions">
-            <Button
-                content="Poser une question"
-                primary
-              />
-            </Link>
-              : <Link to="/error">
+            {description.length >= 60 ? (
+              <Link to="/questions">
                 <Button
-                content="Poser une question"
-                primary
-              />
-            </Link>
-                }
-            
-           
-              
+                  content="Poser une question"
+                  primary
+                />
+              </Link>
+            )
+              : (
+                <Link to="/error">
+                  <Button
+                    content="Poser une question"
+                    primary
+                  />
+                </Link>
+              )}
+
           </Form.Field>
         </Form>
       </Container>

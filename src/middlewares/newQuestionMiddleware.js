@@ -11,7 +11,7 @@ const addQuestionMiddleware = (store) => (next) => (action) => {
         data: {
           title: store.getState().questions.titleNewQuestion,
           description: store.getState().questions.descriptionNewQuestion,
-          tag: Array(store.getState().questions.tagNewQuestion),
+          tag: store.getState().questions.tagNewQuestion,
         },
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
