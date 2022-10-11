@@ -5,6 +5,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+
 function Event() {
   const events = useSelector((state) => state.events.list);
   const departmentUser = useSelector((state) => state.user.department_user);
@@ -33,10 +34,10 @@ function Event() {
 
             <Grid.Column>
               <Card.Content>
-                <Card.Header><h2> 7 </h2>participants</Card.Header>
+                <Card.Header><h2> Date</h2></Card.Header>
                 <Card.Meta>/</Card.Meta>
                 <Card.Description>
-                 <h2>{event.nb_participant_max}</h2>  participants max
+                 <h2>{event.date.toString().slice(0,10)}</h2>
                 </Card.Description>
               </Card.Content>
             </Grid.Column>
@@ -47,12 +48,6 @@ function Event() {
                   <Grid.Row columns={1}>
                     <Grid.Column>
                       <div className="ui two buttons">
-
-                        <Link>
-                          <Button compact primary>
-                            s'inscrire
-                          </Button>
-                        </Link>
                         <Link to={`/events/details/${event.id}`}>
 
                           <Button compact color="pink">

@@ -45,7 +45,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: questionCopy,
         questionCreated: true,
-
       };
     }
     default:

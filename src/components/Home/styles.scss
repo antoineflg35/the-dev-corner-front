@@ -5,7 +5,14 @@
 
 .button_ask_question {
   margin: 50px;
+
 }
+
+.button_ask_question:hover{
+  background-color: white !important;
+  color: black !important;
+}
+
 
 .content {
   margin: 20px;

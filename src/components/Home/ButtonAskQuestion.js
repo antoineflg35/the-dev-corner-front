@@ -10,6 +10,7 @@ function ButtonAskQuestion() {
         <Button
           content="Poser une question"
           primary
+          circular
         />
       </Link>
     </div>
