@@ -25,7 +25,9 @@ import MessageError from '../MessageError';
 import SuccessMessage from '../SuccessMessage';
 import NotConnected from '../NotConnected';
 import Footers from '../Footers';
-import SuccessEvents from '../SuccessEvents';
+import Contact from '../Contact';
+
+
 
 // == Composant
 function App() {
@@ -60,6 +62,10 @@ function App() {
          <Route
            path="/login"
            element={<Login />}
+         />
+           <Route
+           path="/contact"
+           element={<Contact />}
          />
          <Route
            path="/user"
