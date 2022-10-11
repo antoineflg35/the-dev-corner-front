@@ -66,11 +66,12 @@ const authMiddleware = (store) => (next) => async (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data.tags[0].techno);
+          console.log(response);
           store.dispatch(saveUserPseudo(
             response.data.pseudo,
             response.data.departement_number,
             response.data.tags[0].techno,
+            response.data.is_verified,
           ));
         })
         .catch((error) => {
