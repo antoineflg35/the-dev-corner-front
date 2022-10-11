@@ -26,11 +26,8 @@ import SuccessMessage from '../SuccessMessage';
 import SuccessEvents from '../SuccessEvents';
 import NotConnected from '../NotConnected';
 import Footers from '../Footers';
-import Contact from '../Contact';
-
-
-
-
+import SuccessEvents from '../SuccessEvents';
+import Team from '../Team';
 
 // == Composant
 function App() {
@@ -75,6 +72,7 @@ function App() {
            element={<User />}
          />
          <Route path="*" element={<NotConnected />} />
+         <Route path="/team" element={<Team />} />
        </Routes>
        )}
       {/* Routes if user is logged in */}
@@ -130,6 +128,7 @@ function App() {
               element={<SuccessEvents />}
             />
             <Route path="*" element={<NotFound />} />
+            <Route path="/team" element={<Team />} />
           </Routes>
         </>
       )}

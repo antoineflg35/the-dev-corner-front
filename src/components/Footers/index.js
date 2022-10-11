@@ -2,6 +2,7 @@ import { Menu } from 'semantic-ui-react';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 import Footer from '../Footer';
 
 function Footers() {
@@ -12,21 +13,22 @@ function Footers() {
     <div>
       {isMobile && <Footer />}
       {isBigScreen && (
-      <Menu fixed='bottom' widths="9" size="">
-        <Link to ='/contact'>
+      <Menu fixed="bottom" widths="9" size="">
         <Menu.Item
           name="Nous Contacter"
         >
           Nous Contacter
         </Menu.Item>
-        </Link>
-
         <Menu.Item
           name=" Mentions Légales"
         >
           Mentions Légales
         </Menu.Item>
-
+        <Link to="/team">
+          <Menu.Item>
+            Notre équipe
+          </Menu.Item>
+        </Link>
       </Menu>
       )}
 
