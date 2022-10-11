@@ -23,9 +23,12 @@ import Events from '../Events';
 import NotFound from '../NotFound';
 import MessageError from '../MessageError';
 import SuccessMessage from '../SuccessMessage';
+import SuccessEvents from '../SuccessEvents';
 import NotConnected from '../NotConnected';
 import Footers from '../Footers';
 import Contact from '../Contact';
+
+
 
 
 

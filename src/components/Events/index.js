@@ -38,7 +38,7 @@ function Events() {
 
               <div className="button_ask_question">
                 <Link to="/events/add">
-                  <Button
+                  <Button circular compact 
                     content="Proposer son evenement"
                     primary
                   />

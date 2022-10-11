@@ -71,7 +71,7 @@ function Contact () {
     <Form.TextArea label='votre message' placeholder='Tell us more about you...' />
   </Form.Group>
   <Form.Checkbox label='I agree to the Terms and Conditions' />
-  <Button circular color='pink' type='submit'>Soumettre</Button>
+  <Button circular primary type='submit'>Soumettre</Button>
 </Form>
 </Segment>
 
