@@ -1,5 +1,6 @@
 import { Menu } from 'semantic-ui-react';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 import Footer from '../Footer';
 
@@ -12,11 +13,13 @@ function Footers() {
       {isMobile && <Footer />}
       {isBigScreen && (
       <Menu fixed='bottom' widths="9" size="">
+        <Link to ='/contact'>
         <Menu.Item
           name="Nous Contacter"
         >
           Nous Contacter
         </Menu.Item>
+        </Link>
 
         <Menu.Item
           name=" Mentions Légales"

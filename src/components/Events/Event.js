@@ -4,6 +4,34 @@ import {
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import images1 from '../../assets/images/images2.jpeg';
+import images2 from '../../assets/images/images3.jpeg';
+import images3 from '../../assets/images/images4.jpeg';
+import images4 from '../../assets/images/images5.jpeg';
+import images5 from '../../assets/images/images6.jpeg';
+import images6 from'../../assets/images/images6.jpeg' ;
+
+
+const Images =[
+  images1,
+  images2,
+  images3,
+  images4,
+  images5,
+  images6,
+
+]
+
+let randomIndex =  Math.floor(Math.random()*Images.length);
+let selectedImages = Images[randomIndex];
+
+
+
+
+  
+
+
+
 function Event() {
   const events = useSelector((state) => state.events.list);
   const departmentUser = useSelector((state) => state.user.department_user);
@@ -17,7 +45,7 @@ function Event() {
       {
       filterEvents.map((event) => (
         <Item>
-          {/* <Item.Image src='https://react.semantic-ui.com/images/wireframe/image.png' /> */}
+          <Item.Image size='small' circular src={selectedImages} />
 
           <Item.Content>
             <Item.Header as="a">{event.title}</Item.Header>
@@ -40,6 +68,15 @@ function Event() {
         </Item>
       ))
     }
+
+  
+
+       
+      
+
+   
+
+
 
     </Item.Group>
   // <Card fluid>
