@@ -1,7 +1,7 @@
-import { Form, Container } from 'semantic-ui-react';
+import { Form, Container, Button } from 'semantic-ui-react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { updateFieldAddEvents, displayListDepartment, addEvent } from '../../actions/events';
 
@@ -29,7 +29,10 @@ function AddEvent() {
   return (
     <div>
 
-      <Container>
+      <Container className="events">
+        <Link to="/events">
+          <Button className="button-login" size="large" circular primary>Retour à la liste des événements</Button>
+        </Link>
         <div className="form">
           <Form
             onSubmit={(event) => {

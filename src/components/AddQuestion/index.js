@@ -34,6 +34,9 @@ function AddQuestion() {
 
       <h2>Ajouter une question</h2>
       <Container>
+        <Link to="/questions">
+          <Button className="button-login" size="large" circular primary>Retour à la liste des questions</Button>
+        </Link>
         <Form
           onSubmit={(event) => {
             event.preventDefault();
