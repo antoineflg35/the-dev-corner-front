@@ -1,6 +1,14 @@
-import { Card, List } from 'semantic-ui-react';
+import {
+  Card, List, Header, Icon,
+} from 'semantic-ui-react';
+import { useParams, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Main() {
+  const { id } = useParams();
+  const data = useSelector((state) => state.questions.list);
+  const events = useSelector((state) => state.events.list);
+
   return (
     <div className="main">
 
@@ -8,89 +16,52 @@ function Main() {
 
         <Card>
           <Card.Content>
+            <Header as="h2" icon textAlign="center">
+              <Icon name="question" circular />
+              <Header.Content>Les dernières questions</Header.Content>
+            </Header>
             <List>
-              <List.Item>
-                <List.Icon name="question" />
-                <List.Content>
-                  <List.Header as="a">Question 1</List.Header>
-                  <List.Description>
-                    An excellent polish restaurant, quick delivery and hearty, filling
-                    meals.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="question" />
-                <List.Content>
-                  <List.Header as="a">Question 2</List.Header>
-                  <List.Description>
-                    A taste of Shaanxi's delicious culinary traditions, with delights like
-                    spicy cold noodles and lamb burgers.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="question" />
-                <List.Content>
-                  <List.Header as="a">Question 3</List.Header>
-                  <List.Description>
-                    Greenpoint's best choice for quick and delicious sushi.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="question" />
-                <List.Content>
-                  <List.Header as="a">Question 4</List.Header>
-                  <List.Description>
-                    At night a bar, during the day a delicious brunch spot.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
+              {
+                data.map((question) => (
+                  <List.Item>
+                    <List.Icon name="question" />
+                    <List.Content>
+                      <Link to={`/questions/details/${question.id}`}>
+                        <List.Header as="a">{question.title.slice(0, 15)}</List.Header>
+                      </Link>
+                      <List.Description>
+                        {question.description.slice(0, 30)}
+                      </List.Description>
+                    </List.Content>
+                  </List.Item>
+                ))
+              }
             </List>
           </Card.Content>
         </Card>
         <Card>
           <Card.Content>
+            <Header as="h2" icon textAlign="center">
+              <Icon name="marker" circular />
+              <Header.Content>Les derniers événements</Header.Content>
+            </Header>
             <List>
-              <List.Item>
-                <List.Icon name="marker" />
-                <List.Content>
-                  <List.Header as="a">Evénement 1</List.Header>
-                  <List.Description>
-                    An excellent polish restaurant, quick delivery and hearty, filling
-                    meals.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="marker" />
-                <List.Content>
-                  <List.Header as="a">Evénement 2</List.Header>
-                  <List.Description>
-                    A taste of Shaanxi's delicious culinary traditions, with delights like
-                    spicy cold noodles and lamb burgers.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="marker" />
-                <List.Content>
-                  <List.Header as="a">Evénement 3</List.Header>
-                  <List.Description>
-                    Greenpoint's best choice for quick and delicious sushi.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="marker" />
-                <List.Content>
-                  <List.Header as="a">Evénement 4</List.Header>
-                  <List.Description>
-                    At night a bar, during the day a delicious brunch spot.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
+              {
+                events.map((event) => (
+                  <List.Item>
+                    <List.Icon name="marker" />
+                    <List.Content>
+                      <Link to={`/events/details/${event.id}`}>
+
+                        <List.Header as="a">{event.title}</List.Header>
+                      </Link>
+                      <List.Description>
+                        {event.description}
+                      </List.Description>
+                    </List.Content>
+                  </List.Item>
+                ))
+              }
             </List>
           </Card.Content>
         </Card>

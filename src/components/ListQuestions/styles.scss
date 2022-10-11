@@ -1,26 +1,5 @@
-.page_questions{
-  width: auto;
-  margin: 30px 30px;
-  
-  .questions{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  
-  .card_question_details{
-      padding: 500px;
-      margin: 300px;
-  }
-  
- .card_question_button{
-    height: 20%;
-    align-self: center;
-    margin-bottom: 30px;
-  }
-  
+.list_questions{
+  margin: 50px;
 }
 
 .informations_page_questions{
@@ -30,10 +9,12 @@
 
   .questions_closed{
     width: 50%;
+    height: 100vh;
   }
 
   .statistics{
     width: 50%;
     align-self: center;
+    height: 100vh;
   }
 }

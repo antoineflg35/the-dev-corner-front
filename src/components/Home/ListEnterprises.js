@@ -1,4 +1,7 @@
 import { Button, Card, Image } from 'semantic-ui-react';
+
+import entreprise from '../../assets/images/entreprise.jpg';
+
 import './styles.scss';
 
 function ListEnterprises() {
@@ -10,8 +13,8 @@ function ListEnterprises() {
           <Card.Content>
             <Image
               floated="right"
-              size="mini"
-              src="/images/avatar/large/steve.jpg"
+              size="tiny"
+              src={entreprise}
             />
             <Card.Header>Steve Sanders</Card.Header>
             <Card.Meta>Friends of Elliot</Card.Meta>
@@ -30,8 +33,8 @@ function ListEnterprises() {
           <Card.Content>
             <Image
               floated="right"
-              size="mini"
-              src="/images/avatar/large/steve.jpg"
+              size="tiny"
+              src={entreprise}
             />
             <Card.Header>Steve Sanders</Card.Header>
             <Card.Meta>Friends of Elliot</Card.Meta>
@@ -50,8 +53,8 @@ function ListEnterprises() {
           <Card.Content>
             <Image
               floated="right"
-              size="mini"
-              src="/images/avatar/large/steve.jpg"
+              size="tiny"
+              src={entreprise}
             />
             <Card.Header>Steve Sanders</Card.Header>
             <Card.Meta>Friends of Elliot</Card.Meta>
@@ -70,8 +73,8 @@ function ListEnterprises() {
           <Card.Content>
             <Image
               floated="right"
-              size="mini"
-              src="/images/avatar/large/steve.jpg"
+              size="tiny"
+              src={entreprise}
             />
             <Card.Header>Steve Sanders</Card.Header>
             <Card.Meta>Friends of Elliot</Card.Meta>
@@ -90,8 +93,8 @@ function ListEnterprises() {
           <Card.Content>
             <Image
               floated="right"
-              size="mini"
-              src="/images/avatar/large/steve.jpg"
+              size="tiny"
+              src={entreprise}
             />
             <Card.Header>Steve Sanders</Card.Header>
             <Card.Meta>Friends of Elliot</Card.Meta>

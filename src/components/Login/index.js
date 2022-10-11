@@ -3,7 +3,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFieldLogin, login, saveDataUser } from '../../actions/user';
+import { updateFieldLogin, login, saveDataUser, loginToken } from '../../actions/user';
 
 function Login() {
   const mailUser = useSelector((state) => state.user.username);
@@ -15,6 +15,9 @@ function Login() {
 
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
+        <Link to="/">
+          <Header textAlign="center" as="h1">The Dev Corner</Header>
+        </Link>
         <Header as="h2" color="teal" textAlign="center">
           Connexion à votre compte
         </Header>
@@ -23,7 +26,8 @@ function Login() {
           onSubmit={(event) => {
             event.preventDefault();
             dispatch(login());
-            dispatch(saveDataUser());
+            // dispatch(loginToken());
+            // dispatch(saveDataUser());
           }}
         >
           <Segment stacked>
@@ -55,7 +59,6 @@ function Login() {
             <Button color="teal" fluid size="large">
               Login
             </Button>
-        
 
           </Segment>
         </Form>

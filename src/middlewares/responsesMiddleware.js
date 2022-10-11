@@ -1,6 +1,8 @@
 /* eslint-disable no-case-declarations */
 import axios from 'axios';
-import { ADD_RESPONSE, cleanResponse } from '../actions/response';
+import { ADD_RESPONSE, cleanResponse} from '../actions/response';
+import { fetchQuestions } from '../actions/questions';
+
 
 const responsesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -17,22 +19,10 @@ const responsesMiddleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().user.token}`,
         },
       })
-      // const config = {
-      //   headers: { Authorization: `Bearer ${store.getState().user.token}` },
-      // };
-      // const bodyParameters = {
-      //   question_id: store.getState().response.question_id,
-      //   description: store.getState().response.description,
-      // };
-
-      // axios.post(
-      //   'http://localhost:8001/api/v1/responses/add',
-      //   bodyParameters,
-      //   config,
-      // )
         .then((response) => {
-          console.log(response);
-          // store.dispatch(cleanResponse());
+          console.log(response.data);
+          store.dispatch(fetchQuestions());
+          store.dispatch(cleanResponse());
         })
         .catch(console.log);
       break;
