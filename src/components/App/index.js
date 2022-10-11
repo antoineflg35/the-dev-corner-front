@@ -25,8 +25,8 @@ import MessageError from '../MessageError';
 import SuccessMessage from '../SuccessMessage';
 import SuccessEvents from '../SuccessEvents';
 import NotConnected from '../NotConnected';
+import Contact from '../Contact';
 import Footers from '../Footers';
-import SuccessEvents from '../SuccessEvents';
 import Team from '../Team';
 
 // == Composant
@@ -63,7 +63,7 @@ function App() {
            path="/login"
            element={<Login />}
          />
-           <Route
+         <Route
            path="/contact"
            element={<Contact />}
          />
