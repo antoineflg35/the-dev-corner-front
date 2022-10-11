@@ -1,5 +1,6 @@
 
 import {Header, Container,Button, Form, Segment,Card,Icon,Grid, } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 import './styles.scss';
 
@@ -8,8 +9,12 @@ function Contact () {
 
     <><div className="header-presentation">
       <Header as="h1" size="huge" centred textAlign="center"> <span><p className="span">The Dev Corner</p></span></Header>
+          
+
+          <Link to ='/login'>
      
         <Button className="button-login" size="large" circular primary>Se connecter</Button>
+        </Link>
       
     </div>
     <Container  style={{ padding: '0px 0px 50px' }}>
@@ -66,7 +71,7 @@ function Contact () {
     <Form.TextArea label='votre message' placeholder='Tell us more about you...' />
   </Form.Group>
   <Form.Checkbox label='I agree to the Terms and Conditions' />
-  <Button type='submit'>Soumettre</Button>
+  <Button circular color='pink' type='submit'>Soumettre</Button>
 </Form>
 </Segment>
 
