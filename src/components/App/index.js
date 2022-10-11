@@ -24,6 +24,7 @@ import NotConnected from '../NotConnected';
 import Contact from '../Contact';
 import Footers from '../Footers';
 import Team from '../Team';
+import PageUnderConstruction from '../PageUnderConstruction';
 
 // == Composant
 function App() {
@@ -122,6 +123,14 @@ function App() {
             <Route
               path="/success-events"
               element={<SuccessEvents />}
+            />
+            <Route
+              path="/enterprise"
+              element={<PageUnderConstruction />}
+            />
+            <Route
+              path="/blog"
+              element={<PageUnderConstruction />}
             />
             <Route path="*" element={<NotFound />} />
             <Route path="/team" element={<Team />} />

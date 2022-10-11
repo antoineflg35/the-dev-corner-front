@@ -38,7 +38,7 @@ function HeaderMobile() {
               <Dropdown.Item>Les événements du coin</Dropdown.Item>
             </NavLink>
             <NavLink
-              to="/entreprise"
+              to="/enterprise"
               className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
             >
               <Dropdown.Item>Les entreprises du coin</Dropdown.Item>

@@ -40,7 +40,7 @@ function HeaderDesktop() {
           />
         </NavLink>
         <NavLink
-          to="/entreprise"
+          to="/enterprise"
           className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
         >
 
