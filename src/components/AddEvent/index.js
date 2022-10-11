@@ -35,7 +35,7 @@ function AddEvent() {
             onSubmit={(event) => {
               event.preventDefault();
               dispatch(addEvent());
-              navigate('/events');
+              navigate('/success-events');
             }}
           >
             <Form.Group widths="equal">
