@@ -25,6 +25,7 @@ import MessageError from '../MessageError';
 import SuccessMessage from '../SuccessMessage';
 import NotConnected from '../NotConnected';
 import Footers from '../Footers';
+import SuccessEvents from '../SuccessEvents';
 
 // == Composant
 function App() {
@@ -112,8 +113,12 @@ function App() {
               element={<MessageError />}
             />
             <Route
-              path="/success"
+              path="/success-question"
               element={<SuccessMessage />}
+            />
+            <Route
+              path="/success-events"
+              element={<SuccessEvents />}
             />
             <Route path="*" element={<NotFound />} />
           </Routes>

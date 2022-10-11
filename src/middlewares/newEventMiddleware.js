@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import axios from 'axios';
-import { ADD_EVENT, DISPLAY_LIST_DEPARTMENT, saveDepartment } from '../actions/events';
+import { ADD_EVENT, DISPLAY_LIST_DEPARTMENT, fetchEvents, saveDepartment } from '../actions/events';
 
 const newEventMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -23,6 +23,7 @@ const newEventMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response);
+          store.dispatch(fetchEvents());
         })
         .catch((error) => {
           if (error.response) {
