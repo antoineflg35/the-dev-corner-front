@@ -12,7 +12,7 @@ function Event() {
 
   console.log(events);
   return (
-    <Item.Group divided>
+    <Item.Group stackable divided>
 
       {
       filterEvents.map((event) => (
