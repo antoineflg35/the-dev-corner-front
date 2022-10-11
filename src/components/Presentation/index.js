@@ -23,7 +23,7 @@ function Presentation() {
       <div className="header-presentation">
         <Header as="h1" size="huge" centred textAlign="center"> Bienvenue sur <span><p className="span">The Dev Corner</p></span></Header>
         <Link to="/login">
-          <Button className="button-login" size="large" primary>Se connecter</Button>
+          <Button className="button-login" size="large" circular primary>Se connecter</Button>
         </Link>
       </div>
       <Segment style={{ padding: '8em 0em' }} vertical>
@@ -51,7 +51,7 @@ function Presentation() {
           <Grid.Row>
             <Grid.Column textAlign="center">
               <Link to="/user">
-                <Button className="button-new-user" centred size="large" primary>Créer un compte</Button>
+                <Button className="button-new-user" circular centred size="large" primary>Créer un compte</Button>
               </Link>
             </Grid.Column>
           </Grid.Row>

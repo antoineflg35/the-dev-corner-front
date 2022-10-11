@@ -56,7 +56,7 @@ function Main() {
                         <List.Header as="a">{event.title}</List.Header>
                       </Link>
                       <List.Description>
-                        {event.description}
+                        {event.description.slice(0, 30)}
                       </List.Description>
                     </List.Content>
                   </List.Item>

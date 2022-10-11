@@ -16,6 +16,7 @@ const initialState = {
   date: '',
   event_id: null,
   participate: localStorage.getItem('participe') === "true",
+  loader: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -24,6 +25,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.events,
+        loader: true,
       };
     case SAVE_LAST_FIVE_EVENTS:
       return {

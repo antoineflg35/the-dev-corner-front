@@ -32,7 +32,7 @@ function ListEvents() {
                   <List.Content>
                     <List.Header as="a">{event.title}</List.Header>
                     <List.Description>
-                      {event.description}
+                      {event.description.slice(0, 30)}
                     </List.Description>
                   </List.Content>
                 </List.Item>
