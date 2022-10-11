@@ -50,12 +50,12 @@ function Events() {
 
         </Grid>
 
-        <div className="evenement">
+        {/* <div className="evenement">
           <h1><span>Evénement terminés </span><span>proche de chez vous</span></h1>
 
-        </div>
+        </div> */}
 
-        <EventExpired />
+        {/* <EventExpired /> */}
 
       </Container>
       )}

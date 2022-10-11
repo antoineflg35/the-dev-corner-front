@@ -9,10 +9,9 @@ import images2 from '../../assets/images/images3.jpeg';
 import images3 from '../../assets/images/images4.jpeg';
 import images4 from '../../assets/images/images5.jpeg';
 import images5 from '../../assets/images/images6.jpeg';
-import images6 from'../../assets/images/images6.jpeg' ;
+import images6 from '../../assets/images/images6.jpeg';
 
-
-const Images =[
+const Images = [
   images1,
   images2,
   images3,
@@ -20,17 +19,10 @@ const Images =[
   images5,
   images6,
 
-]
+];
 
-let randomIndex =  Math.floor(Math.random()*Images.length);
-let selectedImages = Images[randomIndex];
-
-
-
-
-  
-
-
+const randomIndex = Math.floor(Math.random() * Images.length);
+const selectedImages = Images[randomIndex];
 
 function Event() {
   const events = useSelector((state) => state.events.list);
@@ -45,7 +37,7 @@ function Event() {
       {
       filterEvents.map((event) => (
         <Item>
-          <Item.Image size='small' circular src={selectedImages} />
+          <Item.Image size="small" circular src={selectedImages} />
 
           <Item.Content>
             <Item.Header as="a">{event.title}</Item.Header>
@@ -58,7 +50,7 @@ function Event() {
             <Item.Description>    {event.description}.</Item.Description>
             <Item.Extra>
               <Link to={`/events/details/${event.id}`}>
-                <Button primary  circular floated="right">
+                <Button primary circular floated="right">
                   Voir plus
                   <Icon name="right chevron" />
                 </Button>
@@ -68,15 +60,6 @@ function Event() {
         </Item>
       ))
     }
-
-  
-
-       
-      
-
-   
-
-
 
     </Item.Group>
   // <Card fluid>

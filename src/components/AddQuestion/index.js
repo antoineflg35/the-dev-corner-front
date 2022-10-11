@@ -18,7 +18,6 @@ function AddQuestion() {
   const description = useSelector((state) => state.questions.descriptionNewQuestion);
   const tag = useSelector((state) => state.questions.tagNewQuestion);
   const tagQuestions = useSelector((state) => state.newUser.tag);
-  const createdQuestion = useSelector((state) => state.questions.createdQuestion);
 
   useEffect(() => {
     dispatch(fetchListTag());

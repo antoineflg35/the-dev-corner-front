@@ -27,6 +27,9 @@ function DetailEvent() {
     <div>
 
       <Container className="content">
+        <Link to="/events">
+          <Button className="button-login" size="large" circular primary>Retour à la liste des événements</Button>
+        </Link>
         <HeaderSui as="h2" size="huge">{data.title}</HeaderSui>
         <HeaderSui color="blue" size="small">{data.date}</HeaderSui>
         <HeaderSui color="blue" size="small">{data.adress}</HeaderSui>
