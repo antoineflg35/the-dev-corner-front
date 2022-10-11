@@ -93,12 +93,12 @@ function AddEvent() {
                   const action = updateFieldAddEvents(event.target.value, 'department_number');
                   dispatch(action);
                 }}
+
               >
+                <option value="Sélectionner un département" />
                 {
                 departmentList.map((d) => <option value={d.code}>{d.code}-{d.nom}</option>)
                 }
-
-                {/* <option value="56">56</option> */}
               </Form.Field>
 
             </Form.Group>

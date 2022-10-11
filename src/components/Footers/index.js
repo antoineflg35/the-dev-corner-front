@@ -11,22 +11,26 @@ function Footers() {
     <div>
       {isMobile && <Footer />}
       {isBigScreen && (
-      <Menu fixed="bottom" widths="9" size="">
+      <Menu fixed="bottom" widths="4" size="">
         <Menu.Item
           name="Nous Contacter"
         >
-          Nous Contacter
+          <Link to="/contact">
+            Nous Contacter
+          </Link>
         </Menu.Item>
         <Menu.Item
           name=" Mentions Légales"
         >
           Mentions Légales
         </Menu.Item>
-        <Link to="/team">
-          <Menu.Item>
+
+        <Menu.Item>
+          <Link to="/team">
             Notre équipe
-          </Menu.Item>
-        </Link>
+          </Link>
+        </Menu.Item>
+
       </Menu>
       )}
 
