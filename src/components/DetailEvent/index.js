@@ -45,6 +45,8 @@ function DetailEvent() {
             {!participe
           && (
           <Button
+          
+            circular
             content="Participer à l'évenement"
             primary
             onClick={() => {
@@ -54,6 +56,7 @@ function DetailEvent() {
           )}
             {participe && (
             <Button
+            circular
               content="Se désincrire"
               negative
               onClick={() => {

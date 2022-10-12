@@ -161,7 +161,7 @@ function User() {
             }}
           />
           <Form.Checkbox label="I agree to the Terms and Conditions" />
-          <Form.Button primary>Créer mon compte</Form.Button>
+          <Form.Button circular primary>Créer mon compte</Form.Button>
         </Form>
       </Container>
     </div>
