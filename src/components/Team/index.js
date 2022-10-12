@@ -3,6 +3,7 @@ import {
   Header, Card, Icon, Image, Button
 } from 'semantic-ui-react';
 import './styles.scss';
+import photoAntoine from '../../assets/avatar_antoine.jpg';
 
 function Team() {
   return (
@@ -61,7 +62,7 @@ function Team() {
             </Card.Content>
           </Card>
           <Card className="card">
-            <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image src={photoAntoine} wrapped ui={false} />
             <Card.Content>
               <Card.Header>Antoine</Card.Header>
               <Card.Description>
