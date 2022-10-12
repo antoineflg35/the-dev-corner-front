@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   newUser: newUserReducer,
   response: responseReducer,
-  events:eventsReducer,
+  events: eventsReducer,
 });
 
 export default rootReducer;

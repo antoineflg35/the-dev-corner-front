@@ -18,7 +18,6 @@ function AddQuestion() {
   const description = useSelector((state) => state.questions.descriptionNewQuestion);
   const tag = useSelector((state) => state.questions.tagNewQuestion);
   const tagQuestions = useSelector((state) => state.newUser.tag);
-  const createdQuestion = useSelector((state) => state.questions.createdQuestion);
 
   useEffect(() => {
     dispatch(fetchListTag());
@@ -27,16 +26,26 @@ function AddQuestion() {
   // useEffect(() => {
   //   navigate('/questions');
   // }, [createdQuestion]);
+  const navigate = useNavigate();
 
   return (
     <div className="add_questions">
 
       <h2>Ajouter une question</h2>
       <Container>
+        <Link to="/questions">
+          <Button className="button-login" size="large" circular primary>Retour à la liste des questions</Button>
+        </Link>
         <Form
           onSubmit={(event) => {
             event.preventDefault();
             dispatch(addQuestion());
+            if (description.length >= 50) {
+              navigate('/success-message');
+            }
+            else {
+              navigate('/error');
+            }
           }}
         >
           <Form.Field>
@@ -74,17 +83,33 @@ function AddQuestion() {
                 <option value="" />
 
                 {
-                  tagQuestions.map((tag) => <option value={tag.techno}>{tag.techno}</option>)
+                  tagQuestions.map((tag) => <option key={tag.id} value={tag.techno}>{tag.techno}</option>)
                 }
               </Form.Field>
             </div>
-            
-            <Link to="/questions">
-              <Button
-                content="Poser une question"
-                primary
-              />
-            </Link>
+
+            <Button
+              content="Poser une question"
+              primary
+            />
+
+            {/* {description.length >= 60 ? (
+              <Link to="/questions">
+                <Button
+                  content="Poser une question"
+                  primary
+                />
+              </Link>
+            )
+              : (
+                <Link to="/error">
+                  <Button
+                    content="Poser une question"
+                    primary
+                  />
+                </Link>
+              )} */}
+
           </Form.Field>
         </Form>
       </Container>

@@ -1,6 +1,11 @@
+import { Message } from 'semantic-ui-react';
 import {
   SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS,
-  SAVE_DEPARTMENT, UPDATE_ID_EVENTS, SAVE_ONE_EVENT_DETAILS, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS, COUNT_PARTICIPANTS_EVENTS
+  SAVE_DEPARTMENT, UPDATE_ID_EVENTS,
+  SAVE_ONE_EVENT_DETAILS, SUBSCRIBE_EVENTS, 
+  UNSUBSCRIBE_EVENTS, COUNT_PARTICIPANTS_EVENTS, 
+  WRONG_DATE_ADD_EVENTS,
+  CLEAN_RESPONSE,
 } from '../actions/events';
 
 const initialState = {
@@ -15,7 +20,10 @@ const initialState = {
   nb_participant: null,
   date: '',
   event_id: null,
-  participate: false,
+  participate: localStorage.getItem('participe') === "true",
+  loader: false,
+  error: null,
+  eventAdd: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -24,6 +32,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.events,
+        loader: true,
       };
     case SAVE_LAST_FIVE_EVENTS:
       return {
@@ -54,6 +63,7 @@ const reducer = (state = initialState, action = {}) => {
         adress: state.adress,
         nb_participant_max: state.nb_participant_max,
         date: state.date,
+        eventAdd: true,
       };
       const eventCopy = [...state.list, newEvent];
       return {
@@ -67,24 +77,50 @@ const reducer = (state = initialState, action = {}) => {
         event_id: action.value,
       };
     }
+
     case SUBSCRIBE_EVENTS: {
+      localStorage.setItem('participe',true);
       return {
         ...state,
         nb_participant: state.nb_participant + 1,
         participate: true,
       };
     }
+   
     case UNSUBSCRIBE_EVENTS: {
+      localStorage.setItem('participe',false);
+
       return {
         ...state,
         nb_participant: state.nb_participant - 1,
         participate: false,
       };
     }
+    
     case COUNT_PARTICIPANTS_EVENTS: {
       return {
         ...state,
         nb_participant: action.participants,
+      };
+    }
+    case WRONG_DATE_ADD_EVENTS: {
+      return {
+        ...state,
+        error: action.message,
+        eventAdd: false,
+      };
+    }
+    case CLEAN_RESPONSE: {
+      return {
+        ...state,
+        title: '',
+        description: '',
+        tag: '',
+        department: '',
+        adress: '',
+        nb_participant_max: null,
+        date: '',
+        eventAdd: null,
       };
     }
     default:

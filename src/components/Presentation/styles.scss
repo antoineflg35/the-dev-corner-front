@@ -23,9 +23,6 @@
   
 }
 
-.button-login{
-  border-radius: 30px !important;
-}
 
 .button-login:hover{
   background-color: white !important;
@@ -34,9 +31,7 @@
 .button-login:hover:after {
   content: " →";
 }
-.button-new-user{
-  border-radius: 30px !important;
-}
+
 
 .button-new-user:hover:after {
   content: " →";

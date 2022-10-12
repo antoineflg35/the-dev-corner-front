@@ -13,7 +13,7 @@ function Home() {
       <ButtonAskQuestion />
       <CardsQuestions />
       <CardsEvents />
-      <ListEnterprises />
+      {/* <ListEnterprises /> */}
 
     </div>
   );

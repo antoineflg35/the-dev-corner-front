@@ -4,9 +4,6 @@ import './styles.scss';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/user';
 
-import './styles.scss';
-
-
 function HeaderDesktop() {
   const activeStyle = {
     textDecoration: 'underline',
@@ -14,22 +11,21 @@ function HeaderDesktop() {
 
   const activeClassName = 'link';
   const dispatch = useDispatch();
-  
+
   return (
     <div className="header-desktop">
-      <Menu   size="small" stackable>
-          <NavLink
+      <Menu size="small" stackable>
+        <NavLink
           to="/"
-          // className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}
         >
           <Menu.Item
             name="Accueil"
           />
         </NavLink>
-       
+
         <NavLink
           to="/questions"
-          className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}
+          className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
         >
           <Menu.Item
             name="Les questions"
@@ -37,29 +33,29 @@ function HeaderDesktop() {
         </NavLink>
         <NavLink
           to="/events"
-          className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}
+          className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
         >
           <Menu.Item
             name="Les événements du coin"
           />
         </NavLink>
         <NavLink
-        to = "/entreprise"
-        className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}>
+          to="/enterprise"
+          className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
+        >
 
-
-        <Menu.Item
-          name="Les entreprises du coin"
-        />
+          <Menu.Item
+            name="Les entreprises du coin"
+          />
         </NavLink>
         <NavLink
-        to = "/blog"
-        className={({ isActive }) => ( isActive ? 'menu-link menu-link--active' : 'menu-link')}>
+          to="/blog"
+          className={({ isActive }) => (isActive ? 'menu-link menu-link--active' : 'menu-link')}
+        >
 
-
-        <Menu.Item
-          name="Le blog"
-        />
+          <Menu.Item
+            name="Le blog"
+          />
         </NavLink>
 
         <Menu.Menu position="right">

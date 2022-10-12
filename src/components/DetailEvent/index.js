@@ -4,10 +4,9 @@ import {
 import { useEffect } from 'react';
 import map from 'src/assets/map.jpg';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
-  updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents, FetchParticipantsEvents
+  updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents, FetchParticipantsEvents,
 } from '../../actions/events';
 import './styles.scss';
 
@@ -19,7 +18,6 @@ function DetailEvent() {
     dispatch(displayEventDetails());
     dispatch(FetchParticipantsEvents());
   }, []);
-  
 
   const data = useSelector((state) => state.events.list);
   const nbParticipant = useSelector((state) => state.events.nb_participant);
@@ -29,8 +27,8 @@ function DetailEvent() {
     <div>
 
       <Container className="content">
-      <Link to="/events">
-          Retour à la liste des événements
+        <Link to="/events">
+          <Button className="button-login" size="large" circular primary>Retour à la liste des événements</Button>
         </Link>
         <HeaderSui as="h2" size="huge">{data.title}</HeaderSui>
         <HeaderSui color="blue" size="small">{data.date}</HeaderSui>
@@ -39,25 +37,12 @@ function DetailEvent() {
         <p>
           {data.description}
         </p>
-        <HeaderSui color="blue" size="small">{nbParticipant}/{data.nb_participant_max}</HeaderSui>
+        <HeaderSui color="blue" size="small"><h2>{nbParticipant}</h2>participants/<h2>{data.nb_participant_max}</h2>participants max</HeaderSui>
 
-        <Grid stackable>
-          <Grid.Column floated="left" width={5}>
-            Domestic dogs inherited complex behaviors, such as bite inhibition, from
-            their wolf ancestors, which would have been pack hunters with complex
-            body language. These sophisticated forms of social cognition and
-            communication may account for their trainability, playfulness, and
-            ability to fit into human households and social situations, and these
-            attributes have given dogs a relationship with humans that has enabled
-            them to become one of the most successful species on the planet today.
-          </Grid.Column>
-          <Grid.Column floated="right" width={5}>
-            <Image src={map} />
-          </Grid.Column>
-        </Grid>
+        <div className="button_ask_question">
 
-        <Container class="button_ask_question">
-          {!participe
+          <Container>
+            {!participe
           && (
           <Button
             content="Participer à l'évenement"
@@ -67,16 +52,17 @@ function DetailEvent() {
             }}
           />
           )}
-          {participe && (
-          <Button
-            content="Se désincrire"
-            negative
-            onClick={() => {
-              dispatch(unSubscribeEvents());
-            }}
-          />
-          )}
-        </Container>
+            {participe && (
+            <Button
+              content="Se désincrire"
+              negative
+              onClick={() => {
+                dispatch(unSubscribeEvents());
+              }}
+            />
+            )}
+          </Container>
+        </div>
       </Container>
 
     </div>

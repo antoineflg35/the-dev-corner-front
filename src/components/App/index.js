@@ -3,13 +3,8 @@ import './styles.scss';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchQuestions, fetchQuestionsLastFive } from '../../actions/questions';
-import { fetchEventsLastFive, fetchEvents, countParticipantsEvents } from '../../actions/events';
-import { loginToken } from '../../actions/user';
-
-
-// import { fetchEvents } from '../../actions/events';
-
+import { fetchQuestionsLastFive } from '../../actions/questions';
+import { fetchEventsLastFive } from '../../actions/events';
 import Header from '../Header';
 import Home from '../Home';
 import Presentation from '../Presentation';
@@ -22,8 +17,14 @@ import User from '../User';
 import DetailEvent from '../DetailEvent';
 import Events from '../Events';
 import NotFound from '../NotFound';
+import MessageError from '../MessageError';
+import SuccessMessage from '../SuccessMessage';
+import SuccessEvents from '../SuccessEvents';
 import NotConnected from '../NotConnected';
+import Contact from '../Contact';
 import Footers from '../Footers';
+import Team from '../Team';
+import PageUnderConstruction from '../PageUnderConstruction';
 
 // == Composant
 function App() {
@@ -45,8 +46,6 @@ function App() {
     }
   }, [token]);
 
-  
-
   return (
     <div className="app">
       {/* Routes if user is not logged in */}
@@ -62,10 +61,15 @@ function App() {
            element={<Login />}
          />
          <Route
+           path="/contact"
+           element={<Contact />}
+         />
+         <Route
            path="/user"
            element={<User />}
          />
          <Route path="*" element={<NotConnected />} />
+         <Route path="/team" element={<Team />} />
        </Routes>
        )}
       {/* Routes if user is logged in */}
@@ -94,7 +98,7 @@ function App() {
             <Route
               path="/questions/details/:id"
               element={<QuestionDetails />}
-              
+
             />
             <Route
               path="/questions/add"
@@ -108,7 +112,28 @@ function App() {
               path="/events/details/:id"
               element={<DetailEvent />}
             />
+            <Route
+              path="/error"
+              element={<MessageError />}
+            />
+            <Route
+              path="/success-question"
+              element={<SuccessMessage />}
+            />
+            <Route
+              path="/success-events"
+              element={<SuccessEvents />}
+            />
+            <Route
+              path="/enterprise"
+              element={<PageUnderConstruction />}
+            />
+            <Route
+              path="/blog"
+              element={<PageUnderConstruction />}
+            />
             <Route path="*" element={<NotFound />} />
+            <Route path="/team" element={<Team />} />
           </Routes>
         </>
       )}

@@ -12,6 +12,7 @@ const initialState = {
   descriptionNewQuestion: '',
   tagNewQuestion: [],
   questionCreated: false,
+  loader: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -20,6 +21,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.questions,
+        loader: true,
       };
     case SAVE_LAST_FIVE_QUESTIONS:
       return {
@@ -43,7 +45,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: questionCopy,
         questionCreated: true,
-
       };
     }
     default:
