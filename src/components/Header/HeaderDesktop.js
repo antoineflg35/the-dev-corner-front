@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Button, Menu } from 'semantic-ui-react';
 import './styles.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/user';
 
 function HeaderDesktop() {
@@ -11,6 +11,7 @@ function HeaderDesktop() {
 
   const activeClassName = 'link';
   const dispatch = useDispatch();
+  const role = useSelector((state) => state.user.role);
 
   return (
     <div className="header-desktop">
@@ -58,12 +59,26 @@ function HeaderDesktop() {
           />
         </NavLink>
 
-        <Menu.Menu position="right">
-          <Menu.Item
-            name="Mon profil"
-          />
+        <Menu.Menu
+          position="right"
+        >
+          {
+                role === 'ROLE_ADMIN'
+                && (
+                  <a href="http://localhost:8001/back/home">
+                    <Menu.Item>
+                      <Button
+                        circular
+                        color='green'
+                      >Accès au Back Office
+                      </Button>
+                    </Menu.Item>
+                  </a>
+                )
+              }
           <Menu.Item>
             <Button
+              circular
               onClick={() => {
                 dispatch(logout());
               }}

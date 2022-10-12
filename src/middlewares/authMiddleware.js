@@ -49,7 +49,6 @@ const authMiddleware = (store) => (next) => async (action) => {
         })
         .then(() => {
           store.dispatch(loginToken());
-          console.log(store.getState().user);
         })
         .catch((error) => {
           console.log(error);
@@ -72,6 +71,7 @@ const authMiddleware = (store) => (next) => async (action) => {
             response.data.departement_number,
             response.data.tags[0].techno,
             response.data.is_verified,
+            response.data.roles[0],
           ));
         })
         .catch((error) => {

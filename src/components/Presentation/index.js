@@ -47,7 +47,7 @@ function Presentation() {
               </p>
             </Grid.Column>
             <Grid.Column floated="right" width={6}>
-              <Image bordered rounded size="large" src={photo}/>
+              <Image rounded size="large" src={photo}/>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
