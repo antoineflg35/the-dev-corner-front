@@ -15,6 +15,8 @@ export const SUBSCRIBE_EVENTS = 'SUBSCRIBE_EVENTS';
 export const UNSUBSCRIBE_EVENTS = 'UNSUBSCRIBE_EVENTS';
 export const COUNT_PARTICIPANTS_EVENTS = 'COUNT_PARTICIPANTS_EVENTS';
 export const FETCH_PARTICIPANTS_EVENTS = 'FETCH_PARTICIPANTS_EVENTS';
+export const WRONG_DATE_ADD_EVENTS = 'WRONG_DATE_ADD_EVENTS';
+export const CLEAN_RESPONSE = 'CLEAN_RESPONSE';
 
 // Actions creators
 
@@ -87,4 +89,13 @@ export const FetchParticipantsEvents = () => ({
 export const countParticipantsEvents = (participants) => ({
   type: COUNT_PARTICIPANTS_EVENTS,
   participants: participants,
+});
+
+export const wrongDateAddEvents = (message) => ({
+  type: WRONG_DATE_ADD_EVENTS,
+  message: message,
+});
+
+export const cleanResponse = () => ({
+  type: CLEAN_RESPONSE,
 });
