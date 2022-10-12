@@ -5,25 +5,37 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import photo from '../../assets/events_home.jpg';
 
-function ListEvents() {
-  const events = useSelector((state) => state.events.list);
-  console.log(events);
+function ListEvents({ data }) {
+  const departmentUser = useSelector((state) => state.user.department_user);
+
+  const filterEvents = data.filter((event) => event.departement_number === departmentUser);
+  console.log(filterEvents);
+
+
   return (
 
     <Container centered textAlign="center" stackable>
-    <Card.Group className="questions_home" centered stackable textAlign='center'>
-      {/* <Card>
-      {
-      data.slice(data.length - 5).map((question) => (
-        <Link to={`/questions/details/${question.id}`}>
+      <Card.Group className="questions_home" centered stackable textAlign="center">
+        <Header as="h3" centered style={{ fontSize: '2em' }}>
+          Les derniers événements crées dans le département {departmentUser}
+        </Header>
+        <Segment style={{ padding: '8em 0em' }} vertical>
+          <Grid container stackable verticalAlign="middle">
+            <Grid.Row>
+              <Grid.Column width={8}>
+
+                <Card>
+                  {
+      filterEvents.map((event) => (
+        <Link to={`/events/details/${event.id}`}>
           <Card.Content>
             <List>
               <List.Item>
                 <List.Icon name="question" />
                 <List.Content>
-                  <List.Header as="a">{question.title.slice(0, 15)} {question.user.pseudo}</List.Header>
+                  <List.Header as="a">{event.title.slice(0, 15)}</List.Header>
                   <List.Description>
-                    {question.description.slice(0, 30)}
+                    {event.description.slice(0, 30)}
                   </List.Description>
                 </List.Content>
               </List.Item>
@@ -33,83 +45,16 @@ function ListEvents() {
       ))
     }
 
-    </Card> */}
-      <Header as="h3" centered style={{ fontSize: '2em' }}>
-        Les derniers événements crées
-      </Header>
-      <Segment style={{ padding: '8em 0em' }} vertical>
-        <Grid container stackable verticalAlign="middle">
-          <Grid.Row>
-            <Grid.Column width={8}>
-
-              <Card>
-                {
-      events.slice(events.length - 5).map((question) => (
-        <Link to={`/events/details/${question.id}`}>
-          <Card.Content>
-            <List>
-              <List.Item>
-                <List.Icon name="question" />
-                <List.Content>
-                  <List.Header as="a">{question.title.slice(0, 15)} {question.user.pseudo}</List.Header>
-                  <List.Description>
-                    {question.description.slice(0, 30)}
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-            </List>
-          </Card.Content>
-        </Link>
-      ))
-    }
-
-              </Card>
-            </Grid.Column>
-            <Grid.Column  width={8}>
-              <Image size='massive'  rounded size="large" src={photo} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
-    </Card.Group>
-  </Container>
-
-
-    // <Card.Group centered>
-
-    //   <Card>
-    //     <Card.Content>
-    //       <Card.Header>Les statistiques</Card.Header>
-    //       <Card.Description>
-    //         Steve wants to add you to the group <strong>best friends</strong>
-    //         Steve wants to add you to the group <strong>best friends</strong>
-    //         Steve wants to add you to the group <strong>best friends</strong>
-    //         Steve wants to add you to the group <strong>best friends</strong>
-    //       </Card.Description>
-    //     </Card.Content>
-    //   </Card>
-    //   <Card>
-    //     <Card.Content>
-    //       <List>
-    //         {
-    //         events.slice(events.length-5).map((event) => (
-    //           <Link to={`/events/details/${event.id}`}>
-    //             <List.Item>
-    //               <List.Icon name="marker" />
-    //               <List.Content>
-    //                 <List.Header as="a">{event.title}</List.Header>
-    //                 <List.Description>
-    //                   {event.description.slice(0, 30)}
-    //                 </List.Description>
-    //               </List.Content>
-    //             </List.Item>
-    //           </Link>
-    //         ))
-    //       }
-    //       </List>
-    //     </Card.Content>
-    //   </Card>
-    // </Card.Group>
+                </Card>
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <Image size="massive" rounded size="large" src={photo} />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Segment>
+      </Card.Group>
+    </Container>
   );
 }
 

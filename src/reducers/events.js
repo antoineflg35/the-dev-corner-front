@@ -5,11 +5,13 @@ import {
   SAVE_ONE_EVENT_DETAILS, SUBSCRIBE_EVENTS, 
   UNSUBSCRIBE_EVENTS, COUNT_PARTICIPANTS_EVENTS, 
   WRONG_DATE_ADD_EVENTS,
+  RESET_LOADER,
   CLEAN_RESPONSE,
 } from '../actions/events';
 
 const initialState = {
   list: [],
+  detailsEvent: [],
   titleNewEvent: '',
   descriptionNewEvent: '',
   tagNewEvent: '',
@@ -33,6 +35,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: action.events,
         loader: true,
+        loaderLastFive: false,
       };
     case SAVE_LAST_FIVE_EVENTS:
       return {
@@ -42,7 +45,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_ONE_EVENT_DETAILS:
       return {
         ...state,
-        list: action.value,
+        detailsEvent: action.value,
       };
     case UPDATE_FIELD_ADD_EVENTS:
       return {
@@ -108,6 +111,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         error: action.message,
         eventAdd: false,
+      };
+    }
+    case RESET_LOADER: {
+      return {
+        ...state,
+        loader: false,
       };
     }
     case CLEAN_RESPONSE: {

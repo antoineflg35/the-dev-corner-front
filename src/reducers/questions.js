@@ -1,6 +1,6 @@
 import {
   SAVE_QUESTIONS, SAVE_LAST_FIVE_QUESTIONS, UPDATE_FIELD_ADD_QUESTIONS,
-  ADD_QUESTION,
+  ADD_QUESTION, RESET_LOADER, LOADING_LAST_FIVE_QUESTIONS_HOME
 } from '../actions/questions';
 // import {
 //   UPDATE_RESPONSE,
@@ -13,6 +13,7 @@ const initialState = {
   tagNewQuestion: [],
   questionCreated: false,
   loader: false,
+  loaderLastFive: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -22,6 +23,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: action.questions,
         loader: true,
+        loaderLastFive: false,
       };
     case SAVE_LAST_FIVE_QUESTIONS:
       return {
@@ -45,6 +47,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: questionCopy,
         questionCreated: true,
+      };
+    }
+    case RESET_LOADER: {
+      return {
+        ...state,
+        loader: false,
       };
     }
     default:

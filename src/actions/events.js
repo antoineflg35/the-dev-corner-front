@@ -17,6 +17,8 @@ export const COUNT_PARTICIPANTS_EVENTS = 'COUNT_PARTICIPANTS_EVENTS';
 export const FETCH_PARTICIPANTS_EVENTS = 'FETCH_PARTICIPANTS_EVENTS';
 export const WRONG_DATE_ADD_EVENTS = 'WRONG_DATE_ADD_EVENTS';
 export const CLEAN_RESPONSE = 'CLEAN_RESPONSE';
+export const RESET_LOADER = 'RESET_LOADER';
+
 
 // Actions creators
 
@@ -94,6 +96,10 @@ export const countParticipantsEvents = (participants) => ({
 export const wrongDateAddEvents = (message) => ({
   type: WRONG_DATE_ADD_EVENTS,
   message: message,
+});
+
+export const resetLoader = () => ({
+  type: RESET_LOADER,
 });
 
 export const cleanResponse = () => ({

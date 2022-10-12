@@ -15,6 +15,7 @@ function ListQuestions() {
   }, []);
 
   const data = useSelector((state) => state.questions.list);
+
   return (
     <div className="page_questions">
       {loadingQuestions === false && <Loading />}

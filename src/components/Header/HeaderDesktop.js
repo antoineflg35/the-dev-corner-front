@@ -65,11 +65,11 @@ function HeaderDesktop() {
           {
                 role === 'ROLE_ADMIN'
                 && (
-                  <a href="http://localhost:8001/back/home">
+                  <a target="blank" href="http://localhost:8001/back/home">
                     <Menu.Item>
                       <Button
                         circular
-                        color='green'
+                        color="green"
                       >Accès au Back Office
                       </Button>
                     </Menu.Item>
