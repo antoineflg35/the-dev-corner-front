@@ -1,8 +1,9 @@
 import axios from 'axios';
 import {
   FETCH_QUESTIONS, FETCH_QUESTIONS_LAST_FIVE,
-  saveQuestions, saveLastFiveQuestions,
+  saveQuestions, saveLastFiveQuestions, resetLoader, loadingLastFiveQuestionsHome
 } from '../actions/questions';
+
 
 const questionsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -35,6 +36,7 @@ const questionsMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveLastFiveQuestions(response.data.questionRepository));
           // console.log(response.data.questions[0].user.pseudo);
+          store.dispatch(resetLoader());
         })
         .catch((error) => {
           console.log(error);

@@ -3,7 +3,7 @@ import {
   FETCH_EVENTS, FETCH_EVENTS_LAST_FIVE,
   DISPLAY_EVENT_DETAILS, saveEvents, saveLastFiveEvents, 
   saveOneEventDetails, SUBSCRIBE_EVENTS, UNSUBSCRIBE_EVENTS, FETCH_PARTICIPANTS_EVENTS,
-  countParticipantsEvents,
+  countParticipantsEvents, resetLoader, loadingLastFiveEventsHome
 } from '../actions/events';
 
 const eventsMiddleware = (store) => (next) => (action) => {
@@ -33,6 +33,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveLastFiveEvents(response.data.eventRepository));
           // console.log(response.data.questions[0].user.pseudo);
+          store.dispatch(resetLoader());
         })
         .catch((error) => {
           console.log(error);

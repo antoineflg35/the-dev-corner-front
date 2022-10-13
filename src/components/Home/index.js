@@ -1,20 +1,18 @@
-import { useSelector } from 'react-redux';
 import Content from './Content';
 import ButtonAskQuestion from './ButtonAskQuestion';
+import ButtonAddEvent from './ButtonAddEvent';
 import CardsQuestions from './CardsQuestions';
 import CardsEvents from './CardsEvents';
-import ListEnterprises from './ListEnterprises';
 
 function Home() {
-  
   return (
     <div className="home">
-      <Content />
-      <ButtonAskQuestion />
-      <CardsQuestions />
-      <CardsEvents />
-      {/* <ListEnterprises /> */}
 
+      <Content />
+      <CardsQuestions />
+      <ButtonAskQuestion />
+      <CardsEvents />
+      <ButtonAddEvent />
     </div>
   );
 }

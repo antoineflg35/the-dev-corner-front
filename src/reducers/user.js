@@ -10,9 +10,10 @@ export const initialState = {
   password: '',
   pseudo: '',
   department_user: '',
-  techno_user: '',
+  techno_user: [],
   token: null,
   is_verified: false,
+  role: null
   // localStorage.getItem('token')
 };
 
@@ -55,6 +56,7 @@ const reducer = (state = initialState, action = {}) => {
         department_user: action.department,
         techno_user: action.techno,
         is_verified: action.verified,
+        role: action.role,
       };
     // case LOGIN_TOKEN:
     //   return {

@@ -20,7 +20,7 @@ function Events() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchEvents());
-  }, []);
+  });
   return (
 
     <div className="event">

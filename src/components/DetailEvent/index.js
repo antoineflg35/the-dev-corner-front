@@ -6,7 +6,7 @@ import map from 'src/assets/map.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import {
-  updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents, FetchParticipantsEvents,
+  updateIdEvents, displayEventDetails, subscribeEvents, unSubscribeEvents, FetchParticipantsEvents, fetchEvents,
 } from '../../actions/events';
 import './styles.scss';
 
@@ -19,7 +19,7 @@ function DetailEvent() {
     dispatch(FetchParticipantsEvents());
   }, []);
 
-  const data = useSelector((state) => state.events.list);
+  const data = useSelector((state) => state.events.detailsEvent);
   const nbParticipant = useSelector((state) => state.events.nb_participant);
   const participe = useSelector((state) => state.events.participate);
 
@@ -28,7 +28,13 @@ function DetailEvent() {
 
       <Container className="content">
         <Link to="/events">
-          <Button className="button-login" size="large" circular primary>Retour à la liste des événements</Button>
+          <Button
+            className="button-login"
+            size="large"
+            circular
+            primary
+          >Retour à la liste des événements
+          </Button>
         </Link>
         <HeaderSui as="h2" size="huge">{data.title}</HeaderSui>
         <HeaderSui color="blue" size="small">{data.date}</HeaderSui>
@@ -45,6 +51,8 @@ function DetailEvent() {
             {!participe
           && (
           <Button
+          
+            circular
             content="Participer à l'évenement"
             primary
             onClick={() => {
@@ -54,6 +62,7 @@ function DetailEvent() {
           )}
             {participe && (
             <Button
+            circular
               content="Se désincrire"
               negative
               onClick={() => {

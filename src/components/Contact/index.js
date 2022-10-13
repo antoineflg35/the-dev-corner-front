@@ -10,13 +10,10 @@ function Contact() {
 
     <><div className="header-presentation">
       <Header as="h1" size="huge" centred textAlign="center"> <span><p className="span">The Dev Corner</p></span></Header>
-
-      <Link to="/login">
-
-        <Button className="button-login" size="large" circular primary>Se connecter</Button>
+      <Link to="/">
+        <Button className="button-login" size="large" circular primary>Retour à la page présentation</Button>
       </Link>
-
-      </div>
+    </div>
       <Container style={{ padding: '0px 0px 50px' }}>
 
         <Grid stackable>
