@@ -3,11 +3,14 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFieldLogin, login, saveDataUser, loginToken } from '../../actions/user';
+import {
+  updateFieldLogin, login, saveDataUser, loginToken,
+} from '../../actions/user';
 
 function Login() {
   const mailUser = useSelector((state) => state.user.username);
   const passwordUSer = useSelector((state) => state.user.password);
+  const logged = useSelector((state) => state.user.logged);
 
   const dispatch = useDispatch();
 
@@ -30,6 +33,14 @@ function Login() {
             // dispatch(saveDataUser());
           }}
         >
+
+          {
+            logged === false && (
+              <Header as="h2" color="teal" textAlign="center">
+                la connexion a échoué. Veuillez vérifier vos identifants.
+              </Header>
+            )
+          }
           <Segment stacked>
             <Form.Input
               fluid

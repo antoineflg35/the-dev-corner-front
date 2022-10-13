@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken,
+  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken, wrongLogin,
 } from '../actions/user';
 
 const authMiddleware = (store) => (next) => async (action) => {
@@ -35,7 +35,7 @@ const authMiddleware = (store) => (next) => async (action) => {
       //     });
       //   break;
       axios.post(
-        'http://localhost:8001/api/v1/login_check',
+        'https://the-dev-corner.herokuapp.com/api/v1/login_check',
         {
           username: store.getState().user.username,
           password: store.getState().user.password,
@@ -44,8 +44,7 @@ const authMiddleware = (store) => (next) => async (action) => {
       )
         .then((response) => {
           store.dispatch(saveUserToken(response.data.token));
-      // const localstorage = localStorage.setitem('token',action.token);
-
+          // const localstorage = localStorage.setitem('token',action.token);
         })
         .then(() => {
           store.dispatch(loginToken());
@@ -53,11 +52,12 @@ const authMiddleware = (store) => (next) => async (action) => {
         })
         .catch((error) => {
           console.log(error);
+          store.dispatch(wrongLogin());
         });
       break;
     case LOGIN_TOKEN:
       axios.get(
-        'http://localhost:8001/api/v1/user/connected',
+        'https://the-dev-corner.herokuapp.com/api/v1/user/connected',
         {
           headers: {
             Authorization: `bearer ${store.getState().user.token}`,
