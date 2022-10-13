@@ -41,7 +41,7 @@ function AddQuestion() {
             event.preventDefault();
             if (description.length >= 50) {
               dispatch(addQuestion());
-              navigate('/success-message');
+              navigate('/success-question');
             }
             else {
               navigate('/error');

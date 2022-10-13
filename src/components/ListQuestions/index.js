@@ -25,7 +25,7 @@ function ListQuestions() {
       <>
         <Questions data={data} key={data.id} />
         <ButtonAskQuestion />
-        <Informations />
+        {/* <Informations /> */}
       </>
       )}
 

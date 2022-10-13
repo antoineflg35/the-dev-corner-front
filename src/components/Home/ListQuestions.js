@@ -32,7 +32,7 @@ function ListQuestions({ data }) {
                 <List.Icon name="question" />
                 <List.Content>
                   <Link to={`/questions/details/${question.id}`}>
-                    <List.Header as="a">{question.title.slice(0, 15)}</List.Header>
+                    <List.Header as="a">{question.title.slice(0, 30)}...</List.Header>
                   </Link>
                   <List.Header Icon as="a"> Utilisateur {question.user.pseudo}</List.Header>
                   <List.Description>
