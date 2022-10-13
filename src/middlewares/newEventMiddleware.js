@@ -1,6 +1,8 @@
 /* eslint-disable no-case-declarations */
 import axios from 'axios';
-import { ADD_EVENT, DISPLAY_LIST_DEPARTMENT, fetchEvents, saveDepartment, wrongDateAddEvents, cleanResponse } from '../actions/events';
+import {
+  ADD_EVENT, DISPLAY_LIST_DEPARTMENT, fetchEvents, saveDepartment, wrongDateAddEvents,
+} from '../actions/events';
 
 const newEventMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

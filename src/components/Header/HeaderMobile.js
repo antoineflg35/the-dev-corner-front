@@ -2,8 +2,10 @@ import {
   Dropdown, Menu, Button,
 } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../actions/user';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, loginBackOffice } from '../../actions/user';
+
+
 
 function HeaderMobile() {
   const activeStyle = {
@@ -11,6 +13,7 @@ function HeaderMobile() {
   };
 
   const activeClassName = 'link';
+  const role = useSelector((state) => state.user.role);
 
   const dispatch = useDispatch();
   return (
@@ -44,7 +47,21 @@ function HeaderMobile() {
               <Dropdown.Item>Les entreprises du coin</Dropdown.Item>
             </NavLink>
             <Dropdown.Divider />
-            <Dropdown.Item>Mon profil</Dropdown.Item>
+            {
+                role === 'ROLE_ADMIN'
+                && (
+                <Menu.Item>
+                  <Button
+                    circular
+                    color="green"
+                    onClick={() => {
+                      dispatch(loginBackOffice());
+                    }}
+                  >Accès au Back Office
+                  </Button>
+                </Menu.Item>
+                )
+              }
             <Button
               fluid
               content="Se déconnecter"

@@ -1,17 +1,24 @@
 import { Link } from 'react-router-dom';
 import {
-  Header, Card, Icon, Image, Button
+  Header, Card, Icon, Image, Button,
 } from 'semantic-ui-react';
+import { useSelector } from 'react-redux';
+
 import './styles.scss';
 import photoAntoine from '../../assets/avatar_antoine.jpg';
+import photoPaul from '../../assets/avatar_paul.png';
 
 function Team() {
+  const logged = useSelector((state) => state.user.logged);
+
   return (
     <div>
       <div className="header-presentation">
         <Header as="h1" size="huge" centred textAlign="center"> L'équipe de <span><p className="span">The Dev Corner</p></span></Header>
         <Link to="/">
-          <Button className="button-login" size="large" circular primary>Retour à la page présentation</Button>
+          {!logged && (<Button className="button-login" size="large" circular primary>Retour à la page présentation</Button>)}
+          {logged && (<Button className="button-login" size="large" circular primary>Retour à la page d'Accueil</Button>)}
+
         </Link>
       </div>
       <div className="card-team">
@@ -32,7 +39,7 @@ function Team() {
             </Card.Content>
           </Card>
           <Card className="card">
-            <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image src={ photoPaul } size="medium" circular fluid />
             <Card.Content>
               <Card.Header>Paul</Card.Header>
               <Card.Description>
@@ -77,6 +84,7 @@ function Team() {
             </Card.Content>
           </Card>
         </Card.Group>
+        
       </div>
     </div>
   );

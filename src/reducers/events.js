@@ -2,8 +2,8 @@ import { Message } from 'semantic-ui-react';
 import {
   SAVE_EVENTS, UPDATE_FIELD_ADD_EVENTS, ADD_EVENT, SAVE_LAST_FIVE_EVENTS,
   SAVE_DEPARTMENT, UPDATE_ID_EVENTS,
-  SAVE_ONE_EVENT_DETAILS, SUBSCRIBE_EVENTS, 
-  UNSUBSCRIBE_EVENTS, COUNT_PARTICIPANTS_EVENTS, 
+  SAVE_ONE_EVENT_DETAILS, SUBSCRIBE_EVENTS,
+  UNSUBSCRIBE_EVENTS, COUNT_PARTICIPANTS_EVENTS,
   WRONG_DATE_ADD_EVENTS,
   RESET_LOADER,
   CLEAN_RESPONSE,
@@ -22,8 +22,9 @@ const initialState = {
   nb_participant: null,
   date: '',
   event_id: null,
-  participate: localStorage.getItem('participe') === "true",
+  participate: localStorage.getItem('participe') === 'true',
   loader: false,
+  loadingDetailsEvents: false,
   error: null,
   eventAdd: null,
 };
@@ -36,6 +37,7 @@ const reducer = (state = initialState, action = {}) => {
         list: action.events,
         loader: true,
         loaderLastFive: false,
+        loadingDetailsEvents: false,
       };
     case SAVE_LAST_FIVE_EVENTS:
       return {
@@ -43,9 +45,11 @@ const reducer = (state = initialState, action = {}) => {
         list: action.questions,
       };
     case SAVE_ONE_EVENT_DETAILS:
+      
       return {
         ...state,
         detailsEvent: action.value,
+        loadingDetailsEvents: true,
       };
     case UPDATE_FIELD_ADD_EVENTS:
       return {
@@ -82,16 +86,16 @@ const reducer = (state = initialState, action = {}) => {
     }
 
     case SUBSCRIBE_EVENTS: {
-      localStorage.setItem('participe',true);
+      localStorage.setItem('participe', true);
       return {
         ...state,
         nb_participant: state.nb_participant + 1,
         participate: true,
       };
     }
-   
+
     case UNSUBSCRIBE_EVENTS: {
-      localStorage.setItem('participe',false);
+      localStorage.setItem('participe', false);
 
       return {
         ...state,
@@ -99,7 +103,7 @@ const reducer = (state = initialState, action = {}) => {
         participate: false,
       };
     }
-    
+
     case COUNT_PARTICIPANTS_EVENTS: {
       return {
         ...state,

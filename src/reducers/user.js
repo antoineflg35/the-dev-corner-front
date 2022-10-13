@@ -1,5 +1,5 @@
 import {
-  UPDATE_FIELD_LOGIN, SAVE_USER_TOKEN, LOGOUT, SAVE_USER_PSEUDO, WRONG_LOGIN,
+  UPDATE_FIELD_LOGIN, SAVE_USER_TOKEN, LOGOUT, SAVE_USER_PSEUDO,
 } from '../actions/user';
 
 export const initialState = {
@@ -13,7 +13,7 @@ export const initialState = {
   techno_user: [],
   token: null,
   is_verified: false,
-  role: null
+  role: null,
   // localStorage.getItem('token')
 };
 
@@ -33,12 +33,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         password: action.value,
       };
-    case WRONG_LOGIN: {
-      return {
-        ...state,
-        logged: false,
-      };
-    }
     case SAVE_USER_TOKEN:
       // localStorage.setItem('token',action.token);
       return {
@@ -67,7 +61,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         // pseudo: action.pseudo,
-        logged: false,
+        logged: null,
         token: null,
         pseudo: '',
         department_user: '',

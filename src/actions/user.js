@@ -9,6 +9,7 @@ export const SAVE_USER_TOKEN = 'SAVE_USER_TOKEN';
 export const SAVE_USER_PSEUDO = 'SAVE_USER_PSEUDO';
 export const FETCH_LIST_TAG = 'FETCH_LIST_TAG';
 export const SAVE_LIST_TAG = 'SAVE_LIST_TAG';
+export const LOGIN_BACK_OFFICE = 'LOGIN_BACK_OFFICE';
 
 
 // Actions creators
@@ -47,4 +48,8 @@ export const saveUserPseudo = (pseudo, department, techno, verified, role) => ({
   techno: techno,
   verified: verified,
   role: role,
+});
+
+export const loginBackOffice = () => ({
+  type: LOGIN_BACK_OFFICE,
 });

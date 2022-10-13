@@ -1,5 +1,8 @@
 import { List, Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+
 import './styles.scss';
+
 function Footer() {
   return (
     <div className="footer">
@@ -8,15 +11,12 @@ function Footer() {
         <List.Item disabled href="#">
           © The Dev Corner, Inc
         </List.Item>
-        <List.Item href="#">Contact</List.Item>
-        <List.Item href="#">Mentions légales</List.Item>
-        <List.Item href="#">Contact</List.Item>
+        <Link to="/contact">
+          <List.Item>Contact</List.Item>
+        </Link>
+        <List.Item>Mentions légales</List.Item>
+        <Link to="/team"> <List.Item>Notre équipe</List.Item></Link>
       </List>
-
-      <List horizontal>
-        <List.Item href="#">About Us</List.Item>
-      </List>
-
     </div>
   );
 }

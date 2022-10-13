@@ -1,39 +1,11 @@
 import axios from 'axios';
 import {
-  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken,
+  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken, LOGIN_BACK_OFFICE,
 } from '../actions/user';
 
 const authMiddleware = (store) => (next) => async (action) => {
-  // const client = axios.create({
-  //   baseURL: 'https://localhost:8001',
-  // });
   switch (action.type) {
     case LOGIN:
-    //   await client.post(
-    //     '/api/v1/login_check',
-    //     {
-    //       username: store.getState().user.username,
-    //       password: store.getState().user.password,
-    //     },
-    //   )
-    //     .then((response) => {
-    //       store.dispatch(saveUserToken(response.data.token));
-    //     });
-    //   break;
-    // case LOGIN_TOKEN:
-    //   await client.get(
-    //     '/api/v1/user/connected',
-    //     {
-    //       headers: {
-    //         Authorization: `bearer ${store.getState().user.token}`,
-
-      //       },
-      //     },
-      //   )
-      //     .then((response) => {
-      //       store.dispatch(saveUserPseudo(response.data.pseudo));
-      //     });
-      //   break;
       axios.post(
         'http://localhost:8001/api/v1/login_check',
         {
@@ -44,8 +16,7 @@ const authMiddleware = (store) => (next) => async (action) => {
       )
         .then((response) => {
           store.dispatch(saveUserToken(response.data.token));
-      // const localstorage = localStorage.setitem('token',action.token);
-
+          // const localstorage = localStorage.setitem('token',action.token);
         })
         .then(() => {
           store.dispatch(loginToken());
@@ -79,8 +50,26 @@ const authMiddleware = (store) => (next) => async (action) => {
           console.log(error);
         });
       break;
+    case LOGIN_BACK_OFFICE:
+      axios.get(
+        'http://localhost:8001/api/v1/back',
+        {
+          headers: {
+            Authorization: `bearer ${store.getState().user.token}`,
+            // Authorization: store.getState().user.token,
+          },
+        },
+      )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
     default:
   }
+
   // on passe l'action au suivant (middleware suivant ou reducer)
   next(action);
 };

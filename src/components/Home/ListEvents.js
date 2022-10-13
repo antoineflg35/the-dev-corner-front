@@ -4,6 +4,7 @@ import {
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import photo from '../../assets/events_home.jpg';
+import ButtonAddEvent from './ButtonAddEvent';
 
 function ListEvents({ data }) {
   const departmentUser = useSelector((state) => state.user.department_user);
@@ -11,14 +12,14 @@ function ListEvents({ data }) {
   const filterEvents = data.filter((event) => event.departement_number === departmentUser);
   console.log(filterEvents);
 
-
   return (
 
     <Container centered textAlign="center" stackable>
       <Card.Group className="questions_home" centered stackable textAlign="center">
-        <Header as="h3" centered style={{ fontSize: '2em' }}>
+        <Header as="h3" centered style={{ fontSize: '2em', margin: '70px' }}>
           Les derniers événements crées dans le département {departmentUser}
         </Header>
+        
         <Segment style={{ padding: '8em 0em' }} vertical>
           <Grid container stackable verticalAlign="middle">
             <Grid.Row>
@@ -54,6 +55,7 @@ function ListEvents({ data }) {
           </Grid>
         </Segment>
       </Card.Group>
+      <ButtonAddEvent />
     </Container>
   );
 }

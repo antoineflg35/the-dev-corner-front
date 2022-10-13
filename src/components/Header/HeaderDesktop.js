@@ -2,7 +2,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { Button, Menu } from 'semantic-ui-react';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../actions/user';
+import { logout, loginBackOffice } from '../../actions/user';
 
 function HeaderDesktop() {
   const activeStyle = {
@@ -65,15 +65,16 @@ function HeaderDesktop() {
           {
                 role === 'ROLE_ADMIN'
                 && (
-                  <a target="blank" href="http://localhost:8001/back/home">
-                    <Menu.Item>
-                      <Button
-                        circular
-                        color="green"
-                      >Accès au Back Office
-                      </Button>
-                    </Menu.Item>
-                  </a>
+                <Menu.Item>
+                  <Button
+                    circular
+                    color="green"
+                    onClick={() => {
+                      dispatch(loginBackOffice());
+                    }}
+                  >Accès au Back Office
+                  </Button>
+                </Menu.Item>
                 )
               }
           <Menu.Item>

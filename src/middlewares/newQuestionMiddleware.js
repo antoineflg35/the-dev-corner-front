@@ -1,6 +1,5 @@
 /* eslint-disable no-case-declarations */
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
 import { ADD_QUESTION, fetchQuestions } from '../actions/questions';
 
 const addQuestionMiddleware = (store) => (next) => (action) => {

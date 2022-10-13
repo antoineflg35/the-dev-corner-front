@@ -61,7 +61,7 @@ function AddEvent() {
               />
               <Form.Input
                 required
-                type="date"
+                type="Date"
                 fluid
                 label="Date"
                 value={date}
@@ -83,7 +83,7 @@ function AddEvent() {
                 required
                 type="number"
                 fluid
-                label="nb-participant-max"
+                label="Nombre de participants maximum"
                 placeholder="22"
                 value={participant}
                 onChange={(event) => {
@@ -93,7 +93,7 @@ function AddEvent() {
               />
               <Form.Field
                 required
-                label="Sujet"
+                label="Sujet de l'événement"
                 control="select"
                 value={tag}
                 onChange={(event) => {
@@ -109,7 +109,7 @@ function AddEvent() {
 
               <Form.Field
                 required
-                label="departement"
+                label="Département"
                 control="select"
                 value={department}
                 onChange={(event) => {
