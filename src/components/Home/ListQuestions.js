@@ -6,16 +6,19 @@ import {
 import photo from '../../assets/questions_home.jpg';
 
 function ListQuestions({ data }) {
-  const tag = useSelector((state) => state.user.techno_user);
+  const tags = useSelector((state) => state.user.techno_user);
   const departement = useSelector((state) => state.user.department_user);
+  const filterQuestions = data.filter((question) => question.user.departement_number === departement);
+  const tagfiltre = tags.map((tag) => tag.techno);
+  const filtre = filterQuestions.filter((question) => (question.tag.filter(({ techno }) => tagfiltre.includes(techno))));
 
-  const filterQuestions = data.filter((question) => ((question.user.departement_number === departement) && (question.user.tags[0].techno === tag)));
+
   return (
 
     <Container centered textAlign="center" stackable>
       <Card.Group className="questions_home" centered stackable textAlign="center">
         <Header as="h3" centered style={{ fontSize: '2em' }}>
-          Les dernières questions en rapport avec {tag} et dans le département {departement}
+          Les dernières questions en rapport avec et dans le département {departement}
         </Header>
         <Segment style={{ padding: '8em 0em' }} vertical>
           <Grid container stackable verticalAlign="middle">
@@ -24,7 +27,7 @@ function ListQuestions({ data }) {
 
                 <Card>
                   {
-        filterQuestions.map((question) => (
+        filtre.map((question) => (
 
           <Card.Content>
             <List>

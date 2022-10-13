@@ -10,7 +10,7 @@ export const initialState = {
   password: '',
   pseudo: '',
   department_user: '',
-  techno_user: '',
+  techno_user: [],
   token: null,
   is_verified: false,
   role: null

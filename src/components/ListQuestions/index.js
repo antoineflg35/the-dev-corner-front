@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import Questions from './Questions';
 import Informations from './Informations';
-import ButtonAskQuestion from '../Home/ButtonAskQuestion';
 import './styles.scss';
 import { fetchQuestions } from '../../actions/questions';
 import Loading from '../Loading';
@@ -24,7 +23,6 @@ function ListQuestions() {
       && (
       <>
         <Questions data={data} key={data.id} />
-        <ButtonAskQuestion />
         {/* <Informations /> */}
       </>
       )}
