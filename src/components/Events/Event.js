@@ -62,60 +62,6 @@ function Event() {
     }
 
     </Item.Group>
-  // <Card fluid>
-  //   <Grid stackable>
-
-  //     {
-  //     filterEvents.map((event) => (
-  //       <Grid.Row columns={3}>
-  //         <Grid.Column>
-  //           <Card.Content>
-  //             <Card.Header><h2>{event.id}-{event.title}</h2></Card.Header>
-  //             <Card.Meta>Département: {eventdepartement_number}</.Card.Meta>
-  //             <Card.Description>
-  //               {event.description}.
-
-  //             </Card.Description>
-  //           </Card.Content>
-  //         </Grid.Column>
-
-  //         <Grid.Column>
-  //           <Card.Content>
-  //             <Card.Header><h2> Date</h2></Card.Header>
-  //             <Card.Meta>/</Card.Meta>
-  //             <Card.Description>
-  //              <h2>{event.date.toString().slice(0,10)}</h2>
-  //             </Card.Description>
-  //           </Card.Content>
-  //         </Grid.Column>
-  //         <Grid.Column>
-
-  //           <Card.Content>
-  //             <Grid>
-  //               <Grid.Row columns={1}>
-  //                 <Grid.Column>
-  //                   <div className="ui two buttons">
-  //                     <Link to={`/events/details/${event.id}`}>
-
-  //                       <Button compact color="pink">
-  //                         voir plus
-  //                       </Button>
-  //                     </Link>
-
-  //                   </div>
-  //                 </Grid.Column>
-
-  //               </Grid.Row>
-  //             </Grid>
-  //           </Card.Content>
-  //         </Grid.Column>
-
-  //       </Grid.Row>
-  //     ))
-  //   }
-  //   </Grid>
-
-  // </Card>
 
   );
 }

@@ -39,9 +39,9 @@ function AddQuestion() {
         <Form
           onSubmit={(event) => {
             event.preventDefault();
-            dispatch(addQuestion());
             if (description.length >= 50) {
-              navigate('/success-message');
+              dispatch(addQuestion());
+              navigate('/success-question');
             }
             else {
               navigate('/error');

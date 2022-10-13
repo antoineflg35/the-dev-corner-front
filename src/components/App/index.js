@@ -25,11 +25,14 @@ import Contact from '../Contact';
 import Footers from '../Footers';
 import Team from '../Team';
 import PageUnderConstruction from '../PageUnderConstruction';
+import { fetchQuestions } from '../../actions/questions';
+import { fetchEvents } from '../../actions/events';
 
 // == Composant
 function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => (state.user.token));
+ 
 
   const navigate = useNavigate();
   // First page to display depending on whether the user is logged in or not

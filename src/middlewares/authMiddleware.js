@@ -9,31 +9,6 @@ const authMiddleware = (store) => (next) => async (action) => {
   // });
   switch (action.type) {
     case LOGIN:
-    //   await client.post(
-    //     '/api/v1/login_check',
-    //     {
-    //       username: store.getState().user.username,
-    //       password: store.getState().user.password,
-    //     },
-    //   )
-    //     .then((response) => {
-    //       store.dispatch(saveUserToken(response.data.token));
-    //     });
-    //   break;
-    // case LOGIN_TOKEN:
-    //   await client.get(
-    //     '/api/v1/user/connected',
-    //     {
-    //       headers: {
-    //         Authorization: `bearer ${store.getState().user.token}`,
-
-      //       },
-      //     },
-      //   )
-      //     .then((response) => {
-      //       store.dispatch(saveUserPseudo(response.data.pseudo));
-      //     });
-      //   break;
       axios.post(
         'http://localhost:8001/api/v1/login_check',
         {
@@ -49,7 +24,6 @@ const authMiddleware = (store) => (next) => async (action) => {
         })
         .then(() => {
           store.dispatch(loginToken());
-          console.log(store.getState().user);
         })
         .catch((error) => {
           console.log(error);
@@ -70,8 +44,9 @@ const authMiddleware = (store) => (next) => async (action) => {
           store.dispatch(saveUserPseudo(
             response.data.pseudo,
             response.data.departement_number,
-            response.data.tags[0].techno,
+            response.data.tags,
             response.data.is_verified,
+            response.data.roles[0],
           ));
         })
         .catch((error) => {
