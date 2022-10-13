@@ -1,5 +1,5 @@
 import {
-  Card, List, Header, Icon,
+  Card, List, Header, Icon, Label
 } from 'semantic-ui-react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -27,11 +27,12 @@ function Main() {
                     <List.Icon name="question" />
                     <List.Content>
                       <Link to={`/questions/details/${question.id}`}>
-                        <List.Header as="a">{question.title.slice(0, 15)}</List.Header>
+                        <List.Header as="a">{question.title.slice(0, 25)}...</List.Header>
                       </Link>
                       <List.Description>
                         {question.description.slice(0, 30)}
                       </List.Description>
+                      <Label>{question.tag[0].techno}</Label>
                     </List.Content>
                   </List.Item>
                 ))
@@ -58,6 +59,7 @@ function Main() {
                       <List.Description>
                         {event.description.slice(0, 30)}
                       </List.Description>
+                      <Label>Département n°{event.departement_number}</Label>
                     </List.Content>
                   </List.Item>
                 ))

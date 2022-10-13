@@ -66,14 +66,13 @@ function HeaderDesktop() {
                 role === 'ROLE_ADMIN'
                 && (
                 <Menu.Item>
-                  <Button
-                    circular
-                    color="green"
-                    onClick={() => {
-                      dispatch(loginBackOffice());
-                    }}
-                  >Accès au Back Office
-                  </Button>
+                  <a target='blank' href="http://localhost:8001/login">
+                    <Button
+                      circular
+                      color="green"
+                    >Accès au Back Office
+                    </Button>
+                  </a>
                 </Menu.Item>
                 )
               }

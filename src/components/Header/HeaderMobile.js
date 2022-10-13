@@ -5,8 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, loginBackOffice } from '../../actions/user';
 
-
-
 function HeaderMobile() {
   const activeStyle = {
     textDecoration: 'underline',
@@ -51,14 +49,13 @@ function HeaderMobile() {
                 role === 'ROLE_ADMIN'
                 && (
                 <Menu.Item>
-                  <Button
-                    circular
-                    color="green"
-                    onClick={() => {
-                      dispatch(loginBackOffice());
-                    }}
-                  >Accès au Back Office
-                  </Button>
+                  <a target="blank" href="http://localhost:8001/login">
+                    <Button
+                      circular
+                      color="green"
+                    >Accès au Back Office
+                    </Button>
+                  </a>
                 </Menu.Item>
                 )
               }

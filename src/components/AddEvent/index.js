@@ -74,7 +74,6 @@ function AddEvent() {
               && (
               <Message negative>
                 <Message.Header>Désolé, vous ne pouvez pas afficher une date antérieure</Message.Header>
-                <p>That offer has expired</p>
               </Message>
               )}
             </Form.Group>

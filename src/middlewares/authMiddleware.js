@@ -50,23 +50,23 @@ const authMiddleware = (store) => (next) => async (action) => {
           console.log(error);
         });
       break;
-    case LOGIN_BACK_OFFICE:
-      axios.get(
-        'http://localhost:8001/api/v1/back',
-        {
-          headers: {
-            Authorization: `bearer ${store.getState().user.token}`,
-            // Authorization: store.getState().user.token,
-          },
-        },
-      )
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      break;
+    // case LOGIN_BACK_OFFICE:
+    //   axios.get(
+    //     'http://localhost:8001/api/v1/back',
+    //     {
+    //       headers: {
+    //         Authorization: `bearer ${store.getState().user.token}`,
+    //         // Authorization: store.getState().user.token,
+    //       },
+    //     },
+    //   )
+    //     .then((response) => {
+    //       console.log(response.data);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
     default:
   }
 

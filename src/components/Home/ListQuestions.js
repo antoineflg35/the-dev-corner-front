@@ -8,11 +8,9 @@ import ButtonAskQuestion from './ButtonAskQuestion';
 
 function ListQuestions({ data }) {
   const tags = useSelector((state) => state.user.techno_user);
-
-
   const departement = useSelector((state) => state.user.department_user);
   const filterQuestions = data.filter((question) => question.user.departement_number === departement);
-  const tagfiltre = tags.map((tag) => tag.techno);
+  const tagfiltre = tags.map((tag) => tag.techno + " ");
   const filtre = filterQuestions.filter((question) => (question.tag.filter(({ techno }) => tagfiltre.includes(techno))));
 
 
@@ -21,7 +19,7 @@ function ListQuestions({ data }) {
     <Container centered textAlign="center" stackable>
       <Card.Group className="questions_home" centered stackable textAlign="center">
         <Header as="h3" centered style={{ fontSize: '2em', margin: '50px'}}>
-          Les dernières questions en rapport { tagfiltre } avec et dans le département {departement}
+          Les dernières questions en rapport avec { tagfiltre } et dans le département {departement}
         </Header>
        
         <Segment style={{ padding: '8em 0em' }} vertical>

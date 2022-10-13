@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 import './styles.scss';
 import photoAntoine from '../../assets/avatar_antoine.jpg';
 import photoPaul from '../../assets/avatar_paul.png';
+import photoAchraf from '../../assets/avatar_achraf.png';
+import photoTresor from '../../assets/avatar_tresor.png';
 
 function Team() {
   const logged = useSelector((state) => state.user.logged);
@@ -24,7 +26,7 @@ function Team() {
       <div className="card-team">
         <Card.Group>
           <Card className="card">
-            <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image src={photoTresor} wrapped ui={false} />
             <Card.Content>
               <Card.Header>Trésor</Card.Header>
               <Card.Description>
@@ -39,7 +41,7 @@ function Team() {
             </Card.Content>
           </Card>
           <Card className="card">
-            <Image src={ photoPaul } size="medium" circular fluid />
+            <Image src={photoPaul} size="medium" circular fluid />
             <Card.Content>
               <Card.Header>Paul</Card.Header>
               <Card.Description>
@@ -54,7 +56,7 @@ function Team() {
             </Card.Content>
           </Card>
           <Card className="card">
-            <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
+            <Image src={photoAchraf} wrapped ui={false} />
             <Card.Content>
               <Card.Header>Archraf</Card.Header>
               <Card.Description>
@@ -77,14 +79,14 @@ function Team() {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <a>
+              <a target="blank" href="https://www.linkedin.com/in/antoine-flegeau/">
                 <Icon name="linkedin" />
                 Voir le profil Linkedin
               </a>
             </Card.Content>
           </Card>
         </Card.Group>
-        
+
       </div>
     </div>
   );
