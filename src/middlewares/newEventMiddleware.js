@@ -7,7 +7,7 @@ const newEventMiddleware = (store) => (next) => (action) => {
     case ADD_EVENT:
       axios({
         method: 'post',
-        url: 'https://the-dev-corner.herokuapp.com/api/v1/events/add',
+        url: 'http://localhost:8001/api/v1/events/add',
         data: {
           title: store.getState().events.titleNewEvent,
           description: store.getState().events.descriptionNewEvent,

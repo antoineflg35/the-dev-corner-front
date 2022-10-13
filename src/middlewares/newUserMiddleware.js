@@ -7,7 +7,7 @@ const newUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_COUNT:
       axios.post(
-        'https://the-dev-corner.herokuapp.com/api/v1/user',
+        'http://localhost:8001/api/v1/user',
         {
           firstname: store.getState().newUser.firstname,
           lastname: store.getState().newUser.lastname,
@@ -45,7 +45,7 @@ const newUserMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_LIST_TAG:
       axios.get(
-        'https://the-dev-corner.herokuapp.com/api/v1/tags',
+        'http://localhost:8001/api/v1/tags',
       )
         .then((response) => {
           console.log(response);

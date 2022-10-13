@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken, wrongLogin,
+  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken,
 } from '../actions/user';
 
 const authMiddleware = (store) => (next) => async (action) => {
@@ -9,8 +9,33 @@ const authMiddleware = (store) => (next) => async (action) => {
   // });
   switch (action.type) {
     case LOGIN:
+    //   await client.post(
+    //     '/api/v1/login_check',
+    //     {
+    //       username: store.getState().user.username,
+    //       password: store.getState().user.password,
+    //     },
+    //   )
+    //     .then((response) => {
+    //       store.dispatch(saveUserToken(response.data.token));
+    //     });
+    //   break;
+    // case LOGIN_TOKEN:
+    //   await client.get(
+    //     '/api/v1/user/connected',
+    //     {
+    //       headers: {
+    //         Authorization: `bearer ${store.getState().user.token}`,
+
+      //       },
+      //     },
+      //   )
+      //     .then((response) => {
+      //       store.dispatch(saveUserPseudo(response.data.pseudo));
+      //     });
+      //   break;
       axios.post(
-        'https://the-dev-corner.herokuapp.com/api/v1/login_check',
+        'http://localhost:8001/api/v1/login_check',
         {
           username: store.getState().user.username,
           password: store.getState().user.password,
@@ -19,19 +44,20 @@ const authMiddleware = (store) => (next) => async (action) => {
       )
         .then((response) => {
           store.dispatch(saveUserToken(response.data.token));
-          // const localstorage = localStorage.setitem('token',action.token);
+      // const localstorage = localStorage.setitem('token',action.token);
+
         })
         .then(() => {
           store.dispatch(loginToken());
+          console.log(store.getState().user);
         })
         .catch((error) => {
           console.log(error);
-          store.dispatch(wrongLogin());
         });
       break;
     case LOGIN_TOKEN:
       axios.get(
-        'https://the-dev-corner.herokuapp.com/api/v1/user/connected',
+        'http://localhost:8001/api/v1/user/connected',
         {
           headers: {
             Authorization: `bearer ${store.getState().user.token}`,
