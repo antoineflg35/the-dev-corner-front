@@ -145,7 +145,7 @@ function AddEvent() {
               }}
             />
             <Form.Checkbox label="I agree to the Terms and Conditions" />
-            <Form.Button primary>Add your Event</Form.Button>
+            <Form.Button primary>Ajouter un événement</Form.Button>
           </Form>
         </div>
       </Container>

@@ -3,7 +3,7 @@ import {
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import {
   changeFieldNewLogin, createCount, toggleCheckboxNewLogin, displayListDepartment, fetchListTag, wrongVerificationPassword,
 } from '../../actions/newUser';
@@ -12,6 +12,7 @@ import './styles.scss';
 
 function User() {
   const dispatch = useDispatch();
+  const navigate= useNavigate();
 
   const emailUser = useSelector((state) => state.newUser.email);
   const passwordUser = useSelector((state) => state.newUser.password);
@@ -44,12 +45,17 @@ function User() {
         <Form
           onSubmit={(event) => {
             event.preventDefault();
+           
+            
+
             if (passwordUser === passwordVerification) {
               dispatch(createCount());
+              navigate('/login');
             }
             else if (passwordUser !== passwordVerification) {
               dispatch(wrongVerificationPassword());
             }
+
           }}
         >
           <Form.Group widths="equal">
