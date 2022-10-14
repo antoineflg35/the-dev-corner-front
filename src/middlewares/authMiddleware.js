@@ -7,7 +7,7 @@ const authMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
     case LOGIN:
       axios.post(
-        'http://localhost:8001/api/v1/login_check',
+        'https://the-dev-corner.herokuapp.com/api/v1/login_check',
         {
           username: store.getState().user.username,
           password: store.getState().user.password,
@@ -28,7 +28,7 @@ const authMiddleware = (store) => (next) => async (action) => {
       break;
     case LOGIN_TOKEN:
       axios.get(
-        'http://localhost:8001/api/v1/user/connected',
+        'https://the-dev-corner.herokuapp.com/api/v1/user/connected',
         {
           headers: {
             Authorization: `bearer ${store.getState().user.token}`,

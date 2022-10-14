@@ -7,7 +7,7 @@ const addQuestionMiddleware = (store) => (next) => (action) => {
     case ADD_QUESTION:
       axios({
         method: 'post',
-        url: 'http://localhost:8001/api/v1/questions/add',
+        url: 'https://the-dev-corner.herokuapp.com/api/v1/questions/add',
         data: {
           title: store.getState().questions.titleNewQuestion,
           description: store.getState().questions.descriptionNewQuestion,

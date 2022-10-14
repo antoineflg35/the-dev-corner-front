@@ -10,7 +10,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_EVENTS:
       axios.get(
-        'http://localhost:8001/api/v1/events',
+        'https://the-dev-corner.herokuapp.com/api/v1/events',
         {
           headers: {
             Authorization: `bearer ${store.getState().user.token}`,
@@ -28,7 +28,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_EVENTS_LAST_FIVE:
       axios.get(
-        'http://localhost:8001/api/v1/last/events',
+        'https://the-dev-corner.herokuapp.com/api/v1/last/events',
       )
         .then((response) => {
           store.dispatch(saveLastFiveEvents(response.data.eventRepository));
@@ -41,7 +41,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
     case DISPLAY_EVENT_DETAILS:
       axios.get(
-        `http://localhost:8001/api/v1/events/${store.getState().events.event_id}`,
+        `https://the-dev-corner.herokuapp.com/api/v1/events/${store.getState().events.event_id}`,
         {
           headers: {
             Authorization: `bearer ${store.getState().user.token}`,
@@ -60,7 +60,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
     case SUBSCRIBE_EVENTS:
       axios({
         method: 'post',
-        url: `http://localhost:8001/api/v1/register/events/${store.getState().events.event_id}`,
+        url: `https://the-dev-corner.herokuapp.com/api/v1/register/events/${store.getState().events.event_id}`,
         headers: {
           // 'Content-Type': 'application/json; charset=utf-8',
           Authorization: `bearer ${store.getState().user.token}`,
@@ -76,7 +76,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
     case UNSUBSCRIBE_EVENTS:
       axios({
         method: 'delete',
-        url: `http://localhost:8001/api/v1/unsubscribe/events/${store.getState().events.event_id}`,
+        url: `https://the-dev-corner.herokuapp.com/api/v1/unsubscribe/events/${store.getState().events.event_id}`,
         headers: {
           // 'Content-Type': 'application/json; charset=utf-8',
           Authorization: `bearer ${store.getState().user.token}`,
@@ -92,7 +92,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
     case FETCH_PARTICIPANTS_EVENTS:
       axios({
         method: 'get',
-        url: `http://localhost:8001/api/v1/users/participate/event/${store.getState().events.event_id}`,
+        url: `https://the-dev-corner.herokuapp.com/api/v1/users/participate/event/${store.getState().events.event_id}`,
         headers: {
           // 'Content-Type': 'application/json; charset=utf-8',
           Authorization: `bearer ${store.getState().user.token}`,
