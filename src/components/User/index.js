@@ -3,7 +3,7 @@ import {
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import {
   changeFieldNewLogin, createCount, toggleCheckboxNewLogin, displayListDepartment, fetchListTag,
 } from '../../actions/newUser';
@@ -12,6 +12,7 @@ import './styles.scss';
 
 function User() {
   const dispatch = useDispatch();
+  const navigate= useNavigate();
 
   const emailUser = useSelector((state) => state.newUser.email);
   const passwordUser = useSelector((state) => state.newUser.password);
@@ -44,6 +45,7 @@ function User() {
           onSubmit={(event) => {
             event.preventDefault();
             dispatch(createCount());
+            navigate('/login');
           }}
         >
           <Form.Group widths="equal">
