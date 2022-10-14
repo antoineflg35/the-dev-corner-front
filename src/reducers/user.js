@@ -3,16 +3,17 @@ import {
 } from '../actions/user';
 
 export const initialState = {
-  logged: false,
+  logged: null,
   // contenu du champ email du formulaire de login
   username: '',
   // contenu du champ password du formulaire de login
   password: '',
   pseudo: '',
   department_user: '',
-  techno_user: '',
+  techno_user: [],
   token: null,
   is_verified: false,
+  role: null,
   // localStorage.getItem('token')
 };
 
@@ -49,6 +50,7 @@ const reducer = (state = initialState, action = {}) => {
         department_user: action.department,
         techno_user: action.techno,
         is_verified: action.verified,
+        role: action.role,
       };
     // case LOGIN_TOKEN:
     //   return {
@@ -59,7 +61,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         // pseudo: action.pseudo,
-        logged: false,
+        logged: null,
         token: null,
         pseudo: '',
         department_user: '',

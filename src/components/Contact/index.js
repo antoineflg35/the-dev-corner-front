@@ -2,20 +2,22 @@ import {
   Header, Container, Button, Form, Segment, Card, Icon, Grid,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import './styles.scss';
 
 function Contact() {
+  const logged = useSelector((state) => state.user.logged);
+
   return (
 
     <><div className="header-presentation">
       <Header as="h1" size="huge" centred textAlign="center"> <span><p className="span">The Dev Corner</p></span></Header>
+      <Link to="/">
+        {!logged && (<Button className="button-login" size="large" circular primary>Retour à la page présentation</Button>)}
+        {logged && (<Button className="button-login" size="large" circular primary>Retour à la page d'Accueil</Button>)}
 
-      <Link to="/login">
-
-        <Button className="button-login" size="large" circular primary>Se connecter</Button>
       </Link>
-
       </div>
       <Container style={{ padding: '0px 0px 50px' }}>
 

@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import Questions from './Questions';
 import Informations from './Informations';
-import ButtonAskQuestion from '../Home/ButtonAskQuestion';
 import './styles.scss';
 import { fetchQuestions } from '../../actions/questions';
 import Loading from '../Loading';
@@ -15,6 +14,7 @@ function ListQuestions() {
   }, []);
 
   const data = useSelector((state) => state.questions.list);
+
   return (
     <div className="page_questions">
       {loadingQuestions === false && <Loading />}
@@ -23,8 +23,7 @@ function ListQuestions() {
       && (
       <>
         <Questions data={data} key={data.id} />
-        <ButtonAskQuestion />
-        <Informations />
+        {/* <Informations /> */}
       </>
       )}
 

@@ -7,6 +7,7 @@ export const SAVE_LAST_FIVE_QUESTIONS = 'SAVE_LAST_FIVE_QUESTIONS';
 export const UPDATE_FIELD_ADD_QUESTIONS = 'UPDATE_FIELD_ADD_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const UPDATE_LIST_QUESTIONS = 'UPDATE_LIST_QUESTIONS';
+export const RESET_LOADER = 'RESET_LOADER';
 
 
  
@@ -45,3 +46,8 @@ export const updateListQuestions = (responses) => ({
   type: UPDATE_LIST_QUESTIONS,
   value: responses,
 });
+
+export const resetLoader = () => ({
+  type: RESET_LOADER,
+});
+

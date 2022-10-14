@@ -8,6 +8,7 @@ export const DISPLAY_LIST_DEPARTMENT = 'DISPLAY_LIST_DEPARTMENT';
 export const SAVE_DEPARTMENT = 'SAVE_DEPARTMENT';
 export const FETCH_LIST_TAG = 'FETCH_LIST_TAG';
 export const SAVE_LIST_TAG = 'SAVE_LIST_TAG';
+export const WRONG_VERIFICATION_PASSWORD = 'WRONG_VERIFICATION_PASSWORD';
 
 // Actions creators
 
@@ -48,4 +49,8 @@ export const fetchListTag = () => ({
 export const saveListTag = (tag) => ({
   type: SAVE_LIST_TAG,
   tag: tag,
-})
+});
+
+export const wrongVerificationPassword = () => ({
+  type: WRONG_VERIFICATION_PASSWORD,
+});
