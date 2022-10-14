@@ -1,5 +1,5 @@
 import {
-  UPDATE_FIELD_LOGIN, SAVE_USER_TOKEN, LOGOUT, SAVE_USER_PSEUDO,
+  UPDATE_FIELD_LOGIN, SAVE_USER_TOKEN, LOGOUT, SAVE_USER_PSEUDO, WRONG_LOGIN
 } from '../actions/user';
 
 export const initialState = {
@@ -67,6 +67,11 @@ const reducer = (state = initialState, action = {}) => {
         department_user: '',
         techno_user: '',
       };
+      case WRONG_LOGIN: 
+      return {
+        ...state,
+        logged: false,
+      }
 
     default:
       return state;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken, LOGIN_BACK_OFFICE,
+  LOGIN, LOGIN_TOKEN, saveUserToken, saveUserPseudo, loginToken, LOGIN_BACK_OFFICE, wrongLogin
 } from '../actions/user';
 
 const authMiddleware = (store) => (next) => async (action) => {
@@ -24,6 +24,7 @@ const authMiddleware = (store) => (next) => async (action) => {
         })
         .catch((error) => {
           console.log(error);
+          store.dispatch(wrongLogin());
         });
       break;
     case LOGIN_TOKEN:

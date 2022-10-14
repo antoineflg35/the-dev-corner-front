@@ -2,7 +2,7 @@
 
 export const UPDATE_FIELD_LOGIN = 'UPDATE_FIELD_LOGIN';
 export const LOGIN = 'LOGIN';
-export const WRONG_LOGIN = 'WRONG_LOGN';
+export const WRONG_LOGIN = 'WRONG_LOGIN';
 export const LOGIN_TOKEN = 'LOGIN_TOKEN';
 export const LOGOUT = 'LOGOUT';
 export const SAVE_USER_TOKEN = 'SAVE_USER_TOKEN';
