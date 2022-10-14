@@ -28,7 +28,7 @@ function Events() {
       {loadingEvents === true && (
       <Container>
         <div className="title">
-          <h1><span>Evénement a venir </span><span>proche de chez vous</span></h1>
+          <h1><span>Evénement à venir </span><span>proche de chez vous</span></h1>
         </div>
         <Grid textAlign="center" stackable divided="vertically">
           <Grid.Row columns={1}>
