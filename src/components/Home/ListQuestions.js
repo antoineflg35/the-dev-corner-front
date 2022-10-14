@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import {
-  List, Card, Image, Container, Header, Segment, Grid, Button,
+  List, Card, Image, Container, Header, Segment, Grid, Button, Label
 } from 'semantic-ui-react';
 import photo from '../../assets/questions_home.jpg';
 import ButtonAskQuestion from './ButtonAskQuestion';
@@ -43,6 +43,7 @@ function ListQuestions({ data }) {
                   <List.Description>
                     {question.description.slice(0, 30)}
                   </List.Description>
+                  <Label>{question.tag[0].techno}</Label>
                 </List.Content>
               </List.Item>
             </List>

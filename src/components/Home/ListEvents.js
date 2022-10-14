@@ -1,5 +1,5 @@
 import {
-  List, Card, Container, Header, Grid, Segment, Image,
+  List, Card, Container, Header, Grid, Segment, Image, Label,
 } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -38,6 +38,7 @@ function ListEvents({ data }) {
                   <List.Description>
                     {event.description.slice(0, 30)}
                   </List.Description>
+                  <Label>Département n°{event.departement_number}</Label>
                 </List.Content>
               </List.Item>
             </List>
