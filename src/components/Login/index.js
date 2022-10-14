@@ -37,7 +37,7 @@ function Login() {
           {
             logged === false && (
               <Header as="h2" color="teal" textAlign="center">
-                la connexion a échoué. Veuillez vérifier vos identifants.
+                La connexion a échoué. Veuillez vérifier vos identifants.
               </Header>
             )
           }
