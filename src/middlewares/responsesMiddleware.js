@@ -1,15 +1,14 @@
 /* eslint-disable no-case-declarations */
 import axios from 'axios';
-import { ADD_RESPONSE, cleanResponse} from '../actions/response';
+import { ADD_RESPONSE, cleanResponse } from '../actions/response';
 import { fetchQuestions } from '../actions/questions';
-
 
 const responsesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ADD_RESPONSE:
       axios({
         method: 'post',
-        url: 'http://localhost:8001/api/v1/responses/add',
+        url: 'https://the-dev-corner.herokuapp.com/api/v1/responses/add',
         data: {
           question_id: store.getState().response.question_id,
           description: store.getState().response.description,

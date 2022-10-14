@@ -1,15 +1,16 @@
 import { useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import {
-  List, Card, Image, Container, Header, Segment, Grid, Button,
+  List, Card, Image, Container, Header, Segment, Grid, Button, Label
 } from 'semantic-ui-react';
 import photo from '../../assets/questions_home.jpg';
+import ButtonAskQuestion from './ButtonAskQuestion';
 
 function ListQuestions({ data }) {
   const tags = useSelector((state) => state.user.techno_user);
   const departement = useSelector((state) => state.user.department_user);
   const filterQuestions = data.filter((question) => question.user.departement_number === departement);
-  const tagfiltre = tags.map((tag) => tag.techno);
+  const tagfiltre = tags.map((tag) => tag.techno + " ");
   const filtre = filterQuestions.filter((question) => (question.tag.filter(({ techno }) => tagfiltre.includes(techno))));
 
 
@@ -17,9 +18,10 @@ function ListQuestions({ data }) {
 
     <Container centered textAlign="center" stackable>
       <Card.Group className="questions_home" centered stackable textAlign="center">
-        <Header as="h3" centered style={{ fontSize: '2em' }}>
-          Les dernières questions en rapport avec et dans le département {departement}
+        <Header as="h3" centered style={{ fontSize: '2em', margin: '50px'}}>
+          Les dernières questions en rapport avec { tagfiltre } et dans le département {departement}
         </Header>
+       
         <Segment style={{ padding: '8em 0em' }} vertical>
           <Grid container stackable verticalAlign="middle">
             <Grid.Row>
@@ -41,6 +43,7 @@ function ListQuestions({ data }) {
                   <List.Description>
                     {question.description.slice(0, 30)}
                   </List.Description>
+                  <Label>{question.tag[0].techno}</Label>
                 </List.Content>
               </List.Item>
             </List>
@@ -58,6 +61,7 @@ function ListQuestions({ data }) {
           </Grid>
         </Segment>
       </Card.Group>
+      <ButtonAskQuestion />
     </Container>
   );
 }

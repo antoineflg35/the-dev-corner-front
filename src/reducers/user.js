@@ -1,9 +1,9 @@
 import {
-  UPDATE_FIELD_LOGIN, SAVE_USER_TOKEN, LOGOUT, SAVE_USER_PSEUDO,
+  UPDATE_FIELD_LOGIN, SAVE_USER_TOKEN, LOGOUT, SAVE_USER_PSEUDO, WRONG_LOGIN
 } from '../actions/user';
 
 export const initialState = {
-  logged: false,
+  logged: null,
   // contenu du champ email du formulaire de login
   username: '',
   // contenu du champ password du formulaire de login
@@ -13,7 +13,7 @@ export const initialState = {
   techno_user: [],
   token: null,
   is_verified: false,
-  role: null
+  role: null,
   // localStorage.getItem('token')
 };
 
@@ -61,12 +61,17 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         // pseudo: action.pseudo,
-        logged: false,
+        logged: null,
         token: null,
         pseudo: '',
         department_user: '',
         techno_user: '',
       };
+      case WRONG_LOGIN: 
+      return {
+        ...state,
+        logged: false,
+      }
 
     default:
       return state;

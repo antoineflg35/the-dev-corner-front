@@ -1,5 +1,5 @@
 import {
-  CHANGE_FIELD_NEW_LOGIN, TOGGLE_CHECKBOX_NEW_LOGIN, CREATE_COUNT, SAVE_DEPARTMENT, SAVE_LIST_TAG,
+  CHANGE_FIELD_NEW_LOGIN, TOGGLE_CHECKBOX_NEW_LOGIN, CREATE_COUNT, SAVE_DEPARTMENT, SAVE_LIST_TAG, WRONG_VERIFICATION_PASSWORD
 } from '../actions/newUser';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -9,6 +9,8 @@ const initialState = {
   email: '',
   // contenu du champ password du formulaire de login
   password: '',
+  verify_password: '',
+  wrong_verification_password: null,
   firstname: '',
   lastname: '',
   pseudo: '',
@@ -81,6 +83,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         tag: action.tag,
+      };
+      case WRONG_VERIFICATION_PASSWORD:
+      return {
+        ...state,
+        wrong_verification_password: false,
       };
 
       // si le champ concerné par le changement est celui de l'e-mail

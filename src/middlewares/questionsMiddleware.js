@@ -1,15 +1,14 @@
 import axios from 'axios';
 import {
   FETCH_QUESTIONS, FETCH_QUESTIONS_LAST_FIVE,
-  saveQuestions, saveLastFiveQuestions, resetLoader, loadingLastFiveQuestionsHome
+  saveQuestions, saveLastFiveQuestions, resetLoader,
 } from '../actions/questions';
-
 
 const questionsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_QUESTIONS:
       axios.get(
-        'http://localhost:8001/api/v1/questions',
+        'https://the-dev-corner.herokuapp.com/api/v1/questions',
         {
           headers: {
             Authorization: `Bearer ${store.getState().user.token}`,
@@ -26,7 +25,7 @@ const questionsMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_QUESTIONS_LAST_FIVE:
       axios.get(
-        'http://localhost:8001/api/v1/last/questions',
+        'https://the-dev-corner.herokuapp.com/api/v1/last/questions',
         // {
         //   headers: {
         //     Authorization: `Bearer ${store.getState().user.token}`,

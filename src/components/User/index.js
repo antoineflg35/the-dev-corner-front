@@ -1,11 +1,11 @@
 import {
-  Header as HeaderSui, Container, Form, Checkbox,
+  Header as HeaderSui, Container, Form, Checkbox, Message,
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import {
-  changeFieldNewLogin, createCount, toggleCheckboxNewLogin, displayListDepartment, fetchListTag,
+  changeFieldNewLogin, createCount, toggleCheckboxNewLogin, displayListDepartment, fetchListTag, wrongVerificationPassword,
 } from '../../actions/newUser';
 
 import './styles.scss';
@@ -16,6 +16,8 @@ function User() {
 
   const emailUser = useSelector((state) => state.newUser.email);
   const passwordUser = useSelector((state) => state.newUser.password);
+  const passwordVerification = useSelector((state) => state.newUser.verify_password);
+  const verificationPasswordWrong = useSelector((state) => state.newUser.wrong_verification_password);
   const nameUser = useSelector((state) => state.newUser.firstname);
   const surnameUser = useSelector((state) => state.newUser.lastname);
   const pseudoUser = useSelector((state) => state.newUser.pseudo);
@@ -24,7 +26,6 @@ function User() {
   const checked = useSelector((state) => state.newUser.checked);
   const departmentList = useSelector((state) => state.newUser.department_list);
   const tag = useSelector((state) => state.newUser.tag);
-  
 
   // const [checkedJs, setCheckedJs] = useState(false);
   // const [checkedPhp, setCheckedPhp] = useState(false);
@@ -35,7 +36,7 @@ function User() {
   }, []);
 
   return (
-    <div className='page-new-user'>
+    <div className="page-new-user">
       <Link to="/">
         <HeaderSui textAlign="center" as="h1">The Dev Corner</HeaderSui>
       </Link>
@@ -44,12 +45,22 @@ function User() {
         <Form
           onSubmit={(event) => {
             event.preventDefault();
-            dispatch(createCount());
-            navigate('/login');
+           
+            
+
+            if (passwordUser === passwordVerification) {
+              dispatch(createCount());
+              navigate('/login');
+            }
+            else if (passwordUser !== passwordVerification) {
+              dispatch(wrongVerificationPassword());
+            }
+
           }}
         >
           <Form.Group widths="equal">
             <Form.Input
+              required
               value={nameUser}
               fluid
               label="Nom"
@@ -60,6 +71,7 @@ function User() {
               }}
             />
             <Form.Input
+              required
               value={surnameUser}
               fluid
               label="Prenom"
@@ -70,6 +82,7 @@ function User() {
               }}
             />
             <Form.Input
+              required
               value={pseudoUser}
               fluid
               label="Pseudo"
@@ -82,7 +95,9 @@ function User() {
           </Form.Group>
           <Form.Group widths="equal">
             <Form.Input
+              required
               value={emailUser}
+              type="email"
               fluid
               label="Email"
               placeholder="Email.."
@@ -91,21 +106,43 @@ function User() {
                 dispatch(action);
               }}
             />
+          </Form.Group>
+          <Form.Group widths="equal">
             <Form.Input
+              required
               value={passwordUser}
               type="password"
               fluid
-              label="Password"
-              placeholder="Password...."
+              label="Mot de passe"
+              placeholder="Mot de passe"
               onChange={(event) => {
                 const action = changeFieldNewLogin(event.target.value, 'password');
                 dispatch(action);
               }}
             />
-
+            {verificationPasswordWrong === false
+              && (
+              <Message negative>
+                <Message.Header>Les deux mots de passe doivent correspondre</Message.Header>
+              </Message>
+              )}
+            <Form.Input
+              required
+              value={passwordVerification}
+              type="password"
+              fluid
+              label="Vérification du mot de passe"
+              placeholder="Vérification du mot de passe"
+              onChange={(event) => {
+                const action = changeFieldNewLogin(event.target.value, 'verify_password');
+                dispatch(action);
+              }}
+            />
           </Form.Group>
+
           <Form.Group widths="equal">
             <Form.Field
+              required
               value={department}
               label="Département"
               control="select"
@@ -124,7 +161,8 @@ function User() {
             <h3>Choisissez vos technologies préférées</h3>
             {
               tag.map((tag) => (
-                <Checkbox  className='checkbox'
+                <Checkbox
+                  className="checkbox"
                   label={tag.techno}
               // value={js}
                   onChange={(e, data) => {
@@ -150,7 +188,6 @@ function User() {
               ))
             }
 
-            
           </Form.Group>
 
           <Form.TextArea
