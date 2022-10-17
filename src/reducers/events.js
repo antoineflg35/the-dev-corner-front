@@ -70,12 +70,13 @@ const reducer = (state = initialState, action = {}) => {
         adress: state.adress,
         nb_participant_max: state.nb_participant_max,
         date: state.date,
-        eventAdd: true,
       };
       const eventCopy = [...state.list, newEvent];
       return {
         ...state,
         list: eventCopy,
+        eventAdd: true,
+
       };
     }
     case UPDATE_ID_EVENTS: {
