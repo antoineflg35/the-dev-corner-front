@@ -6,8 +6,6 @@ import { useEffect } from 'react';
 import { updateFieldAddEvents, displayListDepartment, addEvent } from '../../actions/events';
 import { fetchListTag } from '../../actions/newUser';
 
-import Footers from '../Footers';
-
 import './styles.scss';
 
 function AddEvent() {
