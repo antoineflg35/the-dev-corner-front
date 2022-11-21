@@ -25,7 +25,7 @@ function ListQuestions() {
        <div className="title">
           <h1><span>Liste des questions </span></h1>
         </div>
-        <Questions data={data} key={data.id} />
+        <Questions data={...data} key={data.id} />
         {/* <Informations /> */}
       </>
       )}
